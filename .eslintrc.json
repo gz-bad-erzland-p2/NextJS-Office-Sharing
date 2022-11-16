@@ -1,3 +1,21 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals"
+  ],
+  "rules": {
+    "react/prop-types": 0,
+    "@next/next/no-img-element": 0
+  },
+  "ignorePatterns": [
+    ".next",
+    "next.config.js",
+    "public",
+    "postcss.config.js",
+    "tailwind.config.js"
+  ]
 }
