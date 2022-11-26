@@ -18,23 +18,7 @@ export default function CreateNote() {
     const router = useRouter();
 
     const create = async(e: React.FormEvent) => {
-        // const db = new PocketBase('http://127.0.0.1:8090');
-
-        // await db.records.create('notes', {
-        //   title,
-        //   content,
-        // });
         e.preventDefault();
-        // await fetch('http://127.0.0.1:8090/api/collections/notes/records', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         title,
-        //         content,
-        //     }),
-        // });
 
         await fetch('/api/notes', {
             method: 'POST',
@@ -57,17 +41,19 @@ export default function CreateNote() {
         <form onSubmit={(e) => create(e)}>
             <h3>Create a new Note</h3>
             <input
+                className={"block max-w-3xl m-2 border-2"}
                 type="text"
                 placeholder="Title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
             <textarea
+                className={"block max-w-3xl m-2 border-2"}
                 placeholder="Content"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
             />
-            <button type="submit">
+            <button type="submit" className={"bg-black border-none text-white p-4 text-center inline-block cursor-pointer"}>
                 Create note
             </button>
         </form>

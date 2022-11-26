@@ -9,9 +9,9 @@ export default function RootLayout({
 }) {
   return (
       <html>
-      <body>
-      <main>
-          <nav>
+      <body className={"p-8"}>
+      <main className={"p-4 flex flex-col content-start items-start"}>
+          <nav className={"font-bold m-2 underline"}>
               <Link href="/">
                   Home
               </Link>

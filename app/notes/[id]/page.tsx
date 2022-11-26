@@ -17,7 +17,7 @@ async function getNote(noteId: number): Promise<Notes> {
 }
 
 export default async function NotePage({params}) {
-    const note = await getNote(params.id);
+    const note = await getNote(+params.id);
 
     return (
         <div>
