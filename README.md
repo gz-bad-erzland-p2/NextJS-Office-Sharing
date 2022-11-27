@@ -1,6 +1,13 @@
 # NextJS Office Sharing
 NextJs Projekt für das Office Sharing Projekt. 
 
+# Deployment URL's
+Die Versionen auf den URLs werden manuell aktualisiert. 
+
+- https://next-js-office-sharing-derech1e.vercel.app
+- https://next-js-office-sharing-git-main-derech1e.vercel.app
+- https://next-js-office-sharing.vercel.app
+
 ## Getting Started
 
 ```bash
