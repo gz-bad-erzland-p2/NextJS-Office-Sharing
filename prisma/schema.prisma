@@ -10,8 +10,47 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Notes {
-  id Int @id @default(autoincrement())
-  title String @db.VarChar(255)
-  content String @db.VarChar(255)
+model Kunde {
+  kundenID      Int       @id @default(autoincrement())
+  name          String    @db.VarChar(255)
+  vorname       String    @db.VarChar(255)
+  telefonnummer String    @db.VarChar(255)
+  email         String    @db.VarChar(255)
+  username      String    @db.VarChar(255)
+  password      String    @db.VarChar(255)
+  adresse       Adresse?
+  Mietung       Mietung[]
+}
+
+model Adresse {
+  adresseID  Int    @id @default(autoincrement())
+  strasse    String @db.VarChar(255)
+  hausnummer Int
+  plz        Int
+  ort        String @db.VarChar(255)
+  zusatz     String @db.VarChar(255)
+  kunde      Kunde  @relation(fields: [kundenID], references: [kundenID])
+  kundenID   Int    @unique
+}
+
+model Mietung {
+  mietID                 Int            @id @default(autoincrement())
+  startdatum             DateTime
+  enddatum               DateTime
+  mitgebrauchterHardware Boolean
+  anforderungen          String         @db.VarChar(255)
+  software               String         @db.VarChar(255)
+  betriebssysteme        Betriebssystem @default(WINDOWS)
+  kunde                  Kunde          @relation(fields: [kundenID], references: [kundenID])
+  kundenID               Int
+}
+
+model Arbeitsplatz {
+  platzID     Int @id @default(autoincrement())
+  tischnummer Int
+}
+
+enum Betriebssystem {
+  WINDOWS
+  LINUX
 }
