@@ -1,7 +1,7 @@
 import Image from "next/image";
 import workspace_Image from "../public/assets/img/workspaces.png";
 
-import {BsArrowRight} from "react-icons/all";
+import {BsArrowRight} from "react-icons/bs";
 
 export default function HomePage() {
     return (
