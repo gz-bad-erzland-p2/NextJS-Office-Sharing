@@ -5,7 +5,7 @@ import {BsArrowRight} from "react-icons/bs";
 
 export default function HomePage() {
     return (
-        <div className={"bg-o-white rounded m-5 p-5 overflow-hidden"}>
+        <div className={"bg-o-white rounded p-5 overflow-hidden"}>
             <div className={"relative z-20"}>
                 <h1 className={"text-6xl m-5 text-o-green"}>office sharing.</h1>
                 <p className={"text-o-green font-inter font-normal text-sm max-w-md"}>
@@ -17,7 +17,7 @@ export default function HomePage() {
                     <BsArrowRight className={"mx-1"}/> book your table
                 </button>
             </div>
-            <Image src={workspace_Image} alt={"Workspaces"} placeholder={"blur"} width={1400} height={860} className={"relative z-10 -mt-96"}/>
+            <Image src={workspace_Image} alt={"Workspaces"} placeholder={"blur"} className={"relative z-0 lg:-mt-96 md:-mt-44 sm:m-0 object-contain"}/>
         </div>
     )
 }

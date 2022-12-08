@@ -1,7 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import './global.css'
-import OfficeFooter from "./footer";
+
+import HeaderComponent from "../components/page/HeaderComponent";
+import FooterComponent from "../components/page/FooterComponent";
 
 export default function RootLayout({
                                        children,
@@ -9,21 +10,15 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html className={"min-h-full"}>
+        <html>
         <body>
-        <main>
-            <div className="relative w-full float-left bg-gray-100 mb-5">
-                <div className="text-gray-800 px-4 py-2 m-2 float-left">Office-Sharing Bad-Erzland</div>
-                <ul className={"relative list-none "}>
-                    <li className={"float-right text-gray-800 bg-gray-300 px-4 py-2 m-2 block"}>
-                        <Link href={"/"}>
-                            Abmelden
-                        </Link>
-                    </li>
-                </ul>
+        {/* See https://www.thefullstackblog.com/how-to-make-the-footer-start-at-the-bottom-of-the-screen-with-tailwind-css  */}
+        <main className={"min-h-screen flex flex-col m"}>
+            <HeaderComponent/>
+            <div className={"flex-grow"}>
+                {children}
             </div>
-            {children}
-            <OfficeFooter />
+            <FooterComponent/>
         </main>
         </body>
         </html>
