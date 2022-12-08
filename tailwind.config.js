@@ -6,8 +6,9 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                'o-green': '#77893F',
-                'o-white': '#ECE8E5'
+                'o-green': '#067A46',
+                'o-white': '#ECE8E5',
+                'o-mintgreen': '#7BC4A4'
             },
             fontFamily: {
                 'inter': ['Inter', 'sans-serif']
