@@ -7,7 +7,11 @@ module.exports = {
         extend: {
             colors: {
                 'o-green': '#77893F',
-                'o-white': '#ECE8E5'
+                'o-green-light': '#067A46',
+                'o-white': '#ECE8E5',
+                'o-gray': '#D9D9D9',
+                'o-gray-light': '#ECE8E5'
+                
             },
             fontFamily: {
                 'inter': ['Inter', 'sans-serif']
