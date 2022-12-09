@@ -15,7 +15,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         {/* See https://www.thefullstackblog.com/how-to-make-the-footer-start-at-the-bottom-of-the-screen-with-tailwind-css  */}
         <main className={"min-h-screen flex flex-col min-w-0"}>
             <HeaderComponent/>
-            <div className={"flex-grow bg-o-white"}>
+            <div className={"flex-grow bg-office-gray-500"}>
                 <div
                     className="o-content-container flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     {children}

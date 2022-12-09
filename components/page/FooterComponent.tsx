@@ -1,8 +1,8 @@
 export default function FooterComponent() {
 
     return (
-        <div className="lex flex-wrap justify-between items-center mx-2 my-2">
-            <div className="bg-white sticky pt-5" style={{top: '100vh'}}>
+        <div className="flex-wrap justify-between items-center">
+            <div className="bg-white sticky p-5" style={{top: '100vh'}}>
                 <div className="md:flex md:justify-between">
                     {/*<div className="mb-6 md:mb-0">*/}
                     {/*    <a href="https://flowbite.com/" className="flex items-center">*/}
@@ -52,9 +52,8 @@ export default function FooterComponent() {
                 </div>
                 <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
                 <div className="sm:flex sm:items-center sm:justify-between">
-        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/"
-                                                                                            className="hover:underline">Flowbite™</a>. All Rights Reserved.
-        </span>
+                    <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a
+                        href="https://flowbite.com/" className="hover:underline">SecNetIT</a>. All Rights Reserved.        </span>
                     <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
                         <a href="#" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

@@ -16,7 +16,7 @@ export default function HeaderComponent() {
 
     return (
 
-        <nav className="bg-white border-gray-200 px-2 md:px-4 py-2.5 drop-shadow-md">
+        <nav className="bg-white border-gray-200 px-2 md:px-4 py-2.5 drop-shadow-md z-50">
             <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                 <Link href="https://flowbite.com" className="flex items-center">
                     {/*<img className="mr-3 h-6 sm:h-9"*/}
@@ -30,7 +30,7 @@ export default function HeaderComponent() {
                         Anmelden
                     </Link>
                     <Link href="/signup"
-                          className="text-white bg-o-green hover:bg-o-green-dark focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 focus:outline-none">
+                          className="text-white bg-office-green-500 hover:bg-office-green-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 focus:outline-none">
                         Registrieren
                     </Link>
                     <button data-collapse-toggle="mega-menu" type="button"
@@ -52,7 +52,7 @@ export default function HeaderComponent() {
                                 return (
                                     <li key={index}>
                                         <Link href={`/${link.path.toLowerCase()}`}
-                                              className={`${(segment == null ? '#' : segment) == link.path ? `text-o-green` : `text-gray-700`} block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-o-green md:p-0`}>
+                                              className={`${(segment == null ? '#' : segment) == link.path ? `text-office-green-500` : `text-gray-700`} block py-2 pr-4 pl-3 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-office-green-500 md:p-0`}>
                                             {link.name}
                                         </Link>
                                     </li>
