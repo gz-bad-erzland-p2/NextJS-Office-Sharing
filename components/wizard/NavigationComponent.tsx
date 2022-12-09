@@ -7,11 +7,11 @@ export default function NavigationComponent() {
         useWizardContext<DefaultWizardStepProps>();
     return (
         <div>
-            <button className={`button border-1 border-o-gray text-o-gray ${!isFirstStep && `bg-o-green-light`} transition-colors`}
+            <button className={`button border-1 border-office-gray-500 ${!isFirstStep ? `bg-office-green-500 text-white`: `bg-office-gray-600 text-black`} transition-colors`}
                     onClick={onPrevious} disabled={isFirstStep}>
                 zurück
             </button>
-            <button className={`button border-1 border-o-green-light ${!isLastStep && `bg-o-green-light`} text-o-white transition-colors
+            <button className={`button border-1 border-office-green-500 ${!isLastStep ? `bg-office-green-500 text-white` : `bg-office-gray-600 text-black`} transition-colors
             `}
                     onClick={useCallback(() => {
                         if (activeStepIndex === 1) {

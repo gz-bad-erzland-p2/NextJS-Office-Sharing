@@ -6,30 +6,32 @@ body{
     background-color: #ECE8E5;
 }
 
-.container{
+.container {
     flex-direction: row ;
     justify-content: center;
     width: 100%;
     gap:10px;
     display: flex;
+    position: relative;
 
 }
 
 .button{
     border-radius: 10px;
-    border: solid 1px 'o-gray';
-    color: 'o-gray';
+    border: solid 1px 'office-gray-500';
+    color: 'office-gray-500';
     margin: 2px;
     padding: 5px;
 }
 
 .wizard-container{
-    position:relative;
+    position: relative;
     margin: auto;
     border-radius: 20px;
     background: white;
     padding: 25px;
     max-width: 700px;
-    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.25);
+    min-width: 700px;
+    box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
 }
 
