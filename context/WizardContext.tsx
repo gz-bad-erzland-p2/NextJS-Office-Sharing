@@ -28,6 +28,15 @@ interface WizardStepperReducerState {
     steps: DefaultWizardStepProps[];
 }
 
+interface StepsProps {
+    children: JSX.Element | JSX.Element[] | ReactNode;
+}
+
+interface StepProps {
+    id: string;
+    children: ReactNode | JSX.Element | JSX.Element[];
+}
+
 interface WizardStepperContextProps<T = DefaultWizardStepProps> {
     activeStepIndex: number;
     steps: T[];
@@ -158,10 +167,6 @@ export const WizardStepProvider = ({ children }: { children: React.ReactNode }) 
     );
 }
 
-interface StepsProps {
-    children: JSX.Element | JSX.Element[] | ReactNode;
-}
-
 export const Steps = ({ children }: StepsProps) => {
     const reactChildren = Children.toArray(children);
     if (reactChildren.length === 0) {
@@ -195,10 +200,6 @@ export const Steps = ({ children }: StepsProps) => {
     return reactChildren[activeStepIndex] as JSX.Element;
 };
 
-interface StepProps {
-    id: string;
-    children: ReactNode | JSX.Element | JSX.Element[];
-}
 
 export const Step = ({ id, children }: StepProps) => (
     <div id={id}>{children}</div>

@@ -11,7 +11,8 @@
     "react/prop-types": 0,
     "@next/next/no-img-element": 0,
     "@typescript-eslint/ban-ts-comment": "warn",
-    "@typescript-eslint/no-unused-vars": "warn"
+    "@typescript-eslint/no-unused-vars": "warn",
+    "max-len": "warn"
   },
   "ignorePatterns": [
     ".next",
