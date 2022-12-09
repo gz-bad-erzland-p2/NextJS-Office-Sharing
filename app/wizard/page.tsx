@@ -1,27 +1,12 @@
 "use client";
 
+
+import ProgressComponent from "../../components/wizard/ProgressComponent";
+import NavigationComponent from "../../components/wizard/NavigationComponent";
 import {DefaultWizardStepProps, Step, Steps, useWizardContext, WizardStepProvider} from "../../context/WizardContext";
-
-
-
-import ProgressWizard from "../progresswizard";
+import DynamicTestPageComponent from "../../components/wizard/DynamicTestPageComponent";
 
 export default function WizardMainPage() {
-    return (
-      <div >
-        sdasd
-        <div className="wizard-container">
-          <div className="container">
-            <button className="button border-1 border-o-gray text-o-gray"> zurück </button>
-            <button className="button border-1 border-o-green-light bg-o-green-light text-o-white ">nächster</button>
-
-          </div>
-          <ProgressWizard prog={2} anzahl={5}/>
-        </div>
-      </div>
-
-    const { activeStepIndex, onNext, onPrevious, goTo, isFirstStep, isLastStep } =
-        useWizardContext<DefaultWizardStepProps>();
 
     const WizardStepCustom = () => {
         const {activeStepIndex} = useWizardContext<DefaultWizardStepProps>();
@@ -30,21 +15,36 @@ export default function WizardMainPage() {
             <Steps>
                 <Step key={`page/1`} id={'1'}>
                     <div>
-                        Test Page 1
+                        Test Seite 1
                     </div>
                 </Step>
                 <Step key={`page/2`} id={'2'}>
                     <div>
-                        Test Page 2
+                        Test Seite 2
                     </div>
                 </Step>
+                {
+                    Array.from({length: activeStepIndex > 0 ? 10 : 3}).map((_, i) => (
+                        <Step key={`page/${i + 3}`} id={`${i + 3}`}>
+                            <DynamicTestPageComponent counter={i + 3}/>
+                        </Step>
+                    ))
+                }
             </Steps>
         );
     };
 
+
     return (
         <WizardStepProvider>
-            <WizardStepCustom />
+            sdasd
+            <div className="wizard-container">
+                <div className="container">
+                    <NavigationComponent/>
+                </div>
+                <WizardStepCustom/>
+                <ProgressComponent/>
+            </div>
         </WizardStepProvider>
     );
 }

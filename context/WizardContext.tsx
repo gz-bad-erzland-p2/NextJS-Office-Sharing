@@ -159,7 +159,7 @@ export const WizardStepProvider = ({ children }: { children: React.ReactNode }) 
 }
 
 interface StepsProps {
-    children: JSX.Element | JSX.Element[];
+    children: JSX.Element | JSX.Element[] | ReactNode;
 }
 
 export const Steps = ({ children }: StepsProps) => {
