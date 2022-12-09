@@ -4,6 +4,9 @@
 module.exports = {
     content: ["./pages/**/*.{js,ts,jsx,tsx}", "./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
     theme: {
+        minWidth: {
+            '0': '420px',
+        },
         extend: {
             colors: {
                 'o-green': '#067A46',
@@ -12,7 +15,7 @@ module.exports = {
                 'o-mintgreen': '#7BC4A4'
             },
             fontFamily: {
-                'inter': ['Inter', 'sans-serif']
+                sans: ['var(--font-inter)']
             }
         }
     },
