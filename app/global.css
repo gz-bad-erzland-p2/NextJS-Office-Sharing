@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.o-content-container{
+    margin-top: 70px;
+}
+
+.o-content-container h1{
+
+}
+.o-content-container h2{
+
+}
+.o-content-container h3{
+
+}
+.o-content-container p{
+
+}

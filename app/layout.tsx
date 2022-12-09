@@ -15,8 +15,10 @@ export default function RootLayout({
         {/* See https://www.thefullstackblog.com/how-to-make-the-footer-start-at-the-bottom-of-the-screen-with-tailwind-css  */}
         <main className={"min-h-screen flex flex-col m"}>
             <HeaderComponent/>
-            <div className={"flex-grow"}>
+            <div className={"flex-grow bg-o-white"}>
+                <div className="o-content-container flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                 {children}
+                </div>
             </div>
             <FooterComponent/>
         </main>

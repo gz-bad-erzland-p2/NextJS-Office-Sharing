@@ -2,7 +2,8 @@ import React from "react";
 
 export default function FooterComponent() {
     return (
-        <div className="p-4 bg-white sm:p-6 sticky" style={{top: '100vh'}}>
+        <div className="lex flex-wrap justify-between items-center mx-auto w-full max-w-screen-xl">
+        <div className="bg-white sticky pt-5" style={{top: '100vh'}}>
             <div className="md:flex md:justify-between">
                 <div className="mb-6 md:mb-0">
                     <a href="https://flowbite.com/" className="flex items-center">
@@ -95,6 +96,7 @@ export default function FooterComponent() {
                     </a>
                 </div>
             </div>
+        </div>
         </div>
     );
 }
