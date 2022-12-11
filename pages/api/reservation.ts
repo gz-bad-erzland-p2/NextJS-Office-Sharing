@@ -1,6 +1,5 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {hash} from 'bcrypt';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
