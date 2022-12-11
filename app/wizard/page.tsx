@@ -33,15 +33,10 @@ export default function WizardMainPage() {
             </Steps>
         );
     };
-
-
     return (
         <WizardStepProvider>
-            sdasd
-            <div className="wizard-container">
-                <div className="container">
-                    <NavigationComponent/>
-                </div>
+            <div className="relative m-auto border-2 bg-white p-20 w-1/2 drop-shadow-lg">
+                <NavigationComponent/>
                 <WizardStepCustom/>
                 <ProgressComponent/>
             </div>
