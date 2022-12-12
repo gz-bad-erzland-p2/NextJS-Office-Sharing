@@ -34,9 +34,9 @@ module.exports = {
                     '900': '#747270'
                 },
             },
-            fontFamily: {
+            /*fontFamily: {
                 sans: ['var(--font-inter)'],
-            },
+            },*/
             transitionProperty: {
                 'width': 'width',
             }

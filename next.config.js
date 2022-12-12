@@ -4,14 +4,14 @@ const nextConfig = {
     swcMinify: true,
     experimental: {
         appDir: true,
-        fontLoaders: [
+        /*fontLoaders: [
             {
                 loader: '@next/font/google',
                 options: {
                     subsets: ['latin']
                 }
             },
-        ],
+        ],*/
     }
 }
 
