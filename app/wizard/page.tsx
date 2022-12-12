@@ -37,12 +37,12 @@ export default function WizardMainPage() {
 
     return (
         <WizardStepProvider>
-            sdasd
-            <div className="wizard-container">
+            <div className="wizard-container place-content-center relative m-auto rounded-[20px]  w-[700px] bg-white p-[25px]">
+                <WizardStepCustom/>
                 <div className="container">
                     <NavigationComponent/>
                 </div>
-                <WizardStepCustom/>
+                
                 <ProgressComponent/>
             </div>
         </WizardStepProvider>
