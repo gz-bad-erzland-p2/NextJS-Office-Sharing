@@ -35,3 +35,11 @@ body{
     box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
 }
 
+.padding-above{
+    padding-top: 10px;
+}
+
+.padding-above-below{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
