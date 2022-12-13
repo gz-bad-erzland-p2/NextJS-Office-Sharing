@@ -5,14 +5,14 @@ const nextConfig = {
     experimental: {
         appDir: true,
         allowMiddlewareResponseBody: true,
-        fontLoaders: [
+        /*fontLoaders: [
             {
                 loader: '@next/font/google',
                 options: {
                     subsets: ['latin']
                 }
             },
-        ],
+        ],*/
     }
 }
 
