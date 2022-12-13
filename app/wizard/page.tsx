@@ -6,7 +6,7 @@ import NavigationComponent from "../../components/wizard/NavigationComponent";
 import {Step, Steps, WizardStepProvider} from "../../context/WizardContext";
 import BasePageComponent from "../../components/wizard/BasePageComponent";
 import React from "react";
-
+import TimeSlotSelectorComponent from "../../components/wizard/page/TimeSlotSelectorComponent";
 export default function WizardMainPage() {
 
     const WizardStepCustom = () => {
@@ -24,10 +24,22 @@ export default function WizardMainPage() {
                 <Step key={`page/2`} id={'2'}>
                     <BasePageComponent heading={"Betriebssystem"}>
                         <div className={"p-5 bg-blue-100 h-full flex justify-center"}>
+                        <TimeSlotSelectorComponent></TimeSlotSelectorComponent>
+                
+                        </div>
+                    </BasePageComponent>
+                </Step>
+
+
+                <Step key={`page/3`} id={'3'}>
+                    <BasePageComponent heading={"Betriebssystem"}>
+                        <div className={"p-5 bg-blue-100 h-full flex justify-center"}>
                             Test content
                         </div>
                     </BasePageComponent>
                 </Step>
+
+                
             </Steps>
         );
     };
