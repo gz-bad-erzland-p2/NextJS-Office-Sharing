@@ -12,6 +12,7 @@
     "@next/next/no-img-element": 0,
     "@typescript-eslint/ban-ts-comment": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
+    "unused-imports/no-unused-imports": "off",
     "max-len": "warn"
   },
   "ignorePatterns": [
