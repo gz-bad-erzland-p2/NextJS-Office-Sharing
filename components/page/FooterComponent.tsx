@@ -1,7 +1,7 @@
 export default function FooterComponent() {
 
     return (
-        <div className="flex-wrap justify-between items-center">
+        // <div className="flex-wrap justify-between items-center">
             <div className="bg-white sticky p-5" style={{top: '100vh'}}>
                 <div className="md:flex md:justify-between">
                     {/*<div className="mb-6 md:mb-0">*/}
@@ -97,6 +97,6 @@ export default function FooterComponent() {
                     </div>
                 </div>
             </div>
-        </div>
+        // </div>
     );
 }

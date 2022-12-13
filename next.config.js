@@ -4,6 +4,8 @@ const nextConfig = {
     swcMinify: true,
     experimental: {
         appDir: true,
+        allowMiddlewareResponseBody: true,
+        fontLoaders: [
         /*fontLoaders: [
             {
                 loader: '@next/font/google',

@@ -35,6 +35,7 @@ interface StepsProps {
 interface StepProps {
     id: string;
     children: ReactNode | JSX.Element | JSX.Element[];
+    className?: string;
 }
 
 interface WizardStepperContextProps<T = DefaultWizardStepProps> {
@@ -201,6 +202,6 @@ export const Steps = ({ children }: StepsProps) => {
 };
 
 
-export const Step = ({ id, children }: StepProps) => (
-    <div id={id}>{children}</div>
+export const Step = ({ id, children, className }: StepProps) => (
+    <div id={id} className={className}>{children}</div>
 );

@@ -13,13 +13,10 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <html lang={"de"} /*className={inter.className}*/>
         <body>
         {/* See https://www.thefullstackblog.com/how-to-make-the-footer-start-at-the-bottom-of-the-screen-with-tailwind-css  */}
-        <main className={"min-h-screen flex flex-col min-w-0"}>
+        <main className={"h-full min-h-full flex flex-col min-w-0 bg-office-gray-500"}>
             <HeaderComponent/>
-            <div className={"flex-grow bg-office-gray-500"}>
-                <div
-                    className="o-content-container flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+            <div className={"flex flex-col justify-center flex-1 m-2"}>
                     {children}
-                </div>
             </div>
             <FooterComponent/>
         </main>
