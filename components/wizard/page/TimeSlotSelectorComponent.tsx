@@ -3,21 +3,27 @@ import DatepickerComponent from "./DatepickerComponent";
 export default function TimeSlotSelectorComponent(){
 
     return(
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-4">
 
                                 <div>
                                     <h2>Mietdatum:</h2>
-                                    <input className="rounded-[10px]" type="date" id="start" name="trip-start"
+                                    <input className="bg-white rounded-lg w-[252px] h-[40px] p-2 border-2 text-center" type="date" id="start" name="trip-start"
                                     value="2022-07-22"></input>
                                 </div>
                                 <div>
-                                <label for="countries" className="w-full block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-                                <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option selected>Choose a country</option>
-                                <option value="US">United States</option>
-                                <option value="CA">Canada</option>
-                                <option value="FR">France</option>
-                                <option value="DE">Germany</option>
+                                <h2>Startzeit auswählen:</h2>
+                                <select className="bg-white rounded-lg w-[252px] h-[40px] p-2 border-2 text-center" name="cars" id="cars">
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="12:00">13:00</option>
+                                    <option value="13:00">14:00</option>
+                                </select>
+                                <h2>Endzeit auswählen:</h2>
+                                <select className="bg-white rounded-lg w-[252px] h-[40px] p-2 border-2 text-center"  name="cars" id="cars">
+                                    <option value="10:00">10:00</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="12:00">13:00</option>
+                                    <option value="13:00">14:00</option>
                                 </select>
 
                                 </div>
