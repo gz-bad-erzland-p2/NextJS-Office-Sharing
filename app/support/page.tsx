@@ -41,7 +41,6 @@ export default function SupportMainPage() {
                     </div>
 
                 </div>
-                    <Image src={workspace_Image} alt="Bild hier"></Image>
                 
             </div>
             
