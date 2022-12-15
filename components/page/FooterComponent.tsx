@@ -33,14 +33,14 @@ export default function FooterComponent() {
                             <h2 className="mb-6 text-sm font-semibold  uppercase text-gray-700">Anmeldung</h2>
                             <ul className="text-gray-600 dark:text-gray-400">
                                 <li className="mb-4">
-                                    <a href="https://github.com/themesberg/flowbite"
+                                    <a href="/login"
                                        className="hover:underline ">Anmelden</a>
                                 </li>
                                 <li className="mb-4">
-                                    <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Registrieren</a>
+                                    <a href="/login" className="hover:underline">Registrieren</a>
                                 </li>
                                 <li>
-                                    <a href="https://discord.gg/4eeurUVvTy" className="hover:underline">Ausloggen</a>
+                                    <a href="/login" className="hover:underline">Ausloggen</a>
                                 </li>
                             </ul>
                         </div>
@@ -48,10 +48,10 @@ export default function FooterComponent() {
                             <h2 className="mb-6 text-sm font-semibold  uppercase text-gray-700">Rechtsschutz</h2>
                             <ul className="text-gray-600 dark:text-gray-400">
                                 <li className="mb-4">
-                                    <a href="#" className="hover:underline">Impressum</a>
+                                    <a href="/" className="hover:underline">Impressum</a>
                                 </li>
                                 <li >
-                                    <a href="#" className="hover:underline">Datenschutz</a>
+                                    <a href="/" className="hover:underline">Datenschutz</a>
                                 </li>
                             </ul>
                         </div>
@@ -60,7 +60,7 @@ export default function FooterComponent() {
                 <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <span className="text-sm  sm:text-center dark:text-gray-400">© 2022 <a
-                        href="https://flowbite.com/" className="hover:underline">SecNetIT</a>. All Rights Reserved.        </span>
+                        href="/" className="hover:underline">SecNetIT</a>. All Rights Reserved.        </span>
                     
                 </div>
                 </div>
