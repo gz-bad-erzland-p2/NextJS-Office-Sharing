@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function HomePage() {
     return (
-        <div className={"overflow-hidden flex flex-wrap justify-between items-center mx-auto px-2 max-w-screen-xl"}>
+        <div className={"overflow-hidden flex flex-wrap justify-between items-center mx-auto pt-5 max-w-screen-xl"}>
             <div className={"relative z-20"}>
                 <h1 className={"text-6xl m-5 text-office-green-500"}>office sharing.</h1>
                 <p className={"text-office-green-500 font-inter font-normal text-sm max-w-md"}>
