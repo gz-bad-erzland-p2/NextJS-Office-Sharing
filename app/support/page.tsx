@@ -21,7 +21,7 @@ export default function SupportMainPage() {
 
 
 
-                    <div /** Einleitungstext*/>
+          {/*          <div>
                         <h1 className="text-2xl">Online Hilfe</h1>
                         <p>Hier finden sie Anleitungen und häufige Fragen rund um das Office Sharing.
                         </p>
@@ -38,9 +38,9 @@ export default function SupportMainPage() {
                                 className="m-2 text-white bg-office-green-500 hover:bg-office-green-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 focus:outline-none">
                                 Konfiguration von Arbeitsplätzen
                             </Link>
-                    </div>
+    </div>
                     
-                </div>
+                </div>*/}
                 
             </div>
             
