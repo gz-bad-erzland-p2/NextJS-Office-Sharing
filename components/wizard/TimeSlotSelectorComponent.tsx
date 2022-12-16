@@ -1,5 +1,3 @@
-import DatepickerComponent from "./DatepickerComponent";
-
 export default function TimeSlotSelectorComponent(){
 
     return(
