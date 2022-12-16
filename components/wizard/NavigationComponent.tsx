@@ -24,7 +24,7 @@ export default function NavigationComponent() {
                     onNext(() => console.log('Calling `onNext`'));
                 }, [onNext])}
                 disabled={isLastStep}>
-                <BsArrowRight className={"mx-2"}/>
+                weiter <BsArrowRight className={"mx-2"}/>
             </button>
         </div>
     );

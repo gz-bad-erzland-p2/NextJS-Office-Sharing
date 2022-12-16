@@ -70,33 +70,33 @@ export const useWizardContext = <T, _P = never>() => {
  * Reduces the state of the wizard based on the action. It modifies the activeStepIndex and the steps
  */
 const reducer = (state: WizardStepperReducerState, action: Action): WizardStepperReducerState => {
-    const { steps, activeStepIndex } = state;
+    const {steps, activeStepIndex} = state;
 
     switch (action.type) {
         case 'NEXT_PAGE':
             // eslint-disable-next-line no-case-declarations
             const newIndex = activeStepIndex + 1;
             if (newIndex < steps.length) {
-                return { ...state, activeStepIndex: newIndex };
+                return {...state, activeStepIndex: newIndex};
             }
             return state;
         case 'PREV_PAGE':
             if (activeStepIndex > 0) {
-                return { ...state, activeStepIndex: activeStepIndex - 1 };
+                return {...state, activeStepIndex: activeStepIndex - 1};
             }
             return state;
 
         case 'GOTO_PAGE':
             // eslint-disable-next-line no-case-declarations
-            const { stepId } = action.payload;
+            const {stepId} = action.payload;
             if (activeStepIndex !== stepId && stepId < steps.length && stepId >= 0) {
-                return { ...state, activeStepIndex: stepId };
+                return {...state, activeStepIndex: stepId};
             }
             return state;
         case 'SET_STEP_COUNT':
             // eslint-disable-next-line no-case-declarations
-            const { steps: newSteps } = action.payload;
-            return { ...state, steps: newSteps };
+            const {steps: newSteps} = action.payload;
+            return {...state, steps: newSteps};
         default:
             return state;
     }
@@ -107,35 +107,35 @@ const initialState: WizardStepperReducerState = {
 };
 
 // Reducer is an useState with a custom business logic
-export const WizardStepProvider = ({ children }: { children: React.ReactNode }) => {
+export const WizardStepProvider = ({children}: { children: React.ReactNode }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    const { activeStepIndex, steps } = state;
+    const {activeStepIndex, steps} = state;
 
     const onNext = useCallback(
         async (cb?: () => void) => {
             if (typeof cb === 'function') {
                 await cb();
             }
-            dispatch({ type: 'NEXT_PAGE' });
+            dispatch({type: 'NEXT_PAGE'});
         },
         [dispatch]
     );
 
     const onPrevious = useCallback(() => {
-        dispatch({ type: 'PREV_PAGE' });
+        dispatch({type: 'PREV_PAGE'});
     }, [dispatch]);
 
     const setSteps = useCallback(
         (steps: DefaultWizardStepProps[]) => {
-            dispatch({ type: 'SET_STEP_COUNT', payload: { steps } });
+            dispatch({type: 'SET_STEP_COUNT', payload: {steps}});
         },
         [dispatch]
     );
 
     const goTo = useCallback(
         stepId => {
-            dispatch({ type: 'GOTO_PAGE', payload: { stepId } });
+            dispatch({type: 'GOTO_PAGE', payload: {stepId}});
         },
         [dispatch]
     );
@@ -168,7 +168,7 @@ export const WizardStepProvider = ({ children }: { children: React.ReactNode }) 
     );
 }
 
-export const Steps = ({ children }: StepsProps) => {
+export const Steps = ({children}: StepsProps) => {
     const reactChildren = Children.toArray(children);
     if (reactChildren.length === 0) {
         throw new Error('Steps müssen mindestens ein child haben!');
@@ -184,7 +184,7 @@ export const Steps = ({ children }: StepsProps) => {
         );
     }
 
-    const { activeStepIndex, setSteps, steps } =
+    const {activeStepIndex, setSteps, steps} =
         useWizardContext<DefaultWizardStepProps>();
 
     // Update on every page render based on deps
@@ -202,6 +202,6 @@ export const Steps = ({ children }: StepsProps) => {
 };
 
 
-export const Step = ({ id, children, className }: StepProps) => (
+export const Step = ({id, children, className}: StepProps) => (
     <div id={id} className={className}>{children}</div>
 );
