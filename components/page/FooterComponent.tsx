@@ -16,42 +16,19 @@ export default function FooterComponent() {
                     {/*</div>*/}
                     <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
-                            <h2 className="mb-6 text-sm font-semibold  uppercase text-gray-700">Links</h2>
-                            <ul className="text-gray-600 dark:text-gray-400">
-                                <li className="mb-4">
-                                    <a href="/" className="hover:underline">Home</a>
-                                </li>
-                                <li className="mb-4">
-                                    <a href="/hardware" className="hover:underline">Hardware</a>
-                                </li>
-                                <li>
-                                    <a href="/support" className="hover:underline">Support</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h2 className="mb-6 text-sm font-semibold  uppercase text-gray-700">Anmeldung</h2>
-                            <ul className="text-gray-600 dark:text-gray-400">
-                                <li className="mb-4">
-                                    <a href="/login"
-                                       className="hover:underline ">Anmelden</a>
-                                </li>
-                                <li className="mb-4">
-                                    <a href="/login" className="hover:underline">Registrieren</a>
-                                </li>
-                                <li>
-                                    <a href="/login" className="hover:underline">Ausloggen</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
                             <h2 className="mb-6 text-sm font-semibold  uppercase text-gray-700">Rechtsschutz</h2>
                             <ul className="text-gray-600 dark:text-gray-400">
-                                <li className="mb-4">
+                                <li className="">
                                     <a href="/" className="hover:underline">Impressum</a>
                                 </li>
-                                <li >
-                                    <a href="/" className="hover:underline">Datenschutz</a>
+                            </ul>
+                        </div>
+                        <div>
+                            <h2 className="mb-6 text-sm font-semibold  uppercase text-white"> . </h2>
+                            <ul className="text-gray-600 dark:text-gray-400"> 
+                                <li className="">
+                                    <a href="/login"
+                                       className="hover:underline ">Datenschutz</a>
                                 </li>
                             </ul>
                         </div>
