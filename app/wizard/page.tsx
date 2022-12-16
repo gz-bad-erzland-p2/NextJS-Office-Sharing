@@ -6,7 +6,11 @@ import NavigationComponent from "../../components/wizard/NavigationComponent";
 import {Step, Steps, WizardStepProvider} from "../../context/WizardContext";
 import BasePageComponent from "../../components/wizard/BasePageComponent";
 import React from "react";
-import TimeSlotSelectorComponent from "../../components/wizard/page/TimeSlotSelectorComponent";
+import TimeSlotSelectorComponent from "../../components/wizard/TimeSlotSelectorComponent";
+import {SystemSelectionComponent} from "../../components/wizard/page/SystemSelectionComponent";
+import {SoftwareSelectionComponent} from "../../components/wizard/page/SoftwareSelectionComponent";
+import {PlaceSelectionComponent} from "../../components/wizard/page/PlaceSelectionComponent";
+import {PersonalDataComponent} from "../../components/wizard/page/PersonalDataComponent";
 export default function WizardMainPage() {
 
     const WizardStepCustom = () => {
@@ -16,30 +20,32 @@ export default function WizardMainPage() {
             <Steps>
                 <Step key={`page/1`} id={'1'} className={"w-full h-full"}>
                     <BasePageComponent heading={"Arbeitsplatztyp"}>
-                        <div className={"p-5 bg-blue-100 h-full flex justify-center"}>
-                            Test content
+                        <div className={"p-5 h-full flex justify-center"}>
+                            <SoftwareSelectionComponent />
                         </div>
                     </BasePageComponent>
                 </Step>
-                <Step key={`page/2`} id={'2'}>
+                <Step key={`page/2`} id={'2'} className={"w-full h-full"}>
                     <BasePageComponent heading={"Betriebssystem"}>
-                        <div className={"p-5 bg-blue-100 h-full flex justify-center"}>
-                        <TimeSlotSelectorComponent></TimeSlotSelectorComponent>
-                
+                        <div className={"p-5 h-full flex justify-center"}>
+                            <SystemSelectionComponent />
                         </div>
                     </BasePageComponent>
                 </Step>
-
-
-                <Step key={`page/3`} id={'3'}>
-                    <BasePageComponent heading={"Betriebssystem"}>
-                        <div className={"p-5 bg-blue-100 h-full flex justify-center"}>
-                            Test content
+                <Step key={`page/3`} id={'3'} className={"w-full h-full"}>
+                    <BasePageComponent heading={"Platzwahl"}>
+                        <div className={"p-5 h-full flex justify-center"}>
+                            <PlaceSelectionComponent />
                         </div>
                     </BasePageComponent>
                 </Step>
-
-                
+                <Step key={`page/3`} id={'3'} className={"w-full h-full"}>
+                    <BasePageComponent heading={"Persönliche Daten"}>
+                        <div className={"p-5 h-full flex justify-center"}>
+                            <PersonalDataComponent />
+                        </div>
+                    </BasePageComponent>
+                </Step>
             </Steps>
         );
     };
@@ -51,20 +57,6 @@ export default function WizardMainPage() {
                     <WizardStepCustom/>
                 </div>
                 <NavigationComponent/>
-                {/*<div className={"items-end justify-center"}>*/}
-
-                {/*<div className={"bg-red-600 w-full flex flex-col"}>*/}
-                {/*    <button className={"bg-blue-200 border-2 self-end"}>top</button>*/}
-                {/*</div>*/}
-                {/*<div className={"bg-red-500 w-full h-full flex flex-col justify-center"}>*/}
-                {/*    <button className={"bg-blue-200 border-2 self-center"}>center</button>*/}
-                {/*</div>*/}
-                {/*<div className={"bg-red-400 w-1/4 flex flex-row justify-between"}>*/}
-                {/*    <button className={"bg-blue-200 border-2"}>bottom</button>*/}
-                {/*    <button className={"bg-blue-200 border-2"}>bottom</button>*/}
-                {/*</div>*/}
-
-                {/*</div>*/}
             </WizardStepProvider>
         </div>
     );
