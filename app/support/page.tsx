@@ -1,13 +1,13 @@
 import Link from "next/link";
 import supportStyles from "./support.module.css";
-import workspace_Image from "../../public/assets/img/workspaces.png";
+
 import Image from "next/image";
 
 export default function SupportMainPage() {
     return (
-        <div className="padding-above">
+        <div className="padding-above w-full">
             
-            <div className="text-center m-10">
+            <div className="text-center m-10 mb-0">
                 <div>
                     <h1 className="text-2xl">Kontaktdaten Technischer Support</h1><br></br>
                     Tel-Nummer: 0351 1931728<br></br>
@@ -31,15 +31,15 @@ export default function SupportMainPage() {
                         <p>Anleitungen:</p>
                         <div className={supportStyles.buttonContainer}>
                             <Link href="/support/questions/zeitauswahl"
-                                className="text-white bg-office-green-500 hover:bg-office-green-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 focus:outline-none">
+                                className="m-2 text-white bg-office-green-500 hover:bg-office-green-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 focus:outline-none">
                                 Zeitauswahl
                             </Link>
                             <Link href="/support/questions/arbeitsplatzkonfiguration"
-                                className="text-white bg-office-green-500 hover:bg-office-green-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 focus:outline-none">
+                                className="m-2 text-white bg-office-green-500 hover:bg-office-green-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 focus:outline-none">
                                 Konfiguration von Arbeitsplätzen
                             </Link>
                     </div>
-
+                    
                 </div>
                 
             </div>
