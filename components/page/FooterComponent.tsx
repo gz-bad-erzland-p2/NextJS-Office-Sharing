@@ -3,19 +3,27 @@ import Link from "next/link";
 export default function FooterComponent() {
 
     return (
-        <div className="bg-white sticky p-2.5" style={{top: '100vh'}}>
+        <div className="bg-white p-2.5">
             <div className="mx-auto max-w-screen-xl">
-                <div className="flex items-center justify-between">
-                    <span
-                        className="text-sm sm:text-center text-gray-400">© 2022 <Link
-                        href="#" className="hover:underline">SecNetIT</Link>. All Rights Reserved.
-                    </span>
-                    <div className={"flex flex-col md:flex-row gap-2 justify-between text-gray-400"}>
-                        <Link href="#"
-                              className="hover:underline">Impressum</Link>
-                        <Link href="#"
-                              className="hover:underline">Datenschutz</Link>
+                <div className="md:flex md:justify-between">
+                    <div className="grid grid-cols-2 sm:gap-6 sm:grid-cols-3">
+                        <div>
+                            <h2 className="mb-3 text-sm font-semibold uppercase text-gray-700">Rechtsschutz</h2>
+                            <div className="text-gray-600 flex flex-row gap-4">
+                                <Link href="#"
+                                      className="hover:underline">Impressum</Link>
+                                <Link href="#"
+                                      className="hover:underline">Datenschutz</Link>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
                     </div>
+                </div>
+                <hr className="border-gray-200 sm:mx-auto my-3"/>
+                <div className="sm:flex sm:items-center sm:justify-between">
+                    <span className="text-sm sm:text-center dark:text-gray-400">© 2022 <Link
+                        href="/" className="hover:underline">SecNetIT</Link>. All Rights Reserved.</span>
                 </div>
             </div>
         </div>

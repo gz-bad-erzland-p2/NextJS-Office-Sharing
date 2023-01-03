@@ -1,5 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {hash} from 'bcrypt';
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -18,14 +19,20 @@ export default async function handler(
                 // });
                 hash(req.body.password, 10, (err, hash) => {
                     if (err) {
-                        res.status(500).json({error: 'Failed to hash password', details: err})
+                        res.status(500).json({
+                            error: 'Failed to hash password',
+                            details: err
+                        })
                     } else {
                         res.status(200).json({password: hash})
                     }
                 });
                 res.status(200).json({message: 'POST request received'})
             } catch (err) {
-                res.status(500).json({error: 'Failed to send data', details: err})
+                res.status(500).json({
+                    error: 'Failed to send data',
+                    details: err
+                })
             }
             break;
         default:

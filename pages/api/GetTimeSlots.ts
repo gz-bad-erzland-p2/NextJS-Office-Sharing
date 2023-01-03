@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type {NextApiRequest, NextApiResponse} from 'next'
 
 
 export default function GetTimeSlots(
@@ -8,11 +8,23 @@ export default function GetTimeSlots(
     res.status(200).json(
         {
             "timeslots":
-            [
-                {"start":"13:30","end":"15:30"},
-                {"start":"13:45","end":"19:30"},
-                {"start":"14:00","end":"15:30"},
-                {"start":"14:15","end":"18:30"}
-            ]
+                [
+                    {
+                        "start": "2000-01-01T13:30:00.000Z",
+                        "end": "2000-01-01T15:30:00.000Z"
+                    },
+                    {
+                        "start": "2000-01-01T13:45:00.000Z",
+                        "end": "2000-01-01T19:30:00.000Z"
+                    },
+                    {
+                        "start": "2000-01-01T14:00:00.000Z",
+                        "end": "2000-01-01T15:30:00.000Z"
+                    },
+                    {
+                        "start": "2000-01-01T14:15:00.000Z",
+                        "end": "2000-01-01T18:30:00.000Z"
+                    },
+                ]
         })
 }

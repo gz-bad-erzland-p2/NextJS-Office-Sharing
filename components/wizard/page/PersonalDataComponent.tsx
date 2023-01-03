@@ -1,4 +1,3 @@
-
 export const PersonalDataComponent = () => {
     return (
         <div>

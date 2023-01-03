@@ -13,7 +13,19 @@
     "@typescript-eslint/ban-ts-comment": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
     "unused-imports/no-unused-imports": "off",
-    "max-len": "warn"
+    "max-len": [
+      "warn",
+      {
+        "code": 160,
+        "tabWidth": 2,
+        "ignoreComments": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
+        "ignoreRegExpLiterals": true,
+        "ignoreUrls": true,
+        "ignorePattern": "^import\\s.+\\sfrom\\s.+;$"
+      }
+    ]
   },
   "ignorePatterns": [
     ".next",
