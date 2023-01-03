@@ -6,7 +6,7 @@ export default function TimeSlotSelectorComponent() {
             <div>
                 <h2>Mietdatum:</h2>
                 <input
-                    className="bg-white rounded-lg w-[252px] h-[40px] p-2 border-2 text-center"
+                    className="input-field"
                     type="date"
                     id="start" name="trip-start"
                     value="2022-07-22"></input>
@@ -14,7 +14,7 @@ export default function TimeSlotSelectorComponent() {
             <div>
                 <h2>Startzeit auswählen:</h2>
                 <select
-                    className="bg-white rounded-lg w-[252px] h-[40px] p-2 border-2 text-center"
+                    className="input-field"
                     name="cars"
                     id="cars">
                     <option defaultValue="10:00">10:00</option>
@@ -24,7 +24,7 @@ export default function TimeSlotSelectorComponent() {
                 </select>
                 <h2>Endzeit auswählen:</h2>
                 <select
-                    className="bg-white rounded-lg w-[252px] h-[40px] p-2 border-2 text-center"
+                    className="input-field"
                     name="cars"
                     id="cars">
                     <option defaultValue="10:00">10:00</option>
