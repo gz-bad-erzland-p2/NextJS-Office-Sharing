@@ -1,10 +1,14 @@
 import Image from "next/image";
 import windows_Image from "../../../public/assets/img/windows-gray.png";
 import linux_Image from "../../../public/assets/img/linux-gray.png";
+import {useWizardStateContext} from "../../../core/context/WizardStateContext";
 
 
 
 export const SystemSelectionComponent = () => {
+
+    const {operatingSystem, setOperatingSystem} = useWizardStateContext();
+
     return (
         <div>
             <p>Wähle Sie ein Betriebssystem für ihren Arbeitsplatz aus</p>
