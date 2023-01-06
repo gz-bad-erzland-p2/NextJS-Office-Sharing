@@ -28,19 +28,19 @@ export default function WizardMainPage() {
                 <Step key={`page/1`} id={'1'} className={"w-full h-full"}>
                     <BasePageComponent heading={"Arbeitsplatztyp"}>
                         <div className={"p-5 h-full flex justify-center"}>
-                            <SoftwareSelectionComponent/>
+                            <SystemSelectionComponent/>
                         </div>
                     </BasePageComponent>
                 </Step>
                 <Step key={`page/2`} id={'2'} className={"w-full h-full"}>
                     <BasePageComponent heading={"Betriebssystem"}>
                         <div className={"p-5 h-full flex justify-center"}>
-                            <SystemSelectionComponent/>
+                            <SoftwareSelectionComponent/>
                         </div>
                     </BasePageComponent>
                 </Step>
                 <Step key={`page/3`} id={'3'} className={"w-full h-full"}>
-                    <BasePageComponent heading={"Platzwahl"}>
+                    <BasePageComponent heading={"Zeitauswahl"}>
                         <div className={"p-5 h-full flex justify-center"}>
                             <PlaceSelectionComponent/>
                         </div>
@@ -58,7 +58,7 @@ export default function WizardMainPage() {
     };
     return (
         <div
-            className="relative m-auto border-2 bg-white p-2 w-1/2 drop-shadow-lg rounded-md h-full flex flex-col items-center">
+            className="relative m-auto border-2 bg-white p-2 w-1/2 drop-shadow-lg rounded-md h-full flex flex-col items-center wizard-container">
             <WizardStepProvider>
                 <ProgressComponent/>
                 <div
