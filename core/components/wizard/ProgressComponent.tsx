@@ -1,5 +1,5 @@
 'use client'
-import '../../app/global.css';
+import '../../../app/global.css';
 import {
     DefaultWizardStepProps,
     useWizardContext

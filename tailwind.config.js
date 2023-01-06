@@ -2,12 +2,12 @@
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./pages/**/*.{js,ts,jsx,tsx}", "./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+    content: ["./pages/**/*.{js,ts,jsx,tsx}", "./app/**/*.{js,ts,jsx,tsx}", "./core/components/**/*.{js,ts,jsx,tsx}"],
     theme: {
-        minWidth: {
-            '0': '420px',
-        },
         extend: {
+            minWidth: {
+                '0': '280px',
+            },
             colors: {
                 'office-green': {
                     '50': '#f3f8f6',
@@ -42,5 +42,9 @@ module.exports = {
             }
         }
     },
-    plugins: [],
+    plugins: [
+        require("@tailwindcss/forms")({
+            strategy: 'class',
+        }),
+    ],
 };
