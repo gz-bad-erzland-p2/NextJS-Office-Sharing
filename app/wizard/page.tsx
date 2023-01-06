@@ -17,6 +17,7 @@ import {
 import {
     PersonalDataComponent
 } from "../../components/wizard/page/PersonalDataComponent";
+import {WizardStateProvider} from "../../core/context/WizardStateContext";
 
 export default function WizardMainPage() {
 
@@ -60,12 +61,14 @@ export default function WizardMainPage() {
         <div
             className="relative m-auto border-2 bg-white p-2 w-1/2 drop-shadow-lg rounded-md h-full flex flex-col items-center">
             <WizardStepProvider>
-                <ProgressComponent/>
-                <div
-                    className={"w-full h-full my-3"}> {/*Keeps the buttons down there*/}
-                    <WizardStepCustom/>
-                </div>
-                <NavigationComponent/>
+                <WizardStateProvider>
+                    <ProgressComponent/>
+                    <div
+                        className={"w-full h-full my-3"}> {/*Keeps the buttons down there*/}
+                        <WizardStepCustom/>
+                    </div>
+                    <NavigationComponent/>
+                </WizardStateProvider>
             </WizardStepProvider>
         </div>
     );
