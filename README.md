@@ -1,8 +1,10 @@
 # NextJS Office Sharing
-NextJs Projekt für das Office Sharing Projekt. 
+
+NextJs Projekt für das Office Sharing Projekt.
 
 # Deployment URL's
-Die Versionen auf den URLs werden alle 30 min aktualisiert. 
+
+Die Versionen auf den URLs werden alle 30 min aktualisiert.
 
 - https://next-js-office-sharing-derech1e.vercel.app
 - https://next-js-office-sharing-git-main-derech1e.vercel.app

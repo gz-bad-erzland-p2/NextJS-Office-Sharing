@@ -6,20 +6,20 @@
     @apply flex flex-1;
 }
 
-body{
+body {
     background-color: #ECE8E5;
 }
 
 .container {
-    flex-direction: row ;
+    flex-direction: row;
     justify-content: center;
     width: 100%;
-    gap:10px;
+    gap: 10px;
     display: flex;
     position: relative;
 }
 
-.wizard-container{
+.wizard-container {
     position: relative;
     margin: auto;
     border-radius: 20px;
@@ -27,14 +27,53 @@ body{
     padding: 25px;
     max-width: 700px;
     min-width: 700px;
-    box-shadow: 0 0 15px 5px rgba(0,0,0,0.25);
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.25);
 }
 
-.padding-above{
+.padding-above {
     padding-top: 10px;
 }
 
-.padding-above-below{
+.padding-above-below {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.input-field, input[type=text]{
+    border: solid 2px #e5e7eb;
+    background-color: white;
+    border-radius: 0.5rem;
+    width: 252px;
+    height: 40px;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.label-radio{
+    width: 200px !important;
+    height: 200px !important;
+    display: block;
+    border: solid 2px #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+
+[type="radio"]:not(:checked) + label{
+	color: #e5e7eb;
+    border-color: #e5e7eb;
+}
+
+img{
+	background-color: green;
+}
+
+[type="radio"]:not(:checked) + label > img{
+	background-color: white;
+}
+
+[type="radio"]:checked + label{
+	color: green;
+    border-color: green;
 }

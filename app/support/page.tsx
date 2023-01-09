@@ -1,27 +1,27 @@
 import Link from "next/link";
-import supportStyles from "./support.module.css";
-
-import Image from "next/image";
 
 export default function SupportMainPage() {
     return (
-        <div className="padding-above w-full">
-            
-            <div className="text-center m-10 mb-0">
-                <div>
-                    <h1 className="text-2xl">Kontaktdaten Technischer Support</h1><br></br>
-                    Tel-Nummer: 0351 1931728<br></br>
-                    E-Mail-Adresse: <Link href="mailto:support@gz-bad-erzland-P2.de">support@gz-bad-erzland-P2.de</Link> <br></br>
-                    <br></br>
-                    Waldorfstraße 2<br></br>
-                    01023 Dresden<br></br>
-                    Germany<br></br>
-                    <br></br>
-
-
-
-
-          {/*          <div>
+        <div className="padding-above w-full h-full">
+            <div className="text-center m-10 flex justify-center">
+                <div className={"bg-white p-5 rounded-2xl"}>
+                    <h1 className="text-2xl">Kontaktdaten Technischer
+                        Support</h1>
+                    <br/>
+                    Tel-Nummer: 0351 1931728
+                    <br/>
+                    E-Mail-Adresse: <Link
+                    href="mailto:support@gz-bad-erzland-P2.de">support@gz-bad-erzland-P2.de</Link>
+                    <br/>
+                    <br/>
+                    Waldorfstraße 2
+                    <br/>
+                    01023 Dresden
+                    <br/>
+                    Germany
+                    <br/>
+                    <br/>
+                    {/*          <div>
                         <h1 className="text-2xl">Online Hilfe</h1>
                         <p>Hier finden sie Anleitungen und häufige Fragen rund um das Office Sharing.
                         </p>
@@ -41,15 +41,8 @@ export default function SupportMainPage() {
     </div>
                     
                 </div>*/}
-                
+                </div>
             </div>
-            
-            
-            
-            
-            </div>
-
-            
         </div>
     );
 }

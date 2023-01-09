@@ -1,7 +1,8 @@
 "use client";
 import {BsArrowRight} from "react-icons/bs";
 import {FormEvent, useState} from "react";
-import CenteredFormComponent from "../../components/other/CenteredFormComponent";
+import CenteredFormComponent
+    from "../../components/other/CenteredFormComponent";
 
 export default function LoginPage() {
 
@@ -17,16 +18,20 @@ export default function LoginPage() {
     return (
         // <div className={"flex-1 flex flex-col w-full"}>
         <CenteredFormComponent onSubmit={submitHandler}>
-            <div className={"flex flex-col items-center bg-white p-52 rounded-2xl drop-shadow-2xl"}>
+            <div
+                className={"flex flex-col items-center justify-center bg-white h-full w-1/2 rounded-2xl drop-shadow-2xl"}>
                 <h1 className={"mb-10 bold text-4xl"}>Login</h1>
                 <div className={"mb-2.5"}>
                     <p>Benutzername oder E-Mail</p>
-                    <input type={"text"} className={"rounded-md p-2 border-2"} value={email}
+                    <input type={"text"} className={"rounded-md p-2 border-2"}
+                           value={email}
                            onChange={(event) => setEmail(event.target.value)}/>
                 </div>
                 <div>
                     <p>Passwort</p>
-                    <input type={"password"} className={"rounded-md p-2 border-2"} value={password}
+                    <input type={"password"}
+                           className={"rounded-md p-2 border-2"}
+                           value={password}
                            onChange={(event) => setPassword(event.target.value)}/>
                 </div>
 
