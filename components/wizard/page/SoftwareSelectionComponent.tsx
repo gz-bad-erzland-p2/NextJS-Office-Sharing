@@ -1,6 +1,6 @@
 import Image from "next/image";
-import windows_Image from "../../../public/assets/img/windows-gray.png";
-import linux_Image from "../../../public/assets/img/linux-gray.png";
+import windows_Image from "../../../public/assets/img/windows-green.png";
+import linux_Image from "../../../public/assets/img/linux-green.png";
 
 
 
@@ -8,16 +8,16 @@ export const SoftwareSelectionComponent = () => {
     return (
         <div>
             <p>Wähle Sie ein Betriebssystem für ihren Arbeitsplatz aus</p>
-            <div className="flex">
+            <div className="flex left-right">
                 <input className="hidden"  type={"radio"} name={"system"} id="r-linux" /> 
                 <label className="label-radio" htmlFor="r-linux"> 
                 <Image src={linux_Image} alt={"Workspaces"} className="w-[150px]" />
-                Linux </label>
+                Linux Ubuntu</label>
 
                 <input className="hidden" type={"radio"} name={"system"} id="r-windows" />
                 <label className="label-radio" htmlFor="r-windows"> 
                 <Image src={windows_Image} alt={"Workspaces"} className="w-[150px]" />
-                Windows </label>
+                Windows 11 Home</label>
             </div>
         </div>
     );

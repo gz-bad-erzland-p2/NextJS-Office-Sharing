@@ -11,16 +11,16 @@ export const SystemSelectionComponent = () => {
 
     return (
         <div>
-            <p>Wähle Sie ein Betriebssystem für ihren Arbeitsplatz aus</p>
+            <p>Wähle Sie zwischen folgenden Arbeitsplatstypen aus</p>
             <div className="flex left-right">
-                <input className="hidden"  type={"radio"} name={"system"} id="r-linux" /> 
-                <label className="label-radio" htmlFor="r-linux"> 
-                <Image src={linux_Image} alt={"Workspaces"} className="w-[150px]" />
+                <input className="hidden"  type={"radio"} name={"system"} id="r-single" /> 
+                <label className="label-radio" htmlFor="r-single"> 
+                
                 Einzelarbeitsplatz </label>
 
-                <input className="hidden" type={"radio"} name={"system"} id="r-windows" />
-                <label className="label-radio" htmlFor="r-windows"> 
-                <Image src={windows_Image} alt={"Workspaces"} className="w-[150px]" />
+                <input className="hidden" type={"radio"} name={"system"} id="r-duo" />
+                <label className="label-radio" htmlFor="r-duo"> 
+                
                 Doppelarbeitsplatz </label>
             </div>
         </div>

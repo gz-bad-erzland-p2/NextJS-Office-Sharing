@@ -71,7 +71,7 @@ body {
 }
 
 .label-radio{
-    width: 200px !important;
+    min-width: 200px !important;
     height: 200px !important;
     display: block;
     border: solid 2px #e5e7eb;
@@ -88,12 +88,16 @@ body {
 }
 
 img{
-	background-color: #056e3f;
+	/* background-color: #056e3f; */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 [type="radio"]:not(:checked) + label > img{
-	background-color: white;
+	/* background-color: white; */
     fill: #e5e7eb;
+    filter: grayscale(100%);
+    opacity: 0.2;
 }
 
 [type="radio"]:checked + label{
