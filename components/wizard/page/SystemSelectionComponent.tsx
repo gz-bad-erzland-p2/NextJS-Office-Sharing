@@ -2,26 +2,28 @@ import Image from "next/image";
 import windows_Image from "../../../public/assets/img/windows-gray.png";
 import linux_Image from "../../../public/assets/img/linux-gray.png";
 import {useWizardStateContext} from "../../../core/context/WizardStateContext";
+import { OperatingSystemEnum } from "../../../core/utils/enums/OperatingSystemEnum";
+import { WorkspaceTypeEnum } from "../../../core/utils/enums/WorkspaceTypeEnum";
 
 
 
 export const SystemSelectionComponent = () => {
 
-    const {operatingSystem, setOperatingSystem} = useWizardStateContext();
+    const {workspaceType, setWorkspaceType} = useWizardStateContext();
 
     return (
         <div>
-            <p>Beschreibung</p>
-            <div className="flex">
-                <input type={"radio"} name={"system"} id="r-linux" /> 
-                <label className="label-radio" htmlFor="r-linux"> 
-                <Image src={linux_Image} alt={"Workspaces"} className="w-[150px]" />
-                Linux </label>
+            <p>Wähle Sie zwischen folgenden Arbeitsplatstypen aus</p>
+            <div className="flex left-right">
+                <input className="hidden"  type={"radio"} name={"system"} id="r-single" checked={workspaceType == WorkspaceTypeEnum.SINGLE_DESK} onClick={() => setWorkspaceType(WorkspaceTypeEnum.SINGLE_DESK)}/> 
+                <label className="label-radio" htmlFor="r-single"> 
+                
+                Einzelarbeitsplatz </label>
 
-                <input type={"radio"} name={"system"} id="r-windows" />
-                <label className="label-radio" htmlFor="r-windows"> 
-                <Image src={windows_Image} alt={"Workspaces"} className="w-[150px]" />
-                Windows </label>
+                <input className="hidden" type={"radio"} name={"system"} id="r-duo" checked={workspaceType == WorkspaceTypeEnum.DOUBLE_DESK} onClick={() => setWorkspaceType(WorkspaceTypeEnum.DOUBLE_DESK)}/>
+                <label className="label-radio" htmlFor="r-duo"> 
+                
+                Doppelarbeitsplatz </label>
             </div>
         </div>
     );
