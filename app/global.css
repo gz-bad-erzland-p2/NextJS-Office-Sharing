@@ -77,3 +77,22 @@ img{
 	color: green;
     border-color: green;
 }
+
+h1{
+    font-size: 1.3em;
+font-weight: 600;
+margin-top: 20px;
+margin-bottom: 15px;
+}
+
+h2 {
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 1.1em;
+    margin-bottom: 7px;
+}
+p{
+    margin-bottom: 10px;
+    font-weight: 300;
+    font-size: 0.9em;
+}

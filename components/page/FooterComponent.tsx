@@ -10,9 +10,9 @@ export default function FooterComponent() {
                         <div>
                             <h2 className="mb-3 text-sm font-semibold uppercase text-gray-700">Rechtsschutz</h2>
                             <div className="text-gray-600 flex flex-row gap-4">
-                                <Link href="#"
+                                <Link href="/impressum"
                                       className="hover:underline">Impressum</Link>
-                                <Link href="#"
+                                <Link href="/datenschutz"
                                       className="hover:underline">Datenschutz</Link>
                             </div>
                         </div>
