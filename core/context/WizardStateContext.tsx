@@ -3,7 +3,6 @@ import React, {
     createContext,
     useCallback,
     useContext,
-    useEffect,
     useMemo,
     useState
 } from "react";
@@ -31,6 +30,10 @@ interface WizardStateContextProps {
     setZipCode: (zipCode: string) => void;
     password: string;
     setPassword: (password: string) => void;
+    startDate: Date;
+    setStartDate: (startDate: Date) => void;
+    endDate: Date;
+    setEndDate: (endDate: Date) => void;
 }
 
 interface DefaultWizardStateProps {
@@ -45,6 +48,8 @@ interface DefaultWizardStateProps {
     city: string,
     workspaceType: WorkspaceTypeEnum;
     operatingSystem: OperatingSystemEnum,
+    startDate: Date,
+    endDate: Date,
 }
 
 const initialState: DefaultWizardStateProps = {
@@ -59,6 +64,8 @@ const initialState: DefaultWizardStateProps = {
     streetNumber: "",
     zipCode: undefined,
     city: "",
+    startDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
+    endDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
 };
 
 const WizardStateContext = createContext({});
@@ -95,7 +102,9 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         surname,
         zipCode,
         phone,
-        email
+        email,
+        startDate,
+        endDate,
     } = state;
 
     const setWorkspaceType = useCallback(
@@ -149,6 +158,16 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setState({...state, email: email});
         }, [state]);
 
+    const setStartDate = useCallback(
+        (startDate: Date) => {
+            setState({...state, startDate: startDate});
+        }, [state]);
+
+    const setEndDate = useCallback(
+        (endDate: Date) => {
+            setState({...state, endDate: endDate});
+        }, [state]);
+
     // useMemo only updates on the dependencies change
     const context = useMemo(
         () => ({
@@ -163,6 +182,8 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             zipCode,
             phone,
             email,
+            startDate,
+            endDate,
             setWorkspaceType,
             setName,
             setCity,
@@ -173,10 +194,12 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setSurName,
             setZipCode,
             setPhone,
-            setEmail
+            setEmail,
+            setStartDate,
+            setEndDate,
         }),
         // eslint-disable-next-line max-len
-        [workspaceType, name, city, operatingSystem, street, streetNumber, password, surname, zipCode, phone, email, setWorkspaceType, setName, setCity, setOperatingSystem, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail]
+        [workspaceType, name, city, operatingSystem, street, streetNumber, password, surname, zipCode, phone, email, setWorkspaceType, startDate, endDate, setName, setCity, setOperatingSystem, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate]
     );
 
     return (

@@ -66,7 +66,7 @@ export default async function handler(
                                 mitgebrauchterHardware: false,
                                 anforderungen: 'Keine',
                                 software: 'Keine',
-                                betriebssysteme: OperatingSystemEnum.WINDOWS,
+                                betriebssysteme: req.body.operatingSystem,
                             }
                         }
                     },
