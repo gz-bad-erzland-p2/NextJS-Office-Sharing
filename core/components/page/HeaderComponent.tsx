@@ -20,7 +20,7 @@ export default function HeaderComponent() {
             className="bg-white border-gray-200 px-2 md:px-4 py-2.5 drop-shadow-md z-50">
             <div
                 className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-                <Link href="#" className="flex items-center">
+                <Link href="core/components/page#" className="flex items-center">
                     {/*<img className="mr-3 h-6 sm:h-9"*/}
                     {/*     alt="Flowbite Logo"/>*/}
                     <span
