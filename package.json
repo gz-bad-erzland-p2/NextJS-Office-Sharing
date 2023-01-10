@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mooncake-dev/react-day-time-picker": "^1.0.5",
     "@next/font": "^13.1.1",
     "@prisma/client": "^4.8.1",
     "@react-pdf/renderer": "^3.0.2",
