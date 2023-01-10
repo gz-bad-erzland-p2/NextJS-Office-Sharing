@@ -2,7 +2,7 @@
 import React, {
     createContext,
     useCallback,
-    useContext,
+    useContext, useEffect,
     useMemo,
     useState
 } from "react";
@@ -80,16 +80,26 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
 
     // Save the data of the wizard in the state of the context provider in local storage to persist the data
     const [state, setState] = useState(() => {
-    //     if (typeof window === "undefined") return initialState;
-    //     const savedState = localStorage.getItem("wizardState");
-    //     return savedState ? JSON.parse(savedState) : initialState;
-        return initialState;
+        if (typeof window === "undefined") return initialState;
+        const savedState = localStorage.getItem("wizardState");
+        // convert date string to date object
+        if (savedState) {
+            const parsedState = JSON.parse(savedState);
+            return {
+                ...parsedState,
+                startDate: new Date(parsedState.startDate),
+                endDate: new Date(parsedState.endDate),
+            };
+        }
+
+        return savedState ? JSON.parse(savedState) : initialState;
+        // return initialState;
     });
 
     // Save the data of the wizard in the state of the context provider in local storage to persist the data
-    // useEffect(() => {
-    //     localStorage.setItem("wizardState", JSON.stringify(state));
-    // }, [state]);
+    useEffect(() => {
+        localStorage.setItem("wizardState", JSON.stringify(state));
+    }, [state]);
 
     const {
         workspaceType,
