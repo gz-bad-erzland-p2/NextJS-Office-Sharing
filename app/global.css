@@ -38,39 +38,32 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+/* When you use these apply methods on form inputs you need to add the respective form classess to the individual components https://github.com/tailwindlabs/tailwindcss-forms */
+/*Original Ones from msnegurski*/
 
-.input-field, input[type=text]{
-    border: solid 2px #e5e7eb;
-    background-color: white;
-    border-radius: 0.5rem;
-    width: 252px;
-    height: 40px;
-    padding: 0.5rem;
-    text-align: center;
+.react-datepicker__input-container input {
+    @apply block w-full text-base md:text-sm bg-white border border-gray-300 rounded shadow-sm form-input
+}
+/*changed w-72 to auto and added inset-0*/
+.react-datepicker-popper {
+    @apply z-40 w-auto text-sm inset-0 bg-white shadow px-3 py-2 border-2 border-gray-200 rounded
 }
 
-.label-radio{
-    width: 200px !important;
-    height: 200px !important;
-    display: block;
-    border: solid 2px #e5e7eb;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    text-align: center;
+.react-datepicker-left {
+    @apply absolute left-0 right-auto top-11 transform-none !important
 }
 
-
-[type="radio"]:not(:checked) + label{
-	color: #e5e7eb;
-    border-color: #e5e7eb;
+.react-datepicker-right {
+    @apply absolute right-0 left-auto top-11 transform-none !important
 }
 
-img{
-	background-color: green;
+/*changed w-72 to auto */
+.react-datepicker__portal {
+    @apply absolute z-10 w-auto text-sm transform-none bg-white shadow px-3 py-2 top-12 right-0 border-2 border-gray-200 rounded
 }
 
-[type="radio"]:not(:checked) + label > img{
-	background-color: white;
+.react-datepicker__month-container {
+    @apply flex flex-col
 }
 
 [type="radio"]:checked + label{
@@ -95,4 +88,137 @@ p{
     margin-bottom: 10px;
     font-weight: 300;
     font-size: 0.9em;
+}
+.react-datepicker__month {
+    @apply flex flex-col
+}
+
+.react-datepicker__current-month {
+    @apply ml-2.5 text-lg font-semibold text-gray-800
+}
+
+.react-datepicker__week {
+    @apply flex justify-around
+}
+
+.react-datepicker__day-names {
+    @apply flex justify-around text-gray-400 font-medium text-center text-xs
+}
+
+.react-datepicker__day-name {
+    @apply w-8 h-8 flex items-center justify-center py-1 rounded-full
+}
+
+.react-datepicker__navigation {
+    @apply absolute top-2
+}
+
+.react-datepicker__navigation--previous {
+    @apply right-40 w-8 h-8 rounded transition flex items-center justify-center hover:bg-gray-200
+}
+
+.react-datepicker__navigation--next {
+    @apply right-32 w-8 h-8 rounded transition flex items-center justify-center hover:bg-gray-200
+}
+
+.react-datepicker__day {
+    @apply mb-1 w-8 h-8 flex items-center justify-center py-1 text-sm leading-loose transition text-gray-700 rounded
+}
+
+.react-datepicker__day--disabled {
+    @apply cursor-not-allowed opacity-40 hover:bg-transparent
+}
+
+.react-datepicker__day--outside-month {
+    @apply text-gray-300
+}
+
+.react-datepicker__day--in-range {
+    @apply bg-gray-200
+}
+/*changed bg-blue-200 to bg-lime-100 */
+.react-datepicker__day--in-selecting-range {
+    @apply bg-lime-100
+}
+
+/*changed border-blue-500 to border-lime-500 */
+.react-datepicker__day--selecting-range-start {
+    @apply bg-white border-2 border-lime-500
+}
+
+/*changed border-blue-500 to border-lime-500 */
+.react-datepicker__day--selecting-range-end {
+    @apply bg-white border-2 border-lime-500
+}
+
+.react-datepicker__day--selected {
+    @apply bg-blue-500 text-white
+}
+/*changed bg-blue-500 to bg-lime-500 */
+.react-datepicker__day--range-start {
+    @apply bg-lime-500 text-white hover:text-gray-700 hover:bg-white
+}
+
+/*changed bg-blue-500 to bg-lime-500 */
+.react-datepicker__day--range-end {
+    @apply bg-lime-500 text-white hover:text-gray-700 hover:bg-white
+}
+
+/*my additions*/
+
+.react-datepicker__input-container button {
+    @apply focus:ring-lime-500 focus:border-lime-500
+}
+
+/*  HIDE Scrollbar
+    https://github.com/tailwindlabs/tailwindcss/discussions/2394
+    https://github.com/tailwindlabs/tailwindcss/pull/5732
+*/
+@layer utilities {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+}
+
+.react-datepicker {
+    @apply flex justify-center w-full
+}
+
+.react-datepicker__time-container {
+    @apply flex flex-col justify-center w-24
+}
+
+.react-datepicker__time--box {
+    @apply overflow-y-scroll
+}
+
+.react-datepicker__header--time {
+    @apply  text-base text-center text-gray-800 rounded p-1 pt-2
+}
+
+.react-datepicker__time-list {
+    @apply no-scrollbar overflow-y-auto w-full h-40 p-2
+
+}
+
+.react-datepicker__time-list-item {
+    @apply hover:bg-lime-200 p-2 cursor-pointer
+}
+
+.react-datepicker__time-list-item--disabled {
+    @apply cursor-not-allowed opacity-40 hover:bg-transparent
+}
+
+.react-datepicker__time-list-item--selected {
+    @apply bg-lime-500 text-white
+}
+
+.react-datepicker-time__header {
+    @apply ml-2.5 text-base font-semibold text-gray-800 border-2 py-1
 }

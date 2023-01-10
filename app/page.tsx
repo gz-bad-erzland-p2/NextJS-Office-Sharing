@@ -20,11 +20,11 @@ export default function HomePage() {
                 <Link href={'/wizard'}>
                     <button
                         className={"bg-office-gray-500 border-2 border-office-green-500 p-1 text-office-green-500 rounded-lg flex items-center my-5"}>
-                        <BsArrowRight className={"mx-1"}/> book your table
+                        <BsArrowRight className={"mx-1"}/> Arbeitsplatz buchen
                     </button>
                 </Link>
             </div>
-            <Image src={workspace_Image} alt={"Workspaces"} placeholder={"blur"}
+            <Image src={workspace_Image} alt={"Workspaces"}
                    className={"relative z-0 lg:-mt-96 md:-mt-44 sm:m-0 object-contain"}/>
         </div>
     )
