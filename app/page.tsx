@@ -9,13 +9,10 @@ export default function HomePage() {
         <div
             className={"overflow-hidden flex flex-wrap justify-between items-center mx-auto pt-5 max-w-screen-xl"}>
             <div className={"relative z-20"}>
-                <h1 className={"text-6xl m-5 text-office-green-500"}>office
+                <h1 className={"text-6xl m-5 ml-0 text-office-green-500"}>office
                     sharing.</h1>
                 <p className={"text-office-green-500 font-inter font-normal text-sm max-w-md"}>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                    sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                    magna aliquyam erat,
-                    sed diam voluptua.
+                Willkommen auf unserer Office Sharing Plattform. Hier haben Sie die Möglichkeit, Arbeitsplätze auf Zeit zu reservieren. Durch eine Buchung bei uns erhalten Sie Zugang zu modern ausgestatteten Büromöglichkeiten, schnellem Internet und einer produktiven Arbeitsumgebung.
                 </p>
                 <Link href={'/wizard'}>
                     <button
