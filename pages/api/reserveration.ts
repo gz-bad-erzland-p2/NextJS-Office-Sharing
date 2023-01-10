@@ -34,6 +34,7 @@ export default async function handler(
 
     switch (req.method) {
         case 'POST':
+            console.log("POST REQUEST!")
             try {
                 const hashedPassword: string = await new Promise((resolve, reject) => {
                     hash(req.body.password, 10, (err, hash) => {
@@ -53,8 +54,8 @@ export default async function handler(
                         adresse: {
                             create: {
                                 strasse: req.body.street,
-                                hausnummer: req.body.streetNumber,
-                                plz: req.body.zipCode,
+                                hausnummer: +req.body.streetNumber,
+                                plz: +req.body.zipCode,
                                 ort: req.body.city,
                                 zusatz: 'testZusatz',
                             }
@@ -66,7 +67,7 @@ export default async function handler(
                                 mitgebrauchterHardware: false,
                                 anforderungen: 'Keine',
                                 software: 'Keine',
-                                betriebssysteme: OperatingSystemEnum.WINDOWS,
+                                betriebssysteme: req.body.operatingSystem,
                             }
                         }
                     },
@@ -76,6 +77,7 @@ export default async function handler(
                     body: reservation
                 });
             } catch (err) {
+                console.log(err);
                 res.status(500).json(err);
             }
             break;
