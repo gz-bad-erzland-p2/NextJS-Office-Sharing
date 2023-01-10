@@ -53,7 +53,7 @@ export default function WizardMainPage() {
                         </div>
                     </BasePageComponent>
                 </Step>
-                <Step key={`page/5`} id={'5'}
+                <Step key={`page/4`} id={'4'}
                       className={"w-full h-full"}>
                     <BasePageComponent heading={"Zeitauswahl"}>
                         <div
@@ -62,7 +62,7 @@ export default function WizardMainPage() {
                         </div>
                     </BasePageComponent>
                 </Step>
-                <Step key={`page/4`} id={'4'} className={"w-full h-full"}>
+                <Step key={`page/5`} id={'5'} className={"w-full h-full"}>
                     <BasePageComponent heading={"Persönliche Daten"}>
                         <div className={"p-5 h-full flex justify-center"}>
                             <PersonalDataComponent/>
