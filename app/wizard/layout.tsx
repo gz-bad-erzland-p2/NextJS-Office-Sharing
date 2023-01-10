@@ -10,7 +10,7 @@ import NavigationComponent
 export default function WizardLayout({children}: { children: React.ReactNode }) {
     return (
         <section
-            className="relative m-auto border-2 bg-white p-2 md:w-1/2 w-full min-w-0 drop-shadow-lg rounded-md h-full flex flex-col items-center">
+            className="relative m-auto border-2 bg-white p-2 md:w-1/2 min-w w-full md:min-w-[650px]  md:drop-shadow-lg md:rounded-md h-full flex flex-col items-center">
             <Suspense fallback={"LADEN"}>
                 <WizardStepProvider>
                     <WizardStateProvider>
