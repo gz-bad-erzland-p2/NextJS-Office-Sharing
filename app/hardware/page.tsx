@@ -21,7 +21,7 @@ export default function HarwareMainPage() {
             </div>
 
             <div className="m-10 ">
-                <div className="flex justify-center">
+                <div className="flex justify-center flex-col md:flex-row">
                     <div className="mix-blend-multiply mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="ESPRIMO" src={pc_image}></Image></div> 
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
@@ -33,7 +33,7 @@ export default function HarwareMainPage() {
             </div>
 
             <div className="m-10 ">
-                <div className="flex justify-center">
+                <div className="flex justify-center flex-col md:flex-row">
                     <div className="mix-blend-multiply mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={monitor_image}></Image></div> 
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
@@ -45,7 +45,7 @@ export default function HarwareMainPage() {
             </div>
 
             <div className="m-10 ">
-                <div className="flex justify-center">
+                <div className="flex justify-center flex-col md:flex-row">
                     <div className="mix-blend-multiply mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={mise_image}></Image></div> 
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
@@ -57,7 +57,7 @@ export default function HarwareMainPage() {
             </div>
 
             <div className="m-10 " >
-                <div className="flex justify-center">
+                <div className="flex justify-center flex-col md:flex-row">
                     <div className="mix-blend-multiply mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={keyboard_image}></Image></div> 
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
