@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function SupportMainPage() {
     return (
-        <div className="padding-above w-full h-full">
-            <div className="text-center m-10 flex justify-center">
-                <div className={"bg-white p-5 rounded-2xl"}>
+        <div className="md:padding-above w-full h-full">
+            <div className="text-center md:m-10 h-full md:h-auto flex justify-center">
+                <div className={"bg-white p-5 w-full md:w-auto h-full md:h-auto md:rounded-2xl"}>
                     <h1 className="text-2xl">Kontaktdaten Technischer
                         Support</h1>
                     <br/>
