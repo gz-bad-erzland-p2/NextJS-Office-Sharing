@@ -122,7 +122,7 @@ p{
 }
 
 .react-datepicker__day {
-    @apply mb-1 w-8 h-8 flex items-center justify-center py-1 text-sm leading-loose transition text-gray-700 rounded
+    @apply mb-1 w-8 h-8 flex items-center justify-center py-1 text-sm leading-loose transition text-gray-700 rounded cursor-pointer
 }
 
 .react-datepicker__day--disabled {
@@ -136,41 +136,38 @@ p{
 .react-datepicker__day--in-range {
     @apply bg-gray-200
 }
-/*changed bg-blue-200 to bg-lime-100 */
+
 .react-datepicker__day--in-selecting-range {
-    @apply bg-lime-100
+    @apply bg-office-green-100
 }
 
-/*changed border-blue-500 to border-lime-500 */
+
 .react-datepicker__day--selecting-range-start {
-    @apply bg-white border-2 border-lime-500
+    @apply bg-white border-2 border-office-green-500
 }
 
-/*changed border-blue-500 to border-lime-500 */
 .react-datepicker__day--selecting-range-end {
-    @apply bg-white border-2 border-lime-500
+    @apply bg-white border-2 border-office-green-500
 }
 
 .react-datepicker__day--selected {
     @apply bg-blue-500 text-white
 }
-/*changed bg-blue-500 to bg-lime-500 */
+
 .react-datepicker__day--range-start {
-    @apply bg-lime-500 text-white hover:text-gray-700 hover:bg-white
+    @apply bg-office-green-500 text-white hover:text-gray-700 hover:bg-white
 }
 
-/*changed bg-blue-500 to bg-lime-500 */
+
 .react-datepicker__day--range-end {
-    @apply bg-lime-500 text-white hover:text-gray-700 hover:bg-white
+    @apply bg-office-green-500 text-white hover:text-gray-700 hover:bg-white
 }
-
-/*my additions*/
 
 .react-datepicker__input-container button {
-    @apply focus:ring-lime-500 focus:border-lime-500
+    @apply focus:ring-office-green-500 focus:border-office-green-500
 }
 
-/*  HIDE Scrollbar
+/*  HIDE Scrollbar (currently not used)
     https://github.com/tailwindlabs/tailwindcss/discussions/2394
     https://github.com/tailwindlabs/tailwindcss/pull/5732
 */
@@ -203,12 +200,13 @@ p{
 }
 
 .react-datepicker__time-list {
-    @apply no-scrollbar overflow-y-auto w-full h-40 p-2
+   /* @apply no-scrollbar overflow-y-auto w-full h-40 p-2 */
+    @apply overflow-y-auto w-full h-40 p-2
 
 }
 
 .react-datepicker__time-list-item {
-    @apply hover:bg-lime-200 p-2 cursor-pointer
+    @apply hover:bg-office-green-200 p-2 cursor-pointer
 }
 
 .react-datepicker__time-list-item--disabled {
@@ -216,7 +214,7 @@ p{
 }
 
 .react-datepicker__time-list-item--selected {
-    @apply bg-lime-500 text-white
+    @apply bg-office-green-500 text-white
 }
 
 .react-datepicker-time__header {
