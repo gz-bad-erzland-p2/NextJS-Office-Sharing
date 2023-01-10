@@ -128,7 +128,7 @@ export const PersonalDataComponent = () => {
                 <label htmlFor="terms"
                        className="ml-2 text-sm font-medium text-gray-900">Ich
                     stimme den
-                    <Link href="core/components/wizard/page#"
+                    <Link href="#"
                           className="text-office-green-400 hover:underline"> AGB's
                         und der Datenschutzverordnung zu</Link>
                 </label>

@@ -1,9 +1,10 @@
 import DatePicker, {registerLocale} from 'react-datepicker'
-import {useEffect, useState} from 'react'
+import {useEffect} from 'react'
 // import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import {addDays, addHours, addYears, differenceInHours, format, setHours, subDays} from 'date-fns'
 import {de} from 'date-fns/locale';
 import {BsChevronLeft, BsChevronRight} from "react-icons/bs";
+import {useWizardStateContext} from "../../context/WizardStateContext";
 
 registerLocale('deDE', de);
 
@@ -12,8 +13,7 @@ export default function DateRangePicker() {
     const BUSINESS_HOURS_START = 7; // Geschäftszeitbeginn
     const BUSINESS_HOURS_END = 20; // Geschäftszeitende
 
-    const [startDate, setStartDate] = useState(new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)));
-    const [endDate, setEndDate] = useState(new Date(startDate));
+    const {startDate, setStartDate, endDate, setEndDate} = useWizardStateContext();
 
     useEffect(() => {
         if (startDate.getTime() > endDate.getTime()) {
