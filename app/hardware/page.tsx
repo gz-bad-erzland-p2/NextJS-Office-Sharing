@@ -22,7 +22,7 @@ export default function HarwareMainPage() {
 
             <div className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
-                    <div className="mix-blend-multiply mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="ESPRIMO" src={pc_image}></Image></div> 
+                    <div className="mix-blend-multiply max-w-full mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="ESPRIMO" src={pc_image}></Image></div> 
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
                             <p className="text-xl">ESPRIMO P5011</p>
@@ -34,7 +34,7 @@ export default function HarwareMainPage() {
 
             <div className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
-                    <div className="mix-blend-multiply mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={monitor_image}></Image></div> 
+                    <div className="mix-blend-multiply max-w-full mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={monitor_image}></Image></div> 
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
                             <p className="text-xl">Fujitsu Display B24-8 TE Pro</p>
@@ -46,7 +46,7 @@ export default function HarwareMainPage() {
 
             <div className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
-                    <div className="mix-blend-multiply mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={mise_image}></Image></div> 
+                    <div className="mix-blend-multiply max-w-full mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={mise_image}></Image></div> 
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
                             <p className="text-xl">Maus M520</p>
@@ -58,7 +58,7 @@ export default function HarwareMainPage() {
 
             <div className="m-10 " >
                 <div className="flex justify-center flex-col md:flex-row">
-                    <div className="mix-blend-multiply mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={keyboard_image}></Image></div> 
+                    <div className="mix-blend-multiply max-w-full mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={keyboard_image}></Image></div> 
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
                             <p className="text-xl">Keyboard KB521</p>
