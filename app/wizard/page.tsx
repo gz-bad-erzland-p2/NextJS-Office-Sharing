@@ -16,6 +16,11 @@ export default function WizardMainPage() {
             loading: () => <Loading/>,
         });
 
+
+        const ITComponent = dynamic(() => import('../../core/components/wizard/page/ITComponent').then((mod) => mod.ITComponent), {
+            loading: () => <Loading/>,
+        });
+
         const OperatingSystemComponent = dynamic(() => import('../../core/components/wizard/page/OperatingSystemComponent').then((mod) => mod.OperatingSystemComponent), {
             loading: () => <Loading/>,
         });
@@ -27,6 +32,8 @@ export default function WizardMainPage() {
         const TimeSelectionComponent = dynamic(() => import('../../core/components/wizard/page/TimeSelectionComponent').then((mod) => mod.TimeSelectionComponent), {
             loading: () => <Loading/>,
         });
+
+       
 
         return (
             <Steps>
@@ -42,18 +49,27 @@ export default function WizardMainPage() {
                       className={"w-full h-full transition-opacity"}>
                     <BasePageComponent heading={"Betriebssystem"}>
                         <div className={"p-5 h-full flex justify-center"}>
+                            <ITComponent/>
+                        </div>
+                    </BasePageComponent>
+                </Step>
+
+                <Step key={`page/3`} id={'3'}
+                      className={"w-full h-full transition-opacity"}>
+                    <BasePageComponent heading={"Betriebssystem"}>
+                        <div className={"p-5 h-full flex justify-center"}>
                             <OperatingSystemComponent/>
                         </div>
                     </BasePageComponent>
                 </Step>
-                <Step key={`page/3`} id={'3'} className={"w-full h-full"}>
+                <Step key={`page/4`} id={'4'} className={"w-full h-full"}>
                     <BasePageComponent heading={"Weitere Spezifikationen"}>
                         <div className={"p-5 h-full flex justify-center"}>
                             <SoftwareSpecsComponent/>
                         </div>
                     </BasePageComponent>
                 </Step>
-                <Step key={`page/4`} id={'4'}
+                <Step key={`page/5`} id={'5'}
                       className={"w-full h-full"}>
                     <BasePageComponent heading={"Zeitauswahl"}>
                         <div
@@ -62,13 +78,18 @@ export default function WizardMainPage() {
                         </div>
                     </BasePageComponent>
                 </Step>
-                <Step key={`page/5`} id={'5'} className={"w-full h-full"}>
+
+               
+
+                <Step key={`page/6`} id={'6'} className={"w-full h-full"}>
                     <BasePageComponent heading={"Persönliche Daten"}>
                         <div className={"p-5 h-full flex justify-center"}>
                             <PersonalDataComponent/>
                         </div>
                     </BasePageComponent>
                 </Step>
+
+                
             </Steps>
         );
     };

@@ -8,12 +8,19 @@ import React, {
 } from "react";
 import {WorkspaceTypeEnum} from "../utils/enums/WorkspaceTypeEnum";
 import {OperatingSystemEnum} from "../utils/enums/OperatingSystemEnum";
+import {ITEnum} from "../utils/enums/ITEnum";
 
 interface WizardStateContextProps {
     workspaceType: WorkspaceTypeEnum;
     setWorkspaceType: (workspaceType: WorkspaceTypeEnum) => void;
     operatingSystem: OperatingSystemEnum;
     setOperatingSystem: (operatingSystem: OperatingSystemEnum) => void;
+    operatingSystem2: OperatingSystemEnum;
+    setOperatingSystem2: (operatingSystem: OperatingSystemEnum) => void;
+    ITSystem: ITEnum;
+    setITSystem: (IT: ITEnum) => void;
+    ITSystem2: ITEnum;
+    setITSystem2: (IT: ITEnum) => void;
     name: string;
     setName: (name: string) => void;
     surname: string;
@@ -47,13 +54,22 @@ interface DefaultWizardStateProps {
     zipCode: number | undefined,
     city: string,
     workspaceType: WorkspaceTypeEnum;
+
+    ITSystem: ITEnum,
+    ITSystem2: ITEnum,
+
     operatingSystem: OperatingSystemEnum,
+    operatingSystem2: OperatingSystemEnum,
+
     startDate: Date,
     endDate: Date,
 }
 
 const initialState: DefaultWizardStateProps = {
     workspaceType: WorkspaceTypeEnum.SINGLE_DESK,
+    ITSystem: ITEnum.PC,
+    ITSystem2: ITEnum.PC,
+    operatingSystem2: OperatingSystemEnum.WINDOWS,
     operatingSystem: OperatingSystemEnum.WINDOWS,
     name: "",
     surname: "",
@@ -65,7 +81,8 @@ const initialState: DefaultWizardStateProps = {
     zipCode: undefined,
     city: "",
     startDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
-    endDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
+    endDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0))
+    
 };
 
 const WizardStateContext = createContext({});
@@ -137,6 +154,22 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         (operatingSystem: OperatingSystemEnum) => {
             setState({...state, operatingSystem: operatingSystem});
         }, [state]);
+    const setOperatingSystem2 = useCallback(
+            (operatingSystem2: OperatingSystemEnum) => {
+                setState({...state, operatingSystem: operatingSystem});
+            }, [state]);
+
+   const setITSystem = useCallback(
+            (ITSystem: OperatingSystemEnum) => {
+                 setState({...state, operatingSystem: operatingSystem});
+            }, [state]);
+
+    const setITSystem2 = useCallback(
+        (ITSystem2: OperatingSystemEnum) => {
+            setState({...state, operatingSystem: operatingSystem});
+        }, [state]);
+
+
     const setStreet = useCallback(
         (street: string) => {
             setState({...state, street: street});
@@ -198,6 +231,9 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setName,
             setCity,
             setOperatingSystem,
+            setOperatingSystem2,
+            setITSystem,
+            setITSystem2,
             setStreet,
             setStreetNumber,
             setPassword,
