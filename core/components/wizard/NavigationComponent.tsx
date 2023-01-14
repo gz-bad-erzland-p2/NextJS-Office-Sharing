@@ -62,7 +62,6 @@ export default function NavigationComponent() {
 
     return (
         <div className={"flex gap-3 mt-10"}>
-            <div className={"bg-red-500"}>ERROR</div>
             <button
                 className={`rounded px-2 py-1.5 border-1 border-office-gray-500 bg-office-green-500 text-white disabled:bg-office-gray-600 disabled:text-black transition-colors`}
                 onClick={onPrevious} disabled={isFirstStep}>
