@@ -2,7 +2,8 @@
 import React, {
     createContext,
     useCallback,
-    useContext, useEffect,
+    useContext,
+    useEffect,
     useMemo,
     useState
 } from "react";
@@ -54,13 +55,10 @@ interface DefaultWizardStateProps {
     zipCode: number | undefined,
     city: string,
     workspaceType: WorkspaceTypeEnum;
-
     ITSystem: ITEnum,
     ITSystem2: ITEnum,
-
     operatingSystem: OperatingSystemEnum,
     operatingSystem2: OperatingSystemEnum,
-
     startDate: Date,
     endDate: Date,
 }
@@ -69,8 +67,8 @@ const initialState: DefaultWizardStateProps = {
     workspaceType: WorkspaceTypeEnum.SINGLE_DESK,
     ITSystem: ITEnum.PC,
     ITSystem2: ITEnum.PC,
-    operatingSystem2: OperatingSystemEnum.WINDOWS,
     operatingSystem: OperatingSystemEnum.WINDOWS,
+    operatingSystem2: OperatingSystemEnum.WINDOWS,
     name: "",
     surname: "",
     email: "",
@@ -82,7 +80,7 @@ const initialState: DefaultWizardStateProps = {
     city: "",
     startDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
     endDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0))
-    
+
 };
 
 const WizardStateContext = createContext({});
@@ -123,6 +121,9 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         name,
         city,
         operatingSystem,
+        operatingSystem2,
+        ITSystem,
+        ITSystem2,
         street,
         streetNumber,
         password,
@@ -155,21 +156,17 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setState({...state, operatingSystem: operatingSystem});
         }, [state]);
     const setOperatingSystem2 = useCallback(
-            (operatingSystem2: OperatingSystemEnum) => {
-                setState({...state, operatingSystem: operatingSystem});
-            }, [state]);
-
-   const setITSystem = useCallback(
-            (ITSystem: OperatingSystemEnum) => {
-                 setState({...state, operatingSystem: operatingSystem});
-            }, [state]);
-
-    const setITSystem2 = useCallback(
-        (ITSystem2: OperatingSystemEnum) => {
-            setState({...state, operatingSystem: operatingSystem});
+        (operatingSystem: OperatingSystemEnum) => {
+            setState({...state, operatingSystem2: operatingSystem});
         }, [state]);
-
-
+    const setITSystem = useCallback(
+        (itSystem: ITEnum) => {
+            setState({...state, ITSystem: itSystem});
+        }, [state]);
+    const setITSystem2 = useCallback(
+        (itSystem: ITEnum) => {
+            setState({...state, ITSystem2: itSystem});
+        }, [state]);
     const setStreet = useCallback(
         (street: string) => {
             setState({...state, street: street});
@@ -177,9 +174,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
     const setStreetNumber = useCallback(
         (streetNumber: string) => {
             setState({...state, streetNumber: streetNumber});
-        },
-        [state]
-    );
+        }, [state]);
     const setPassword = useCallback(
         (password: string) => {
             setState({...state, password: password});
@@ -218,6 +213,9 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             name,
             city,
             operatingSystem,
+            operatingSystem2,
+            ITSystem,
+            ITSystem2,
             street,
             streetNumber,
             password,
@@ -245,7 +243,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setEndDate,
         }),
         // eslint-disable-next-line max-len
-        [workspaceType, name, city, operatingSystem, street, streetNumber, password, surname, zipCode, phone, email, setWorkspaceType, startDate, endDate, setName, setCity, setOperatingSystem, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate]
+        [workspaceType, name, city, operatingSystem, operatingSystem2, ITSystem, ITSystem2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, setWorkspaceType, setName, setCity, setOperatingSystem, setOperatingSystem2, setITSystem, setITSystem2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate]
     );
 
     return (
