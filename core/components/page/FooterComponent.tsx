@@ -22,7 +22,7 @@ export default function FooterComponent() {
                 </div>
                 <hr className="border-gray-200 sm:mx-auto my-3"/>
                 <div className="sm:flex sm:items-center sm:justify-between">
-                    <span className="text-sm sm:text-center dark:text-gray-400">© 2022 <Link
+                    <span className="text-sm sm:text-center dark:text-gray-400">© {new Date().getFullYear()} <Link
                         href="/" className="hover:underline">SecNetIT</Link>. All Rights Reserved.</span>
                 </div>
             </div>

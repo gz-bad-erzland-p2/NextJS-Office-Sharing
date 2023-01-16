@@ -5,28 +5,29 @@ import monitor_image from "../../public/assets/img/monitor.png";
 import mise_image from "../../public/assets/img/mise.png";
 import keyboard_image from "../../public/assets/img/keyboard.png";
 
-import { useState, useEffect } from "react";
-import GetTimeSlots from "../../pages/api/GetTimeSlots";
-
 export default function HarwareMainPage() {
-    return(
+    return (
         <div className=" w-full">
             <div className="m-10 text-center">
-            <h1 className="text-2xl m-10 ">Hardware</h1>
-            <p>Es folgen eine Auflistung aller Hardware die bei uns zur Verfügung steht. <br></br>Benötigen Sie weitere Hardware so shcreiben Sie das bitte im Buchungsprozess dazu.</p>
-            <div>
-            <div className="HardwareImage max-w-[300px]">  </div>
-            <div className="HardwareDescription"><h3></h3></div>
-            </div>
+                <h1 className="text-2xl m-10 ">Hardware</h1>
+                <p>Es folgen eine Auflistung aller Hardware die bei uns zur
+                    Verfügung steht. <br></br>Benötigen Sie weitere Hardware so
+                    shcreiben Sie das bitte im Buchungsprozess dazu.</p>
+                <div>
+                    <div className="HardwareImage max-w-[300px]"></div>
+                    <div className="HardwareDescription"><h3></h3></div>
+                </div>
             </div>
 
             <div className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
-                    <div className="mix-blend-multiply max-w-full mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="ESPRIMO" src={pc_image}></Image></div> 
+                    <Image alt="ESPRIMO" src={pc_image}
+                           className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"} placeholder={"blur"} quality={"25"}></Image>
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
                             <p className="text-xl">ESPRIMO P5011</p>
-                            <p>Intel® Core™ i3-10105-Prozessor, 6 MB, 3.70 GHz <br/>16 GB RAM</p>
+                            <p>Intel® Core™ i3-10105-Prozessor, 6 MB, 3.70
+                                GHz <br/>16 GB RAM</p>
                         </div>
                     </div>
                 </div>
@@ -34,10 +35,12 @@ export default function HarwareMainPage() {
 
             <div className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
-                    <div className="mix-blend-multiply max-w-full mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={monitor_image}></Image></div> 
+                    <Image alt="Monitor" src={monitor_image}
+                           className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"} placeholder={"blur"}></Image>
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
-                            <p className="text-xl">Fujitsu Display B24-8 TE Pro</p>
+                            <p className="text-xl">Fujitsu Display B24-8 TE
+                                Pro</p>
                             <p>23,8 Zoll<br/>1.920 x 1.080 Pixel</p>
                         </div>
                     </div>
@@ -46,7 +49,8 @@ export default function HarwareMainPage() {
 
             <div className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
-                    <div className="mix-blend-multiply max-w-full mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={mise_image}></Image></div> 
+                    <Image alt="Monitor" src={mise_image}
+                           className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"} placeholder={"blur"}></Image>
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
                             <p className="text-xl">Maus M520</p>
@@ -56,9 +60,10 @@ export default function HarwareMainPage() {
                 </div>
             </div>
 
-            <div className="m-10 " >
+            <div className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
-                    <div className="mix-blend-multiply max-w-full mr-10 w-[400px]  rounded-xl p-[10px]"><Image alt="Monitor" src={keyboard_image}></Image></div> 
+                    <Image alt="Monitor" src={keyboard_image}
+                           className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"} placeholder={"blur"}></Image>
                     <div className="w-[400px] h-[300px]  flex  items-center">
                         <div>
                             <p className="text-xl">Keyboard KB521</p>
@@ -67,9 +72,9 @@ export default function HarwareMainPage() {
                     </div>
                 </div>
             </div>
-        
+
         </div>
-        
+
 
     )
 }

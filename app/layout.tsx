@@ -9,6 +9,8 @@ const inter = Inter({
     variable: '--font-inter',
 });*/
 export default function RootLayout({children}: { children: React.ReactNode }) {
+
+    // https://shippingchimp.com/blog/wp-content/uploads/2021/01/image-19-644x1024.png
     return (
         <html lang={"de"} /*className={inter.className}*/
               className={"h-full w-full"}>
