@@ -1,4 +1,4 @@
-export enum ItEnum {
+export enum HardwareEnum {
     BYOD = "BYOD",
     Laptop = "Laptop",
     PC = "PC",

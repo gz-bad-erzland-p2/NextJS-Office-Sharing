@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import {WorkspaceTypeEnum} from "../utils/enums/WorkspaceTypeEnum";
 import {OperatingSystemEnum} from "../utils/enums/OperatingSystemEnum";
-import {ItEnum} from "../utils/enums/ItEnum";
+import {HardwareEnum} from "../utils/enums/HardwareEnum";
 
 interface WizardStateContextProps {
     workspaceType: WorkspaceTypeEnum;
@@ -18,10 +18,10 @@ interface WizardStateContextProps {
     setOperatingSystem: (operatingSystem: OperatingSystemEnum) => void;
     operatingSystem2: OperatingSystemEnum;
     setOperatingSystem2: (operatingSystem: OperatingSystemEnum) => void;
-    ITSystem: ItEnum;
-    setITSystem: (IT: ItEnum) => void;
-    ITSystem2: ItEnum;
-    setITSystem2: (IT: ItEnum) => void;
+    Hardware: HardwareEnum;
+    setHardware: (IT: HardwareEnum) => void;
+    Hardware2: HardwareEnum;
+    setHardware2: (IT: HardwareEnum) => void;
     name: string;
     setName: (name: string) => void;
     surname: string;
@@ -44,7 +44,7 @@ interface WizardStateContextProps {
     setEndDate: (endDate: Date) => void;
 }
 
-interface DefaultWizardStateProps {
+export interface DefaultWizardStateProps {
     name: string,
     surname: string,
     email: string,
@@ -55,8 +55,8 @@ interface DefaultWizardStateProps {
     zipCode: number | undefined,
     city: string,
     workspaceType: WorkspaceTypeEnum;
-    ITSystem: ItEnum,
-    ITSystem2: ItEnum,
+    HardWare: HardwareEnum,
+    Hardware2: HardwareEnum,
     operatingSystem: OperatingSystemEnum,
     operatingSystem2: OperatingSystemEnum,
     startDate: Date,
@@ -65,8 +65,8 @@ interface DefaultWizardStateProps {
 
 const initialState: DefaultWizardStateProps = {
     workspaceType: WorkspaceTypeEnum.SINGLE_DESK,
-    ITSystem: ItEnum.PC,
-    ITSystem2: ItEnum.PC,
+    HardWare: HardwareEnum.PC,
+    Hardware2: HardwareEnum.PC,
     operatingSystem: OperatingSystemEnum.WINDOWS,
     operatingSystem2: OperatingSystemEnum.WINDOWS,
     name: "",
@@ -122,8 +122,8 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         city,
         operatingSystem,
         operatingSystem2,
-        ITSystem,
-        ITSystem2,
+        hardware,
+        hardware2,
         street,
         streetNumber,
         password,
@@ -159,13 +159,13 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         (operatingSystem: OperatingSystemEnum) => {
             setState({...state, operatingSystem2: operatingSystem});
         }, [state]);
-    const setITSystem = useCallback(
-        (itSystem: ItEnum) => {
-            setState({...state, ITSystem: itSystem});
+    const setHardware = useCallback(
+        (hardwareEnum: HardwareEnum) => {
+            setState({...state, hardware: hardwareEnum});
         }, [state]);
-    const setITSystem2 = useCallback(
-        (itSystem: ItEnum) => {
-            setState({...state, ITSystem2: itSystem});
+    const setHardware2 = useCallback(
+        (hardwareEnum: HardwareEnum) => {
+            setState({...state, hardware2: hardwareEnum});
         }, [state]);
     const setStreet = useCallback(
         (street: string) => {
@@ -214,8 +214,8 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             city,
             operatingSystem,
             operatingSystem2,
-            ITSystem,
-            ITSystem2,
+            hardware,
+            hardware2,
             street,
             streetNumber,
             password,
@@ -230,8 +230,8 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setCity,
             setOperatingSystem,
             setOperatingSystem2,
-            setITSystem,
-            setITSystem2,
+            setHardware,
+            setHardware2,
             setStreet,
             setStreetNumber,
             setPassword,
@@ -243,7 +243,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setEndDate,
         }),
         // eslint-disable-next-line max-len
-        [workspaceType, name, city, operatingSystem, operatingSystem2, ITSystem, ITSystem2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, setWorkspaceType, setName, setCity, setOperatingSystem, setOperatingSystem2, setITSystem, setITSystem2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate]
+        [workspaceType, name, city, operatingSystem, operatingSystem2, hardware, hardware2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, setWorkspaceType, setName, setCity, setOperatingSystem, setOperatingSystem2, setHardware, setHardware2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate]
     );
 
     return (
