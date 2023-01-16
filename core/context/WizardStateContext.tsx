@@ -42,6 +42,8 @@ interface WizardStateContextProps {
     setStartDate: (startDate: Date) => void;
     endDate: Date;
     setEndDate: (endDate: Date) => void;
+    briefing:boolean;
+    setBriefing: (briefing:Date) => void;
 }
 
 interface DefaultWizardStateProps {
@@ -61,6 +63,7 @@ interface DefaultWizardStateProps {
     operatingSystem2: OperatingSystemEnum,
     startDate: Date,
     endDate: Date,
+    briefing:boolean
 }
 
 const initialState: DefaultWizardStateProps = {
@@ -79,7 +82,8 @@ const initialState: DefaultWizardStateProps = {
     zipCode: undefined,
     city: "",
     startDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
-    endDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0))
+    endDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
+    briefing:false
 
 };
 

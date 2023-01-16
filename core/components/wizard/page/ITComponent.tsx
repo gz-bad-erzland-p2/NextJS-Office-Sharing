@@ -9,10 +9,14 @@ import Image from "next/image";
 
 import desktop from "../../../../public/assets/svg/desktop.svg";
 import laptop from "../../../../public/assets/svg/laptop.svg";
+import devices from "../../../../public/assets/svg/devices.svg";
+
+import { WorkspaceTypeEnum } from "../../../utils/enums/WorkspaceTypeEnum";
 
 export const ITComponent = () => {
     const {ITSystem, setITSystem} = useWizardStateContext();
     const {ITSystem2, setITSystem2} = useWizardStateContext();
+    const {workspaceType} = useWizardStateContext();
 
     return (
         <form id={"form"} className={"h-full w-full"}>
@@ -67,7 +71,7 @@ export const ITComponent = () => {
                            className="inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                         <div
                             className={"flex flex-col w-full h-full items-center justify-between"}>
-                            <Image src={laptop}
+                            <Image src={devices}
                                    alt={"Bild Doppelarbeitsplatz"}
                                    className={"flex-grow w-full h-full"}/>
                             <div className="text-lg font-semibold">
@@ -78,7 +82,8 @@ export const ITComponent = () => {
                 </li>
 
             </ul>
-
+            { workspaceType == WorkspaceTypeEnum.DOUBLE_DESK &&
+            <div>
             <br></br>
             <h3 className="mb-5 text-lg font-medium">Arbeitsplatz 2</h3>
             <ul className="flex md:flex-row flex-col min-w-0 gap-2 w-full items-center justify-center">
@@ -120,7 +125,29 @@ export const ITComponent = () => {
                         </div>
                     </label>
                 </li>
+                <li className={"w-full h-40"} onClick={() => {
+                    setITSystem2(ITEnum.BYOD);
+                }}>
+                    <input type="radio" id="byod2" name="it-system2"
+                           className="hidden peer"
+                           defaultChecked={ITSystem2 === ITEnum.BYOD}/>
+                    <label htmlFor="byod2"
+                           className="inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
+                        <div
+                            className={"flex flex-col w-full h-full items-center justify-between"}>
+                            <Image src={devices}
+                                   alt={"Bild Doppelarbeitsplatz"}
+                                   className={"flex-grow w-full h-full"}/>
+                            <div className="text-lg font-semibold">
+                                Bringe eigenes Gerät
+                            </div>
+                        </div>
+                    </label>
+                </li>
+
             </ul>
+            </div>
+            }
         </form>
     );
 }

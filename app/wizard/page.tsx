@@ -47,7 +47,7 @@ export default function WizardMainPage() {
                 </Step>
                 <Step key={`page/2`} id={'2'}
                       className={"w-full h-full transition-opacity"}>
-                    <BasePageComponent heading={"Betriebssystem"}>
+                    <BasePageComponent heading={"Geräte"}>
                         <div className={"p-5 h-full flex justify-center"}>
                             <ITComponent/>
                         </div>
