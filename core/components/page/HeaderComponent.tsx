@@ -14,14 +14,11 @@ export default function HeaderComponent() {
         {name: "Hardware", path: 'hardware'}
     ];
 
-
     function toggleMenu(){
         const element = document.getElementById("mobile_menu");
         element?.classList.toggle("show_menu");
         const element2 = document.getElementById("toggle_button");
         element2?.classList.toggle("display_toggle_button");
-
-        
       } 
 
     return (

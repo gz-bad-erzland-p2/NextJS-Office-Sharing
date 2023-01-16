@@ -1,20 +1,13 @@
 "use client";
 import Link from "next/link";
 import React, {useState} from "react";
-import {useSelectedLayoutSegment} from "next/navigation";
-import FloatingTextFieldComponent from "../other/FloatingTextFieldComponent";
-import {useWizardStateContext} from "../../context/WizardStateContext";
+import FloatingTextFieldComponent from "../misc/FloatingTextFieldComponent";
 
 export default function RegisterComponent(props) {
-
-
 
     const [passwordMatch, setPasswordMatch] = useState(false);
     const [isFirstClick, setIsFirstClick] = useState(false);
 
-    // useEffect(() => {
-    //     setCanGoNext(false);
-    // }, [])
 
     const handleMessageHide = (): boolean => {
         if (!isFirstClick) {
@@ -110,7 +103,7 @@ export default function RegisterComponent(props) {
                        className="ml-2 text-sm font-medium text-gray-900">Ich
                     stimme den
                     <Link href="#"
-                          className="text-office-green-400 hover:underline"> AGB's
+                          className="text-office-green-400 hover:underline"> {"AGB's "}
                         und der Datenschutzverordnung zu</Link>
                 </label>
             </div>

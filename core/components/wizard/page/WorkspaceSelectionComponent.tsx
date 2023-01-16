@@ -10,7 +10,7 @@ import {
     useWizardStateContext
 } from "../../../context/WizardStateContext";
 
-export const WorkspaceTypeComponent = () => {
+export const WorkspaceSelectionComponent = () => {
 
     const {setWorkspaceType, workspaceType} = useWizardStateContext();
 

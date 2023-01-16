@@ -2,7 +2,7 @@
 import React, {
     Children,
     createContext,
-    ReactNode, Suspense,
+    ReactNode,
     useCallback,
     useContext,
     useEffect,
@@ -53,7 +53,7 @@ interface WizardStepperContextProps<T = DefaultWizardStepProps> {
 
 const WizardStepperContext = createContext({});
 
-export const useWizardContext = <T, _P = never>() => {
+export const useWizardStepContext = <T, _P = never>() => {
     const context = useContext(WizardStepperContext);
     if (Object.keys(context).length === 0) {
         throw new Error("Alle Wizard Steps müssen innerhalb eines WizardContext sein");
@@ -169,7 +169,7 @@ export const WizardStepProvider = ({children}: { children: React.ReactNode }) =>
             setSteps,
             getActiveStep,
             isFirstStep: activeStepIndex === 0,
-            isLastStep: activeStepIndex >= steps.length - 1,
+            isLastStep: steps.length == 0 ? false : activeStepIndex >= steps.length - 1,
         }),
         [activeStepIndex, steps, goTo, onNext, onPrevious, setSteps, getActiveStep]
     );
@@ -198,7 +198,7 @@ export const Steps = ({children}: StepsProps) => {
     }
 
     const {activeStepIndex, setSteps, steps} =
-        useWizardContext<DefaultWizardStepProps>();
+        useWizardStepContext<DefaultWizardStepProps>();
 
     // Update on every page render based on deps
     useEffect(() => {

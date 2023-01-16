@@ -10,7 +10,7 @@ import Image from "next/image";
 import windows from "../../../../public/assets/svg/windows.svg";
 import linux from "../../../../public/assets/svg/linux.svg";
 
-export const OperatingSystemComponent = () => {
+export const OsSelectionComponent = () => {
     const {operatingSystem, setOperatingSystem} = useWizardStateContext();
 
     return (

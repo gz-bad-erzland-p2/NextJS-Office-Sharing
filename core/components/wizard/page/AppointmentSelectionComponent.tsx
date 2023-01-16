@@ -1,7 +1,7 @@
 import DateRangePicker from "../DateRangePicker";
 
 
-export const TimeSelectionComponent = () => {
+export const AppointmentSelectionComponent = () => {
 
     return (
         <form id={"form"} className="flex justify-between gap-4 w-full">

@@ -1,4 +1,4 @@
-export const SoftwareSpecsComponent = () => {
+export const SoftwareSelectionComponent = () => {
     return (
         <form id={"form"} className={"w-full h-full flex flex-col justify-center"}>
             <label htmlFor="message"

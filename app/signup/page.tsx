@@ -1,8 +1,8 @@
 "use client";
-import RegisterComponent from "../../core/components/page/register";
+import RegisterComponent from "../../core/components/page/RegisterComponent";
 import React, {FormEvent, useState} from "react";
 import CenteredFormComponent
-    from "../../core/components/other/CenteredFormComponent";
+    from "../../core/components/misc/CenteredFormComponent";
 
 export default function WizardMainPage() {
 

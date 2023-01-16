@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import {WorkspaceTypeEnum} from "../utils/enums/WorkspaceTypeEnum";
 import {OperatingSystemEnum} from "../utils/enums/OperatingSystemEnum";
-import {ITEnum} from "../utils/enums/ITEnum";
+import {ItEnum} from "../utils/enums/ItEnum";
 
 interface WizardStateContextProps {
     workspaceType: WorkspaceTypeEnum;
@@ -18,10 +18,10 @@ interface WizardStateContextProps {
     setOperatingSystem: (operatingSystem: OperatingSystemEnum) => void;
     operatingSystem2: OperatingSystemEnum;
     setOperatingSystem2: (operatingSystem: OperatingSystemEnum) => void;
-    ITSystem: ITEnum;
-    setITSystem: (IT: ITEnum) => void;
-    ITSystem2: ITEnum;
-    setITSystem2: (IT: ITEnum) => void;
+    ITSystem: ItEnum;
+    setITSystem: (IT: ItEnum) => void;
+    ITSystem2: ItEnum;
+    setITSystem2: (IT: ItEnum) => void;
     name: string;
     setName: (name: string) => void;
     surname: string;
@@ -55,8 +55,8 @@ interface DefaultWizardStateProps {
     zipCode: number | undefined,
     city: string,
     workspaceType: WorkspaceTypeEnum;
-    ITSystem: ITEnum,
-    ITSystem2: ITEnum,
+    ITSystem: ItEnum,
+    ITSystem2: ItEnum,
     operatingSystem: OperatingSystemEnum,
     operatingSystem2: OperatingSystemEnum,
     startDate: Date,
@@ -65,8 +65,8 @@ interface DefaultWizardStateProps {
 
 const initialState: DefaultWizardStateProps = {
     workspaceType: WorkspaceTypeEnum.SINGLE_DESK,
-    ITSystem: ITEnum.PC,
-    ITSystem2: ITEnum.PC,
+    ITSystem: ItEnum.PC,
+    ITSystem2: ItEnum.PC,
     operatingSystem: OperatingSystemEnum.WINDOWS,
     operatingSystem2: OperatingSystemEnum.WINDOWS,
     name: "",
@@ -160,11 +160,11 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setState({...state, operatingSystem2: operatingSystem});
         }, [state]);
     const setITSystem = useCallback(
-        (itSystem: ITEnum) => {
+        (itSystem: ItEnum) => {
             setState({...state, ITSystem: itSystem});
         }, [state]);
     const setITSystem2 = useCallback(
-        (itSystem: ITEnum) => {
+        (itSystem: ItEnum) => {
             setState({...state, ITSystem2: itSystem});
         }, [state]);
     const setStreet = useCallback(

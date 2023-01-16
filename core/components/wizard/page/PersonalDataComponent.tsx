@@ -1,11 +1,6 @@
 "use client";
-import FloatingTextFieldComponent from "../../other/FloatingTextFieldComponent";
-import {
-    useWizardStateContext
-} from "../../../context/WizardStateContext";
-import {useState} from "react";
-import Link from "next/link";
-import RegisterComponent from "../../page/register";
+import {useWizardStateContext} from "../../../context/WizardStateContext";
+import RegisterComponent from "../../page/RegisterComponent";
 
 export const PersonalDataComponent = () => {
     const {
@@ -27,25 +22,23 @@ export const PersonalDataComponent = () => {
         password
     } = useWizardStateContext();
 
-    return(
-
-    <RegisterComponent setName={setName}
-                       name={name}
-                       setSurName={setSurName}
-                       surname={surname}
-                       setStreet={setStreet}
-                       street={street}
-                       setStreetNumber={setStreetNumber}
-                       streetNumber={streetNumber}
-                       setCity={setCity}
-                       city={city}
-                       setEmail={setEmail}
-                       email={email}
-                       setZipCode={setZipCode}
-                       zipCode={zipCode}
-                       setPassword={setPassword}
-                       password={password}
-    />
-
+    return (
+        <RegisterComponent setName={setName}
+                           name={name}
+                           setSurName={setSurName}
+                           surname={surname}
+                           setStreet={setStreet}
+                           street={street}
+                           setStreetNumber={setStreetNumber}
+                           streetNumber={streetNumber}
+                           setCity={setCity}
+                           city={city}
+                           setEmail={setEmail}
+                           email={email}
+                           setZipCode={setZipCode}
+                           zipCode={zipCode}
+                           setPassword={setPassword}
+                           password={password}
+        />
     );
 }

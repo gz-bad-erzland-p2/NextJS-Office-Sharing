@@ -2,9 +2,9 @@
 import {BsArrowRight} from "react-icons/bs";
 import {FormEvent, useState} from "react";
 import CenteredFormComponent
-    from "../../core/components/other/CenteredFormComponent";
+    from "../../core/components/misc/CenteredFormComponent";
 import FloatingTextFieldComponent
-    from "../../core/components/other/FloatingTextFieldComponent";
+    from "../../core/components/misc/FloatingTextFieldComponent";
 
 export default function LoginPage() {
 
