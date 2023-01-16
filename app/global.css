@@ -220,3 +220,42 @@ p{
 .react-datepicker-time__header {
     @apply ml-2.5 text-base font-semibold text-gray-800 border-2 py-1
 }
+
+
+/*Hamburger Menu (in andere CSS verscheiden)*/
+
+
+#mobile_menu{
+    display: block;
+    position: fixed;
+    width: 80vw;
+    height: 100vh;
+    background-color: WHITE;
+    top: 0;
+    box-shadow:  -3px 0px 3px 0px rgba(90, 90, 90, 0.171);;
+    z-index: 99999;
+    left: 100vw;
+    transition: 0.3s;
+}
+.show_menu{
+    left: 20vw!important;
+}
+
+.link_list_mobile li{
+    @apply flex flex-col;
+    @apply text-center;
+}
+
+#toggle_button{
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 90000;
+}
+
+.display_toggle_button{
+    display: block !important;
+}
