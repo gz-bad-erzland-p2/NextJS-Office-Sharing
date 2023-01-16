@@ -78,9 +78,6 @@ export default function WizardMainPage() {
                         </div>
                     </BasePageComponent>
                 </Step>
-
-               
-
                 <Step key={`page/6`} id={'6'} className={"w-full h-full"}>
                     <BasePageComponent heading={"Persönliche Daten"}>
                         <div className={"p-5 h-full flex justify-center"}>
@@ -88,8 +85,6 @@ export default function WizardMainPage() {
                         </div>
                     </BasePageComponent>
                 </Step>
-
-                
             </Steps>
         );
     };
