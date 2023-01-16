@@ -9,6 +9,8 @@ const inter = Inter({
     variable: '--font-inter',
 });*/
 export default function RootLayout({children}: { children: React.ReactNode }) {
+
+    // https://shippingchimp.com/blog/wp-content/uploads/2021/01/image-19-644x1024.png
     return (
         <html lang={"de"} /*className={inter.className}*/
               className={"h-full w-full"}>
@@ -17,7 +19,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <main
             className={"h-full min-h-full flex flex-col min-w-0 bg-office-gray-500 "}>
             <HeaderComponent/>
-            <div className={"flex flex-col justify-center flex-1 md:m-2 m-0"}>
+            <div className={"flex flex-col justify-center flex-1 m-2"}>
                 {children}
             </div>
             <FooterComponent/>

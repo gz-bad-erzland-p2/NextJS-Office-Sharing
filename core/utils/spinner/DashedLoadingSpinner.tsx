@@ -1,5 +1,4 @@
 import React from 'react'
-import InlineSvgStyle from "./InlineSvgStyle";
 
 const uniqId = '__spinner__';
 const DashedRotateAnimation = (dash) => `@keyframes DashedRotate${uniqId}` + '{' +
@@ -7,6 +6,13 @@ const DashedRotateAnimation = (dash) => `@keyframes DashedRotate${uniqId}` + '{'
     `50% {stroke-dasharray:${dash};transform:rotate(360deg);}` +
     `100% {stroke-dasharray:${dash} ${dash} 1 ${dash};transform:rotate(720deg);}` +
     '};';
+
+const InlineSvgStyle = ({animation}) => (
+    <style>
+        {`/* <![CDATA[ */${(animation)}/* ]]> */`}
+    </style>
+)
+
 
 const DashLoading = ({
                          size = 40,
@@ -20,7 +26,7 @@ const DashLoading = ({
 
     return (
         <svg {...rest} width={size} height={size}>
-            <InlineSvgStyle animation={DashedRotateAnimation(dash)} />
+            <InlineSvgStyle animation={DashedRotateAnimation(dash)}/>
             <circle
                 fill='none'
                 stroke={stroke}

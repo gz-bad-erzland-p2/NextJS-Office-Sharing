@@ -1,18 +1,18 @@
 "use client";
 import {
     DefaultWizardStepProps,
-    useWizardContext
-} from "../../context/WizardContext";
+    useWizardStepContext
+} from "../../../context/WizardStepContext";
 import {BsArrowRight} from "react-icons/bs";
 import {SlArrowLeft} from "react-icons/sl";
 import {useCallback} from "react";
 import {useRouter} from "next/navigation";
-import {useWizardStateContext} from "../../context/WizardStateContext";
+import {useWizardStateContext} from "../../../context/WizardStateContext";
 
-export default function NavigationComponent() {
+export default function FooterNavigationComponent() {
 
-    const {onNext, onPrevious, isFirstStep, isLastStep, activeStepIndex} =
-        useWizardContext<DefaultWizardStepProps>();
+    const {onNext, onPrevious, isFirstStep, isLastStep, steps} =
+        useWizardStepContext<DefaultWizardStepProps>();
 
     const {
         name,
@@ -61,7 +61,7 @@ export default function NavigationComponent() {
 
 
     return (
-        <div className={"flex gap-3 mt-10"}>
+        <div className={`flex gap-3 mt-10 transition-opacity ease-in-out duration-300 ${steps.length == 0 && 'opacity-0'}`}>
             <button
                 className={`rounded px-2 py-1.5 border-1 border-office-gray-500 bg-office-green-500 text-white disabled:bg-office-gray-600 disabled:text-black transition-colors`}
                 onClick={onPrevious} disabled={isFirstStep}>

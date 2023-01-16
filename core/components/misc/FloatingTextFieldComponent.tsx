@@ -9,7 +9,6 @@ interface FloatingTextFieldComponentProps {
     title?: string;
     required?: boolean;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-
     onClick?: (event: React.MouseEvent<HTMLInputElement>) => void;
     classNameInput?: string;
     classNameLabel?: string;

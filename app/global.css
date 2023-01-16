@@ -232,7 +232,7 @@ p{
     height: 100vh;
     background-color: WHITE;
     top: 0;
-    box-shadow:  -3px 0px 3px 0px rgba(90, 90, 90, 0.171);;
+    box-shadow: -3px 0 3px 0 rgba(90, 90, 90, 0.171);
     z-index: 99999;
     left: 100vw;
     transition: 0.3s;

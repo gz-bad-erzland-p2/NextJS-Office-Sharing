@@ -1,7 +1,7 @@
 import { useWizardContext } from "../../../context/WizardContext";
 import { useWizardStateContext } from "../../../context/WizardStateContext";
 
-export const SoftwareSpecsComponent = () => {
+export const SoftwareSelectionComponent = () => {
     const {briefing, setBriefing} = useWizardStateContext();
 
     return (
@@ -12,7 +12,7 @@ export const SoftwareSpecsComponent = () => {
                       className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
                       placeholder="Weitere Spezifikationen, Betriebssystem,..."></textarea>
             <label className="pt-2" >
-            
+
             <input type="radio" id="windows" name="operating-system"
                            className="align-left mr-2" required
                            defaultChecked={briefing === true}/>

@@ -14,20 +14,17 @@ export default function HeaderComponent() {
         {name: "Hardware", path: 'hardware'}
     ];
 
-
     function toggleMenu(){
-        var element = document.getElementById("mobile_menu");
-        element!.classList.toggle("show_menu");
-        var element2 = document.getElementById("toggle_button");
-        element2!.classList.toggle("display_toggle_button");
-
-        
+        const element = document.getElementById("mobile_menu");
+        element?.classList.toggle("show_menu");
+        const element2 = document.getElementById("toggle_button");
+        element2?.classList.toggle("display_toggle_button");
       } 
 
     return (
         <div>
             <nav
-                className="bg-white border-gray-200 px-2 md:px-4 py-2.5 drop-shadow-md z-50">
+                className="bg-white border-gray-200 px-4 md:px-4 py-2.5 drop-shadow-md z-50 min-h-20">
                 <div
                     className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link href="#" className="flex items-center">
@@ -46,10 +43,8 @@ export default function HeaderComponent() {
                             Registrieren
                         </Link>
                     </div>
-                    <div className="flex items-center" >
                         <button data-collapse-toggle="mega-menu" type="button" onClick={toggleMenu}
-                                className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
-                            <span className="sr-only">Open main menu</span>
+                                className="inline-flex items-center px-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
                             <svg className="w-6 h-6" fill="currentColor"
                                 viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +53,6 @@ export default function HeaderComponent() {
                                     clipRule="evenodd"></path>
                             </svg>
                         </button>
-                    </div>
                     <div id="mega-menu"
                         className="hidden justify-between items-center w-full text-sm md:flex md:w-auto md:order-1">
                         <ul className="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">

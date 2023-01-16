@@ -1,6 +1,6 @@
 "use client";
-import {Step, Steps} from "../../core/context/WizardContext";
-import BasePageComponent from "../../core/components/wizard/BasePageComponent";
+import {Step, Steps} from "../../core/context/WizardStepContext";
+import BasePageComponent from "../../core/components/wizard/layout/BasePageComponent";
 import React from "react";
 import dynamic from "next/dynamic";
 import Loading from "../loading";
@@ -12,24 +12,24 @@ export default function WizardMainPage() {
             loading: () => <Loading/>,
         });
 
-        const WorkspaceTypeComponent = dynamic(() => import('../../core/components/wizard/page/WorkspaceTypeComponent').then((mod) => mod.WorkspaceTypeComponent), {
+        const WorkspaceTypeComponent = dynamic(() => import('../../core/components/wizard/page/WorkspaceSelectionComponent').then((mod) => mod.WorkspaceSelectionComponent), {
             loading: () => <Loading/>,
         });
 
 
-        const ITComponent = dynamic(() => import('../../core/components/wizard/page/ITComponent').then((mod) => mod.ITComponent), {
+        const ITComponent = dynamic(() => import('../../core/components/wizard/page/HardwareSelectionComponent').then((mod) => mod.HardwareSelectionComponent), {
             loading: () => <Loading/>,
         });
 
-        const OperatingSystemComponent = dynamic(() => import('../../core/components/wizard/page/OperatingSystemComponent').then((mod) => mod.OperatingSystemComponent), {
+        const OperatingSystemComponent = dynamic(() => import('../../core/components/wizard/page/OsSelectionComponent').then((mod) => mod.OsSelectionComponent), {
             loading: () => <Loading/>,
         });
 
-        const SoftwareSpecsComponent = dynamic(() => import('../../core/components/wizard/page/SoftwareSpecsComponent').then((mod) => mod.SoftwareSpecsComponent), {
+        const SoftwareSpecsComponent = dynamic(() => import('../../core/components/wizard/page/SoftwareSelectionComponent').then((mod) => mod.SoftwareSelectionComponent), {
             loading: () => <Loading/>,
         });
 
-        const TimeSelectionComponent = dynamic(() => import('../../core/components/wizard/page/TimeSelectionComponent').then((mod) => mod.TimeSelectionComponent), {
+        const TimeSelectionComponent = dynamic(() => import('../../core/components/wizard/page/AppointmentSelectionComponent').then((mod) => mod.AppointmentSelectionComponent), {
             loading: () => <Loading/>,
         });
 
@@ -78,9 +78,6 @@ export default function WizardMainPage() {
                         </div>
                     </BasePageComponent>
                 </Step>
-
-               
-
                 <Step key={`page/6`} id={'6'} className={"w-full h-full"}>
                     <BasePageComponent heading={"Persönliche Daten"}>
                         <div className={"p-5 h-full flex justify-center"}>
@@ -88,8 +85,6 @@ export default function WizardMainPage() {
                         </div>
                     </BasePageComponent>
                 </Step>
-
-                
             </Steps>
         );
     };
