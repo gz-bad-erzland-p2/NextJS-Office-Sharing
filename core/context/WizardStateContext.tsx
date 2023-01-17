@@ -44,6 +44,8 @@ interface WizardStateContextProps {
     setEndDate: (endDate: Date) => void;
     briefing:boolean;
     setBriefing: (briefing:boolean) => void;
+    specification:string;
+    setSpecification: (specification:string) => void;
 }
 
 export interface DefaultWizardStateProps {
@@ -63,7 +65,8 @@ export interface DefaultWizardStateProps {
     operatingSystem2: OperatingSystemEnum,
     startDate: Date,
     endDate: Date,
-    briefing:boolean
+    briefing:boolean,
+    specification:string
 }
 
 const initialState: DefaultWizardStateProps = {
@@ -83,7 +86,8 @@ const initialState: DefaultWizardStateProps = {
     city: "",
     startDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
     endDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
-    briefing:false
+    briefing:false,
+    specification:""
 
 };
 
@@ -137,7 +141,8 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         email,
         startDate,
         endDate,
-        briefing
+        briefing,
+        specification
     } = state;
 
     const setWorkspaceType = useCallback(
@@ -216,6 +221,11 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
                 setState({...state, briefing: briefing});
             }, [state]);
 
+    const setSpecification = useCallback(
+        (specification: string) => {
+            setState({...state, specification: specification});
+        }, [state]);
+
     // useMemo only updates on the dependencies change
     const context = useMemo(
         () => ({
@@ -236,6 +246,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             startDate,
             endDate,
             briefing,
+            specification,
             setWorkspaceType,
             setName,
             setCity,
@@ -252,10 +263,11 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setEmail,
             setStartDate,
             setEndDate,
-            setBriefing
+            setBriefing,
+            setSpecification
         }),
         // eslint-disable-next-line max-len
-        [workspaceType, name, city, operatingSystem, operatingSystem2, hardware, hardware2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, briefing, setWorkspaceType, setName, setCity, setOperatingSystem, setOperatingSystem2, setHardware, setHardware2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate,setBriefing]
+        [workspaceType, name, city, operatingSystem, operatingSystem2, hardware, hardware2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, briefing, specification, setWorkspaceType, setName, setCity, setOperatingSystem, setOperatingSystem2, setHardware, setHardware2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate,setBriefing, setSpecification]
     );
 
     return (

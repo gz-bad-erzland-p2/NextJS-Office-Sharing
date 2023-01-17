@@ -9,6 +9,8 @@ export const Hardware = [
 
 
 export const Price = {
-    pc: 23.50,
-    
+    pc: 22.50,
+    laptop: 22.50,
+    barebone: 22.50,
+    byod: 18
 };

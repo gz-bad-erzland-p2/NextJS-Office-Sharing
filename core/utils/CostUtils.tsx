@@ -1,23 +1,32 @@
 "use client";
 
 import {DefaultWizardStateProps} from "../context/WizardStateContext";
+import { Price } from "../mocks/HardwareMocks";
 import {HardwareEnum} from "./enums/HardwareEnum";
+import {WorkspaceTypeEnum} from "./enums/WorkspaceTypeEnum";
 
 export function calculateCost(wizardStateContext: DefaultWizardStateProps): number {
     let cost = 0;
-    switch (wizardStateContext.HardWare) {
+    //TODO: Add time calculation
+    const hours = 0;
+
+    switch (wizardStateContext.hardware) {
         case HardwareEnum.BYOD:
-            cost += 0;
+            cost += Price.byod;
             break;
         case HardwareEnum.Laptop:
-            cost += 1000;
+            cost += Price.laptop;
             break;
         case HardwareEnum.PC:
-            cost += 2000;
+            cost += Price.pc;
             break;
         case HardwareEnum.BAREBONE:
-            cost += 3000;
+            cost += Price.barebone;
             break;
+    }
+    cost = cost * hours;
+    if(wizardStateContext.workspaceType == WorkspaceTypeEnum.DOUBLE_DESK){
+        cost = cost * 2;
     }
     return cost;
 }

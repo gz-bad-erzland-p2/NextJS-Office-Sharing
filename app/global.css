@@ -254,6 +254,14 @@ p{
     left: 100vw;
     transition: 0.3s;
 }
+
+@media only screen and (min-width: 650px) {
+    #mobile_menu{
+        display: none ;
+    }
+  }
+
+
 .show_menu{
     left: 20vw!important;
 }

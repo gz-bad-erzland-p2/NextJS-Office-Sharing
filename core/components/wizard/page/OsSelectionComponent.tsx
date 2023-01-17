@@ -25,7 +25,7 @@ export const OsSelectionComponent = () => {
             
             {Hardware != HardwareEnum.BYOD &&
             <ul className="flex md:flex-row flex-col min-w-0 gap-2 h-max w-full items-center justify-center">
-                <li className={"w-full h-40"} onClick={() => {
+                <li className={"w-full h-10 md:h-40"} onClick={() => {
                     setOperatingSystem(OperatingSystemEnum.WINDOWS);
                 }}>
                     <input type="radio" id="windows" name="operating-system"
@@ -34,17 +34,17 @@ export const OsSelectionComponent = () => {
                     <label htmlFor="windows"
                            className="flex flex-col items-center w-full h-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                         <div
-                            className={"flex flex-col w-full h-full items-center"}>
+                            className={"flex flex-row md:flex-col w-full h-full items-center"}>
                             <Image src={windows}
                                    alt={"Bild Doppelarbeitsplatz"}
-                                   className={"flex-grow"}/>
+                                   className={"flex-grow md:w-full h-full !max-w-[90px] md:max-w-none p-2"}/>
                             <div className="text-lg font-semibold">
                                 Windows 10 Pro
                             </div>
                         </div>
                     </label>
                 </li>
-                <li className={"w-full h-40"} onClick={() => {
+                <li className={"w-full h-10 md:h-40"} onClick={() => {
                     setOperatingSystem(OperatingSystemEnum.LINUX);
                 }}>
                     <input type="radio" id="linux" name="operating-system"
@@ -53,17 +53,17 @@ export const OsSelectionComponent = () => {
                     <label htmlFor="linux"
                            className="inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                         <div
-                            className={"flex flex-col w-full h-full items-center justify-between"}>
+                            className={"flex flex-row md:flex-col w-full h-full items-center justify-left md:justify-between"}>
                             <Image src={linux}
                                    alt={"Bild Doppelarbeitsplatz"}
-                                   className={"flex-grow w-full h-full"}/>
+                                   className={"flex-grow md:w-full h-full !max-w-[90px] md:max-w-none"}/>
                             <div className="text-lg font-semibold">
                                 Linux Ubuntu
                             </div>
                         </div>
                     </label>
                 </li>
-                <li className={"w-full h-40"} onClick={() => {
+                <li className={"w-full h-10 md:h-40"} onClick={() => {
                     setOperatingSystem(OperatingSystemEnum.LINUXMINT);
                 }}>
                     <input type="radio" id="linuxmint" name="operating-system"
@@ -72,10 +72,10 @@ export const OsSelectionComponent = () => {
                     <label htmlFor="linuxmint"
                            className="inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                         <div
-                            className={"flex flex-col w-full h-full items-center justify-between"}>
+                            className={"flex flex-row md:flex-col w-full h-full items-center justify-left md:justify-between"}>
                             <Image src={linux}
                                    alt={"Bild Doppelarbeitsplatz"}
-                                   className={"flex-grow w-full h-full"}/>
+                                   className={"flex-grow md:w-full h-full !max-w-[90px] md:max-w-none"}/>
                             <div className="text-lg font-semibold">
                                 Linux Mint 21.3
                             </div>
@@ -88,7 +88,7 @@ export const OsSelectionComponent = () => {
             <div>
                 <h3 className="mb-5 text-lg font-medium" >Arbeitsplatz 2</h3>
                 <ul className="flex md:flex-row flex-col min-w-0 gap-2 h-full w-full items-center justify-center">
-                <li className={"w-full h-40"} onClick={() => {
+                <li className={"w-full h-10 md:h-40"} onClick={() => {
                     setOperatingSystem2(OperatingSystemEnum.WINDOWS);
                 }}>
                     <input type="radio" id="windows2" name="operating-system2"
@@ -97,17 +97,17 @@ export const OsSelectionComponent = () => {
                     <label htmlFor="windows2"
                            className="flex flex-col items-center w-full h-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                         <div
-                            className={"flex flex-col w-full h-full items-center"}>
+                            className={"flex flex-row md:flex-col w-full h-full items-center"}>
                             <Image src={windows}
                                    alt={"Bild Doppelarbeitsplatz"}
-                                   className={"flex-grow"}/>
+                                   className={"flex-grow md:w-full h-full !max-w-[90px] md:max-w-none p-2"}/>
                             <div className="text-lg font-semibold">
                                 Windows 10 Pro
                             </div>
                         </div>
                     </label>
                 </li>
-                <li className={"w-full h-40"} onClick={() => {
+                <li className={"w-full h-10 md:h-40"} onClick={() => {
                     setOperatingSystem2(OperatingSystemEnum.LINUX);
                 }}>
                     <input type="radio" id="linux2" name="operating-system2"
@@ -116,17 +116,17 @@ export const OsSelectionComponent = () => {
                     <label htmlFor="linux2"
                            className="inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                         <div
-                            className={"flex flex-col w-full h-full items-center justify-between"}>
+                            className={"flex flex-row md:flex-col w-full h-full items-center justify-left md:justify-between"}>
                             <Image src={linux}
                                    alt={"Bild Doppelarbeitsplatz"}
-                                   className={"flex-grow w-full h-full"}/>
+                                   className={"flex-grow md:w-full h-full !max-w-[90px] md:max-w-none "}/>
                             <div className="text-lg font-semibold">
                                 Linux Ubuntu
                             </div>
                         </div>
                     </label>
                 </li>
-                <li className={"w-full h-40"} onClick={() => {
+                <li className={"w-full h-10 md:h-40"} onClick={() => {
                     setOperatingSystem2(OperatingSystemEnum.LINUXMINT);
                 }}>
                     <input type="radio" id="linuxmint2" name="operating-system2"
@@ -135,10 +135,10 @@ export const OsSelectionComponent = () => {
                     <label htmlFor="linuxmint2"
                            className="inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                         <div
-                            className={"flex flex-col w-full h-full items-center justify-between"}>
+                            className={"flex flex-row md:flex-col w-full h-full items-center justify-left md:justify-between"}>
                             <Image src={linux}
                                    alt={"Bild Doppelarbeitsplatz"}
-                                   className={"flex-grow w-full h-full"}/>
+                                   className={"flex-grow md:w-full h-full !max-w-[90px] md:max-w-none"}/>
                             <div className="text-lg font-semibold">
                                 Linux Mint 21.3
                             </div>

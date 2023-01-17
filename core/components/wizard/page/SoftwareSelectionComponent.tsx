@@ -2,7 +2,8 @@
 import { useWizardStateContext } from "../../../context/WizardStateContext";
 
 export const SoftwareSelectionComponent = () => {
-    const {briefing, setBriefing} = useWizardStateContext();
+    const {briefing,specification, setBriefing,setSpecification} = useWizardStateContext();
+    
 
     return (
         <form id={"form"} className={"w-full h-full flex flex-col justify-center"}>
@@ -10,8 +11,14 @@ export const SoftwareSelectionComponent = () => {
                    className="block mb-2 text-sm font-medium text-gray-900">Haben sie weitere Anforderungen?</label>
             <textarea id="message" rows={4}
                       className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
-                      placeholder="Weitere Spezifikationen, Betriebssystem,..."></textarea>
-            <div className="pt-2" >
+                      placeholder="Weitere Spezifikationen, Betriebssystem,..."
+                      value={specification} onChange={() => {
+                        // @ts-ignore
+                        setSpecification( document.getElementById("message")?.value);
+                    }}
+                      ></textarea>
+            <br></br>
+            <div className="pt-2 text-left" >
             <li className={"w-full list-none"} onClick={() => {
                     setBriefing(true);
                 }}>
