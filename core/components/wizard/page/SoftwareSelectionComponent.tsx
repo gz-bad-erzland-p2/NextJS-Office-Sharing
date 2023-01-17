@@ -11,6 +11,7 @@ export const SoftwareSelectionComponent = () => {
             <textarea id="message" rows={4}
                       className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
                       placeholder="Weitere Spezifikationen, Betriebssystem,..."></textarea>
+
             <div className="pt-2" >
             <li className={"w-full list-none"} onClick={() => {
                     setBriefing(true);
@@ -35,6 +36,7 @@ export const SoftwareSelectionComponent = () => {
             
             
             </div>
+
         </form>
     );
 }
