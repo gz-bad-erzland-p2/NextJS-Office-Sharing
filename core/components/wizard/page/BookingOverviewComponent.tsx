@@ -1,13 +1,10 @@
-
-
 "use client";
-import {
-    useWizardStateContext
-} from "../../../context/WizardStateContext";
+import {useWizardStateContext} from "../../../context/WizardStateContext";
 
-export const BookingOverviewComponent= () => {
-//    const {Hardware, setHardware} = useWizardStateContext();
-    const Vorname  = "Jannik";
+export const BookingOverviewComponent = () => {
+    const {name, surname, street, streetNumber} = useWizardStateContext();
+
+    const Vorname = "Jannik";
     const Nachname = "Heinrich";
     const Strasse = "Bahnhofstraße";
     const Hausnummer = 1;
@@ -20,8 +17,10 @@ export const BookingOverviewComponent= () => {
     return (
         <div className={"justify-center flex flex-col items-center"}>
             <h2>BestellInformationen</h2>
-            <p>Hi {Vorname}, vielen Dank für Ihre Buchung!<br/> Ihre Buchung ist bei uns eingegangen und Ihr Arbeitsplatz wird für Sie vorbereitet sein. Dies ist Ihre Bestellnummer: {OrderID} </p>
-            <h2>Zusammenfasung</h2>
+            <p>Hi {name}, vielen Dank für Ihre Buchung!<br/> Ihre Buchung ist
+                bei uns eingegangen und Ihr Arbeitsplatz wird für Sie
+                vorbereitet sein. Dies ist Ihre Bestellnummer: {OrderID} </p>
+            <h2>Zusammenfassung</h2>
             <p></p>
         </div>
     );
