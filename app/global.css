@@ -69,7 +69,24 @@ body {
 [type="radio"]:checked + label{
 	color: green;
     border-color: green;
+    background-color: rgb(235, 250, 235);
 }
+
+[type="radio"]+ label{
+    transition: 0.2s;
+
+}
+
+[type="radio"]+ label:hover{
+    transition: 0.2s;
+    transform: scale(1.02);
+
+}
+
+[type="radio"]{
+    accent-color: green;
+}
+
 
 h1{
     font-size: 1.3em;
@@ -237,6 +254,14 @@ p{
     left: 100vw;
     transition: 0.3s;
 }
+
+@media only screen and (min-width: 650px) {
+    #mobile_menu{
+        display: none ;
+    }
+  }
+
+
 .show_menu{
     left: 20vw!important;
 }
