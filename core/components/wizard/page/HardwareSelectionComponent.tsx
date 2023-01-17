@@ -12,10 +12,12 @@ import laptop from "../../../../public/assets/svg/laptop.svg";
 import devices from "../../../../public/assets/svg/devices.svg";
 
 import { WorkspaceTypeEnum } from "../../../utils/enums/WorkspaceTypeEnum";
+
 import { Console, debug } from "console";
 
 export const HardwareSelectionComponent = () => {
     const { hardware, hardware2, setHardware, setHardware2, workspaceType } = useWizardStateContext();
+
 
     return (
         <form id={"form"} className={"h-full w-full"}>
@@ -26,7 +28,9 @@ export const HardwareSelectionComponent = () => {
                 }}>
                     <input type="radio" id="PC" name="it-system"
                         className="hidden peer" required
+
                         defaultChecked={hardware === HardwareEnum.PC} />
+
                     <label htmlFor="PC"
                         className="flex flex-col items-center w-full h-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                         <div
@@ -45,7 +49,9 @@ export const HardwareSelectionComponent = () => {
                 }}>
                     <input type="radio" id="laptop" name="it-system"
                         className="hidden peer"
+
                         defaultChecked={hardware === HardwareEnum.Laptop} />
+
                     <label htmlFor="laptop"
                         className="inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                         <div
@@ -65,7 +71,9 @@ export const HardwareSelectionComponent = () => {
                 }}>
                     <input type="radio" id="byod" name="it-system"
                         className="hidden peer"
+
                         defaultChecked={hardware === HardwareEnum.BYOD} />
+
                     <label htmlFor="byod"
                         className="inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                         <div
@@ -91,7 +99,9 @@ export const HardwareSelectionComponent = () => {
                         }}>
                             <input type="radio" id="PC2" name="it-system2"
                                 className="hidden peer" required
+
                                 defaultChecked={hardware2 === HardwareEnum.PC} />
+
                             <label htmlFor="PC2"
                                 className="flex flex-col items-center w-full h-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                                 <div
@@ -110,7 +120,9 @@ export const HardwareSelectionComponent = () => {
                         }}>
                             <input type="radio" id="laptop2" name="it-system2"
                                 className="hidden peer"
+
                                 defaultChecked={hardware2 === HardwareEnum.Laptop} />
+
                             <label htmlFor="laptop2"
                                 className="inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                                 <div
@@ -126,12 +138,14 @@ export const HardwareSelectionComponent = () => {
                         </li>
                         <li className={"w-full h-10 md:h-40"} onClick={() => {
                             setHardware2(HardwareEnum.BYOD);
+
                             console.log("click");
                             
                         }}>
                             <input type="radio" id="byod2" name="it-system2"
                                 className="hidden peer"
                                 defaultChecked={hardware2 === HardwareEnum.BYOD} />
+
                             <label htmlFor="byod2"
                                 className="inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                                 <div

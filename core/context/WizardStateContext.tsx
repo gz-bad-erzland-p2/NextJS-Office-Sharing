@@ -43,6 +43,7 @@ interface WizardStateContextProps {
     endDate: Date;
     setEndDate: (endDate: Date) => void;
     briefing:boolean;
+
     setBriefing: (briefing:boolean) => void;
     specification:string;
     setSpecification: (specification:string) => void;
