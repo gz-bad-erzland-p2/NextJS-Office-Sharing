@@ -13,8 +13,6 @@ import devices from "../../../../public/assets/svg/devices.svg";
 
 import { WorkspaceTypeEnum } from "../../../utils/enums/WorkspaceTypeEnum";
 
-import { Console, debug } from "console";
-
 export const HardwareSelectionComponent = () => {
     const { hardware, hardware2, setHardware, setHardware2, workspaceType } = useWizardStateContext();
 
@@ -138,9 +136,6 @@ export const HardwareSelectionComponent = () => {
                         </li>
                         <li className={"w-full h-10 md:h-40"} onClick={() => {
                             setHardware2(HardwareEnum.BYOD);
-
-                            console.log("click");
-                            
                         }}>
                             <input type="radio" id="byod2" name="it-system2"
                                 className="hidden peer"

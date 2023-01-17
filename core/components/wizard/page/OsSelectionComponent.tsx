@@ -13,7 +13,7 @@ import { WorkspaceTypeEnum } from "../../../utils/enums/WorkspaceTypeEnum";
 import { HardwareEnum } from "../../../utils/enums/HardwareEnum";
 
 export const OsSelectionComponent = () => {
-    const {operatingSystem,operatingSystem2, setOperatingSystem, setOperatingSystem2, Hardware, Hardware2, setHardware, setHardware2} = useWizardStateContext();
+    const {operatingSystem,operatingSystem2, setOperatingSystem, setOperatingSystem2, hardware, hardware2} = useWizardStateContext();
     const {workspaceType} = useWizardStateContext();
 
     return (
@@ -23,7 +23,7 @@ export const OsSelectionComponent = () => {
                 Betriebssystem aus. </h3>
                 <h4 className="font-slim mb-5" >(falls es ihr gewünschtes Betriebssystem nicht auftaucht spezifizieren sie es bitte in der folgenden Seite)</h4>
             
-            {Hardware != HardwareEnum.BYOD &&
+            {hardware != HardwareEnum.BYOD &&
             <ul className="flex md:flex-row flex-col min-w-0 gap-2 h-max w-full items-center justify-center">
                 <li className={"w-full h-10 md:h-40"} onClick={() => {
                     setOperatingSystem(OperatingSystemEnum.WINDOWS);
@@ -84,7 +84,7 @@ export const OsSelectionComponent = () => {
                 </li>
             </ul>
             }
-            {workspaceType == WorkspaceTypeEnum.DOUBLE_DESK && Hardware2 != HardwareEnum.BYOD &&
+            {workspaceType == WorkspaceTypeEnum.DOUBLE_DESK && hardware2 != HardwareEnum.BYOD &&
             <div>
                 <h3 className="mb-5 text-lg font-medium" >Arbeitsplatz 2</h3>
                 <ul className="flex md:flex-row flex-col min-w-0 gap-2 h-full w-full items-center justify-center">
@@ -149,7 +149,7 @@ export const OsSelectionComponent = () => {
             </div>
 
             }
-            {Hardware == HardwareEnum.BYOD && Hardware2 == HardwareEnum.BYOD &&
+            {hardware == HardwareEnum.BYOD && hardware2 == HardwareEnum.BYOD &&
                 <h3 className="mb-5  font-medium h-max" >Sie haben kein Gerät gebucht das konfiguriert werden kann!</h3>
             }
 
