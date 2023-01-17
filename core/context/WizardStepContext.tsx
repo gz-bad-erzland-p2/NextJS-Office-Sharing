@@ -109,19 +109,19 @@ const initialState: WizardStepperReducerState = {
 // Reducer is an useState with a custom business logic
 export const WizardStepProvider = ({children}: { children: React.ReactNode }) => {
 
-    // useEffect(() => {
-    //     const wizardState = localStorage.getItem('wizardStep');
-    //     if (wizardState) {
-    //         initialState.activeStepIndex = +wizardState;
-    //         dispatch({type: 'GOTO_PAGE', payload: {stepId: +wizardState}});
-    //     }
-    // }, []);
+     useEffect(() => {
+         const wizardState = localStorage.getItem('wizardStep');
+         if (wizardState) {
+             initialState.activeStepIndex = +wizardState;
+             dispatch({type: 'GOTO_PAGE', payload: {stepId: +wizardState}});
+         }
+     }, []);
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    // useEffect(() => {
-    //     localStorage.setItem('wizardStep', JSON.stringify(state.activeStepIndex));
-    // }, [state.activeStepIndex]);
+     useEffect(() => {
+         localStorage.setItem('wizardStep', JSON.stringify(state.activeStepIndex));
+     }, [state.activeStepIndex]);
 
     const {activeStepIndex, steps} = state;
 

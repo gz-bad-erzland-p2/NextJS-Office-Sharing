@@ -1,10 +1,11 @@
 "use client";
 import {BsArrowRight} from "react-icons/bs";
-import {FormEvent, useState} from "react";
+import React, {FormEvent, useState} from "react";
 import CenteredFormComponent
     from "../../core/components/misc/CenteredFormComponent";
 import FloatingTextFieldComponent
     from "../../core/components/misc/FloatingTextFieldComponent";
+import LoginComponent from "../../core/components/page/LoginComponent";
 
 export default function LoginPage() {
 
@@ -17,9 +18,9 @@ export default function LoginPage() {
 
     return (
         // <div className={"flex-1 flex flex-col w-full"}>
+
         <CenteredFormComponent onSubmit={submitHandler}>
-            <div
-                className={"flex flex-col items-center justify-center bg-white h-full md:w-1/2 w-full min-w-0 rounded-2xl drop-shadow-2xl px-5"}>
+            <div className={"flex flex-col items-center justify-center bg-white h-full md:w-1/2 w-full min-w-0 rounded-2xl drop-shadow-2xl px-5"}>
                 <h1 className={"bold text-4xl px-2"}>Office Sharing</h1>
                 <h2 className={"mb-10"}>Manager</h2>
                 <div className={"relative md:w-1/2 w-full mb-6"}>
