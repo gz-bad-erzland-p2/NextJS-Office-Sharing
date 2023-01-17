@@ -5,7 +5,6 @@ import CenteredFormComponent
     from "../../core/components/misc/CenteredFormComponent";
 import FloatingTextFieldComponent
     from "../../core/components/misc/FloatingTextFieldComponent";
-import LoginComponent from "../../core/components/page/LoginComponent";
 
 export default function LoginPage() {
 
