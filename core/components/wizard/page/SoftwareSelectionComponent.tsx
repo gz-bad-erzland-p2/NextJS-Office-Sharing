@@ -1,4 +1,3 @@
-import { useWizardContext } from "../../../context/WizardContext";
 import { useWizardStateContext } from "../../../context/WizardStateContext";
 
 export const SoftwareSelectionComponent = () => {
