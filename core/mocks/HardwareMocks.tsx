@@ -6,3 +6,9 @@ export const Hardware = [
         storage: '1TB SSD'
     }
 ]
+
+
+export const Price = {
+    pc: 23.50,
+    
+};

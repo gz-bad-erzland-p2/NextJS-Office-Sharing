@@ -18,10 +18,10 @@ interface WizardStateContextProps {
     setOperatingSystem: (operatingSystem: OperatingSystemEnum) => void;
     operatingSystem2: OperatingSystemEnum;
     setOperatingSystem2: (operatingSystem: OperatingSystemEnum) => void;
-    Hardware: HardwareEnum;
-    setHardware: (IT: HardwareEnum) => void;
-    Hardware2: HardwareEnum;
-    setHardware2: (IT: HardwareEnum) => void;
+    hardware: HardwareEnum;
+    setHardware: (hardware: HardwareEnum) => void;
+    hardware2: HardwareEnum;
+    setHardware2: (hardware2: HardwareEnum) => void;
     name: string;
     setName: (name: string) => void;
     surname: string;
@@ -43,7 +43,7 @@ interface WizardStateContextProps {
     endDate: Date;
     setEndDate: (endDate: Date) => void;
     briefing:boolean;
-    setBriefing: (briefing:Date) => void;
+    setBriefing: (briefing:boolean) => void;
 }
 
 export interface DefaultWizardStateProps {
@@ -57,8 +57,8 @@ export interface DefaultWizardStateProps {
     zipCode: number | undefined,
     city: string,
     workspaceType: WorkspaceTypeEnum;
-    HardWare: HardwareEnum,
-    Hardware2: HardwareEnum,
+    hardware: HardwareEnum,
+    hardware2: HardwareEnum,
     operatingSystem: OperatingSystemEnum,
     operatingSystem2: OperatingSystemEnum,
     startDate: Date,
@@ -68,8 +68,8 @@ export interface DefaultWizardStateProps {
 
 const initialState: DefaultWizardStateProps = {
     workspaceType: WorkspaceTypeEnum.SINGLE_DESK,
-    HardWare: HardwareEnum.PC,
-    Hardware2: HardwareEnum.PC,
+    hardware: HardwareEnum.PC,
+    hardware2: HardwareEnum.PC,
     operatingSystem: OperatingSystemEnum.WINDOWS,
     operatingSystem2: OperatingSystemEnum.WINDOWS,
     name: "",
@@ -137,6 +137,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         email,
         startDate,
         endDate,
+        briefing
     } = state;
 
     const setWorkspaceType = useCallback(
@@ -210,6 +211,11 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setState({...state, endDate: endDate});
         }, [state]);
 
+    const setBriefing = useCallback(
+            (briefing: boolean) => {
+                setState({...state, briefing: briefing});
+            }, [state]);
+
     // useMemo only updates on the dependencies change
     const context = useMemo(
         () => ({
@@ -229,6 +235,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             email,
             startDate,
             endDate,
+            briefing,
             setWorkspaceType,
             setName,
             setCity,
@@ -245,9 +252,10 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setEmail,
             setStartDate,
             setEndDate,
+            setBriefing
         }),
         // eslint-disable-next-line max-len
-        [workspaceType, name, city, operatingSystem, operatingSystem2, hardware, hardware2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, setWorkspaceType, setName, setCity, setOperatingSystem, setOperatingSystem2, setHardware, setHardware2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate]
+        [workspaceType, name, city, operatingSystem, operatingSystem2, hardware, hardware2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, briefing, setWorkspaceType, setName, setCity, setOperatingSystem, setOperatingSystem2, setHardware, setHardware2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate,setBriefing]
     );
 
     return (

@@ -1,4 +1,4 @@
-import { useWizardContext } from "../../../context/WizardContext";
+
 import { useWizardStateContext } from "../../../context/WizardStateContext";
 
 export const SoftwareSelectionComponent = () => {
@@ -11,13 +11,30 @@ export const SoftwareSelectionComponent = () => {
             <textarea id="message" rows={4}
                       className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
                       placeholder="Weitere Spezifikationen, Betriebssystem,..."></textarea>
-            <label className="pt-2" >
-
-            <input type="radio" id="windows" name="operating-system"
+            <div className="pt-2" >
+            <li className={"w-full list-none"} onClick={() => {
+                    setBriefing(true);
+                }}>
+                    <input type="radio" id="yes" name="briefing"
                            className="align-left mr-2" required
                            defaultChecked={briefing === true}/>
-                            Einweisung durch einen Mitarbeiter
-            </label>
+                            <label htmlFor="yes">Einweisung durch einen Mitarbeiter</label>
+
+                </li>
+            
+            
+            <li className={"w-full list-none"} onClick={() => {
+                    setBriefing(false);
+                }}>
+                    <input type="radio" id="no" name="briefing"
+                           className="align-left mr-2" required
+                           defaultChecked={briefing === false}/>
+                            <label htmlFor="no">Einweisug wird nicht benötigt</label>
+
+                </li>
+            
+            
+            </div>
         </form>
     );
 }
