@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import Loading from "../loading";
 import {UserLoginComponent} from "../../core/components/wizard/page/UserLoginComponent";
 import {useWizardStateContext} from "../../core/context/WizardStateContext";
+import {BookingOverviewComponent} from "../../core/components/wizard/page/BookingOverviewComponent";
 
 export default function WizardMainPage() {
     const WizardStepCustom = () => {
@@ -81,16 +82,23 @@ export default function WizardMainPage() {
                     </BasePageComponent>
                 </Step>
                 <Step key={`page/6`} id={'6'} className={"w-full h-full"}>
-                    <BasePageComponent heading={"Persönliche Daten"}>
+                    <BasePageComponent heading={"Login"}>
                         <div className={"p-5 h-full flex justify-center"}>
                             <UserLoginComponent/>
                         </div>
                     </BasePageComponent>
                 </Step>
                 <Step key={`page/7`} id={'7'} className={"w-full h-full"}>
-                    <BasePageComponent heading={"Persönliche Daten"}>
+                    <BasePageComponent heading={"Registrierung"}>
                         <div className={"p-5 h-full flex justify-center"}>
                             <PersonalDataComponent/>
+                        </div>
+                    </BasePageComponent>
+                </Step>
+                <Step key={`page/8`} id={'8'} className={"w-full h-full"}>
+                    <BasePageComponent heading={"Persönliche Daten"}>
+                        <div className={"p-5 h-full flex justify-center"}>
+                            <BookingOverviewComponent/>
                         </div>
                     </BasePageComponent>
                 </Step>
