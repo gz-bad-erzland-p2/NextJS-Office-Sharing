@@ -1,6 +1,8 @@
 "use client";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
 import RegisterComponent from "../../page/RegisterComponent";
+import React from "react";
+import {useWizardStepContext} from "../../../context/WizardStepContext";
 
 export const PersonalDataComponent = () => {
     const {
@@ -22,23 +24,30 @@ export const PersonalDataComponent = () => {
         password
     } = useWizardStateContext();
 
+    const {setIsRegister} = useWizardStepContext();
+
     return (
-        <RegisterComponent setName={setName}
-                           name={name}
-                           setSurName={setSurName}
-                           surname={surname}
-                           setStreet={setStreet}
-                           street={street}
-                           setStreetNumber={setStreetNumber}
-                           streetNumber={streetNumber}
-                           setCity={setCity}
-                           city={city}
-                           setEmail={setEmail}
-                           email={email}
-                           setZipCode={setZipCode}
-                           zipCode={zipCode}
-                           setPassword={setPassword}
-                           password={password}
-        />
+        <div>
+            <RegisterComponent setName={setName}
+                               name={name}
+                               setSurName={setSurName}
+                               surname={surname}
+                               setStreet={setStreet}
+                               street={street}
+                               setStreetNumber={setStreetNumber}
+                               streetNumber={streetNumber}
+                               setCity={setCity}
+                               city={city}
+                               setEmail={setEmail}
+                               email={email}
+                               setZipCode={setZipCode}
+                               zipCode={zipCode}
+                               setPassword={setPassword}
+                               password={password}
+            />
+            <button className={"mt-4"} onClick={() => setIsRegister(false)}>oder
+                Anmelden
+            </button>
+        </div>
     );
 }

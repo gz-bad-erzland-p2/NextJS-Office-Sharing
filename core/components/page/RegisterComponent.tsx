@@ -8,7 +8,6 @@ export default function RegisterComponent(props) {
     const [passwordMatch, setPasswordMatch] = useState(false);
     const [isFirstClick, setIsFirstClick] = useState(false);
 
-
     const handleMessageHide = (): boolean => {
         if (!isFirstClick) {
             return true;

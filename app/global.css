@@ -268,7 +268,6 @@ p{
 
 .link_list_mobile li{
     @apply flex flex-col;
-    @apply text-center;
 }
 
 #toggle_button{

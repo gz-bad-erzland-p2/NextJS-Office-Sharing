@@ -80,7 +80,7 @@ export default function FooterNavigationComponent() {
                         if (isLastStep) {
                             console.log("LAST STEP")
                             //await callAPI();
-                            //router.push("#");
+                            router.push("#");
                         }
                     }
                 }, [isLastStep, onNext, router])}>

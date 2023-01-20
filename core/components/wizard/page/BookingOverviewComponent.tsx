@@ -16,12 +16,27 @@ export const BookingOverviewComponent = () => {
 
     return (
         <div className={"justify-center flex flex-col items-center"}>
-            <h2>BestellInformationen</h2>
-            <p>Hi {name}, vielen Dank für Ihre Buchung!<br/> Ihre Buchung ist
+            <h2>Bestellbestätigung</h2>
+            <p>Sehr geehrte Herr {surname},
+                <br />
+                vielen Dank für Ihre Buchung.
+                <br/>< br/>
+                Ihre Bestellnummer lautet: {OrderID}
+
+                Bitte überweisen Sie den Betrag von {Endpreis}€ auf das Konto:
+
+                Ihre Buchung ist
                 bei uns eingegangen und Ihr Arbeitsplatz wird für Sie
                 vorbereitet sein. Dies ist Ihre Bestellnummer: {OrderID} </p>
-            <h2>Zusammenfassung</h2>
-            <p></p>
+            <h2>Die Buchung im Überblick:</h2>
+            <p>Buchungsdauer: 01.01.2021</p>
+            <p>Arbeitsplatztyp: </p>
+            <p>Arbeitsplatznummer: </p>
+            <p>Arbeitsplatzpreis: {Endpreis}€</p>
+
+
+            <p>Bestellnummer: {OrderID}</p>
+            <p>##Bestelldatum</p>
         </div>
     );
 }

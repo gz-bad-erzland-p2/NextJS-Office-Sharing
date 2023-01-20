@@ -14,10 +14,8 @@ type Action =
     | { type: 'NEXT_PAGE' }
     | { type: 'PREV_PAGE' }
     | { type: 'GOTO_PAGE'; payload: { stepId: number } }
-    | {
-    type: 'SET_STEP_COUNT';
-    payload: { steps: DefaultWizardStepProps[] };
-};
+    | { type: 'SET_STEP_COUNT'; payload: { steps: DefaultWizardStepProps[] } }
+    | { type: 'SET_REGISTER'; payload: { isRegister: boolean } };
 
 export interface DefaultWizardStepProps {
     id: number | string;
@@ -26,6 +24,8 @@ export interface DefaultWizardStepProps {
 interface WizardStepperReducerState {
     activeStepIndex: number;
     steps: DefaultWizardStepProps[];
+
+    isRegister: boolean;
 }
 
 interface StepsProps {
@@ -43,6 +43,8 @@ interface WizardStepperContextProps<T = DefaultWizardStepProps> {
     steps: T[];
     isFirstStep: boolean;
     isLastStep: boolean;
+    isRegister: boolean;
+    setIsRegister: (isRegister: boolean) => void;
     goTo: (id: number | string) => void;
     onNext: (cb?: () => void) => void;
     onPrevious: () => void;
@@ -97,6 +99,11 @@ const reducer = (state: WizardStepperReducerState, action: Action): WizardSteppe
             // eslint-disable-next-line no-case-declarations
             const {steps: newSteps} = action.payload;
             return {...state, steps: newSteps};
+
+        case 'SET_REGISTER':
+            // eslint-disable-next-line no-case-declarations
+            const {isRegister} = action.payload;
+            return {...state, isRegister};
         default:
             return state;
     }
@@ -104,6 +111,7 @@ const reducer = (state: WizardStepperReducerState, action: Action): WizardSteppe
 const initialState: WizardStepperReducerState = {
     activeStepIndex: 0,
     steps: [],
+    isRegister: false
 };
 
 // Reducer is an useState with a custom business logic
@@ -123,7 +131,7 @@ export const WizardStepProvider = ({children}: { children: React.ReactNode }) =>
     //     localStorage.setItem('wizardStep', JSON.stringify(state.activeStepIndex));
     // }, [state.activeStepIndex]);
 
-    const {activeStepIndex, steps} = state;
+    const {activeStepIndex, steps, isRegister} = state;
 
     const onNext = useCallback(
         async (cb?: () => void) => {
@@ -158,6 +166,12 @@ export const WizardStepProvider = ({children}: { children: React.ReactNode }) =>
         [activeStepIndex, steps]
     );
 
+    const setIsRegister = useCallback(
+        (isRegister: boolean) => {
+            dispatch({type: 'SET_REGISTER', payload: {isRegister}});
+        }, [dispatch]
+    );
+
     // useMemo only updates on the dependencies change
     const context = useMemo(
         () => ({
@@ -168,10 +182,12 @@ export const WizardStepProvider = ({children}: { children: React.ReactNode }) =>
             onPrevious,
             setSteps,
             getActiveStep,
+            isRegister,
+            setIsRegister,
             isFirstStep: activeStepIndex === 0,
             isLastStep: steps.length == 0 ? false : activeStepIndex >= steps.length - 1,
         }),
-        [activeStepIndex, steps, goTo, onNext, onPrevious, setSteps, getActiveStep]
+        [activeStepIndex, steps, goTo, onNext, onPrevious, setSteps, getActiveStep, isRegister, setIsRegister]
     );
 
     return (
