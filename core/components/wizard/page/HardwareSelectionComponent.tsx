@@ -13,6 +13,7 @@ import devices from "../../../../public/assets/svg/devices.svg";
 
 import { WorkspaceTypeEnum } from "../../../utils/enums/WorkspaceTypeEnum";
 import SelectOption from "../SelectOption";
+import { Price } from "../../../mocks/HardwareMocks";
 
 export const HardwareSelectionComponent = () => {
     const { hardware, hardware2, setHardware, setHardware2, workspaceType } = useWizardStateContext();
@@ -24,26 +25,29 @@ export const HardwareSelectionComponent = () => {
             category:"hardware",
             value:HardwareEnum.Laptop,
             info: "hardware",
-            price:"12€"
+            price: Price.laptop
 
     },
         {
             name: "PC",
             img:"../../../assets/svg/desktop.svg",
             category:"hardware",
-            value:HardwareEnum.PC
+            value:HardwareEnum.PC,
+            price: Price.pc
     },
         {
             name: "Barebone",
             img:"../../../assets/svg/barebone.svg",
             category:"hardware",
-            value:HardwareEnum.BAREBONE
+            value:HardwareEnum.BAREBONE,
+            price: Price.barebone
     },
         {
             name: "Bringe eigenes Gerät",
             img:"../../../assets/svg/devices.svg",
             category:"hardware",
-            value:HardwareEnum.BYOD
+            value:HardwareEnum.BYOD,
+            price: Price.byod
     },
 
 ]

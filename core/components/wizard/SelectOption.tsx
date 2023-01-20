@@ -23,14 +23,16 @@ export default function SelectOption(props: any) {
                                 width={24} height={24} />
                             <div className="text-lg font-semibold">
                             
-                            
-                            {props.name}  {props.price &&
-                                <label className="!text-xs">Geld</label> }                          
+                                <div className="flex flex-row">
+                                {props.name}  
+                                {props.price &&
+                                    <p className="!text-xs  absolute  inherit md:ml-[5px] mt-[5px] left-0 top-0 ">   {props.price}€/h</p> }  
+                        
+                                </div>                        
                             </div>
                         </div>
                         {props.infoUrl &&
                          <Link href={props.infoUrl}> <BsInfoCircle className="absolute top-0 right-0 mt-2 mr-2" /> </Link>}
-
                         
                     </label>
                 </li>
