@@ -41,7 +41,7 @@ export const SoftwareSelectionComponent = () => {
                     <input type="radio" id="no" name="briefing"
                            className="align-left mr-2" required
                            defaultChecked={!briefing}/>
-                    <label htmlFor="no">Einweisung wird nicht benötigt</label>
+                    <label className="!bg-none" htmlFor="no">Einweisung wird nicht benötigt</label>
 
                 </li>
             </div>
