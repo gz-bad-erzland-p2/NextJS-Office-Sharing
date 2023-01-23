@@ -8,6 +8,7 @@ import {useWizardStepContext} from "../../../context/WizardStepContext";
 export const UserLoginComponent = () => {
 
     const {email, setEmail, password, setPassword} = useWizardStateContext();
+    const {setIsRegister} = useWizardStepContext();
     const {goTo} = useWizardStepContext();
 
     // const submitHandler = (event: FormEvent) => {
@@ -15,7 +16,7 @@ export const UserLoginComponent = () => {
     //  }
 
     return (
-        <div id={"form"}
+        <form id={"form"}
              className={"w-full h-full flex flex-col justify-center"}>
             <div
                 className={"m-auto min-w-400 flex justify-center flex-col min-w-[50%]"}>
@@ -38,11 +39,11 @@ export const UserLoginComponent = () => {
                     Anmelden <BsArrowRight className={"mx-2"}/>
                 </button>
 
-                <button className={"mt-4"} onClick={() => goTo(6)}>oder
+                <button className={"mt-4"} onClick={() => setIsRegister(true)}>oder
                     Registrieren
                 </button>
             </div>
-        </div>
+        </form>
 
     );
 }

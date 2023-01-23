@@ -4,21 +4,21 @@ import BasePageComponent from "../../core/components/wizard/layout/BasePageCompo
 import React from "react";
 import dynamic from "next/dynamic";
 import Loading from "../loading";
-import {UserLoginComponent} from "../../core/components/wizard/page/UserLoginComponent";
-import {useWizardStateContext} from "../../core/context/WizardStateContext";
 import {BookingOverviewComponent} from "../../core/components/wizard/page/BookingOverviewComponent";
 
 export default function WizardMainPage() {
     const WizardStepCustom = () => {
-        const {activeStepIndex} = useWizardStepContext<DefaultWizardStepProps>();
+        const {activeStepIndex, isRegister} = useWizardStepContext<DefaultWizardStepProps>();
         const PersonalDataComponent = dynamic(() => import('../../core/components/wizard/page/PersonalDataComponent').then((mod) => mod.PersonalDataComponent), {
+            loading: () => <Loading/>,
+        });
+        const UserLoginComponent = dynamic(() => import('../../core/components/wizard/page/UserLoginComponent').then((mod) => mod.UserLoginComponent), {
             loading: () => <Loading/>,
         });
 
         const WorkspaceTypeComponent = dynamic(() => import('../../core/components/wizard/page/WorkspaceSelectionComponent').then((mod) => mod.WorkspaceSelectionComponent), {
             loading: () => <Loading/>,
         });
-
 
         const ITComponent = dynamic(() => import('../../core/components/wizard/page/HardwareSelectionComponent').then((mod) => mod.HardwareSelectionComponent), {
             loading: () => <Loading/>,
@@ -36,7 +36,6 @@ export default function WizardMainPage() {
             loading: () => <Loading/>,
         });
 
-       
 
         return (
             <Steps>
@@ -81,22 +80,25 @@ export default function WizardMainPage() {
                         </div>
                     </BasePageComponent>
                 </Step>
-                <Step key={`page/6`} id={'6'} className={"w-full h-full"}>
-                    <BasePageComponent heading={"Login"}>
-                        <div className={"p-5 h-full flex justify-center"}>
-                            <UserLoginComponent/>
-                        </div>
-                    </BasePageComponent>
-                </Step>
-                <Step key={`page/7`} id={'7'} className={"w-full h-full"}>
-                    <BasePageComponent heading={"Registrierung"}>
-                        <div className={"p-5 h-full flex justify-center"}>
-                            <PersonalDataComponent/>
-                        </div>
-                    </BasePageComponent>
-                </Step>
+                {isRegister ? (
+                        <Step key={`page/7`} id={'7'} className={"w-full h-full transition-all duration-150 ease-out"}>
+                            <BasePageComponent heading={"Registrierung"}>
+                                <div className={"p-5 h-full flex justify-center"}>
+                                    <PersonalDataComponent/>
+                                </div>
+                            </BasePageComponent>
+                        </Step>
+                    ) :
+                    <Step key={`page/6`} id={'6'} className={"w-full h-full transition-all duration-150 ease-out"}>
+                        <BasePageComponent heading={"Login"}>
+                            <div className={"p-5 h-full flex justify-center"}>
+                                <UserLoginComponent/>
+                            </div>
+                        </BasePageComponent>
+                    </Step>
+                }
                 <Step key={`page/8`} id={'8'} className={"w-full h-full"}>
-                    <BasePageComponent heading={"Persönliche Daten"}>
+                    <BasePageComponent heading={"Office Sharing mit Bad Erzland"}>
                         <div className={"p-5 h-full flex justify-center"}>
                             <BookingOverviewComponent/>
                         </div>
