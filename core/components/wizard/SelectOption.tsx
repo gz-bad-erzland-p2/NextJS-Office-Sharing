@@ -8,13 +8,13 @@ export default function SelectOption(props: any) {
             <li key={props.key} className={"w-full h-10 md:h-40"} onClick={() => {
                     props.setter(props.value);
                 }}>
-                    <input type="radio" id={props.name} name={props.category}
+                    <input type="radio" id={props.name+props.id} name={props.category}
                         className="hidden peer"
 
                         defaultChecked={props.getter === props.value} />
 
-                    <label htmlFor={props.name}
-                        className="relative inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
+                    <label htmlFor={props.name+props.id}
+                        className="colorBg relative inline-flex justify-center items-center h-full w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer peer-checked:border-office-green-500 peer-checked:text-office-green-500 hover:text-gray-600 hover:bg-gray-100">
                         <div
                             className={"flex flex-row md:flex-col w-full h-full items-center justify-left md:justify-between"}>
                             <Image src={props.img}
@@ -26,13 +26,13 @@ export default function SelectOption(props: any) {
                                 <div className="flex flex-row">
                                 {props.name}  
                                 {props.price &&
-                                    <p className="!text-xs  absolute  inherit md:ml-[5px] mt-[5px] left-0 top-0 ">   {props.price}€/h</p> }  
+                                    <p className="!text-xs  relative md:absolute  inherit ml-[5px] mt-[5px] left-0 top-0 ">   {props.price}€/h</p> }  
                         
                                 </div>                        
                             </div>
                         </div>
                         {props.infoUrl &&
-                         <Link href={props.infoUrl}> <BsInfoCircle className="absolute top-0 right-0 mt-2 mr-2" /> </Link>}
+                         <Link href={props.infoUrl}> <BsInfoCircle className="absolute top-0 right-0 mt-2 mr-2 hover:text-teal-300 transition" /> </Link>}
                         
                     </label>
                 </li>

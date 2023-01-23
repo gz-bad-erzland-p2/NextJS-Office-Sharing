@@ -66,7 +66,7 @@ body {
     @apply flex flex-col
 }
 
-[type="radio"]:checked + label{
+[type="radio"]:checked  + label {
 	color: green;
     border-color: green;
     background-color: rgb(235, 250, 235);
