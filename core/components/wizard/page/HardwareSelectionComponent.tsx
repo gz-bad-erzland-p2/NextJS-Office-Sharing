@@ -58,7 +58,7 @@ export const HardwareSelectionComponent = () => {
 
     return (
         <form id={"form"} className={"h-full w-full"}>
-            <h3 className="mb-5 text-lg font-medium  ">Benötigen sie einen Rechner?</h3>
+            <h3 className="mb-5 text-lg font-medium  ">Wählen sie die benötigte Harware aus.</h3>
             <ul className="flex md:flex-row flex-col min-w-0 gap-2  w-full items-center justify-center">
                 
 
