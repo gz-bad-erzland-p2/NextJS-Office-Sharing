@@ -24,7 +24,7 @@ export const HardwareSelectionComponent = () => {
             img:"../../../assets/svg/laptop.svg",
             category:"hardware",
             value:HardwareEnum.Laptop,
-            info: "hardware",
+            info: "hardware#laptop",
             price: Price.laptop
 
     },
@@ -33,7 +33,7 @@ export const HardwareSelectionComponent = () => {
             img:"../../../assets/svg/desktop.svg",
             category:"hardware",
             value:HardwareEnum.PC,
-            info: "hardware",
+            info: "hardware#pc",
             price: Price.pc
     },
         {
@@ -41,7 +41,7 @@ export const HardwareSelectionComponent = () => {
             img:"../../../assets/svg/barebone.svg",
             category:"hardware",
             value:HardwareEnum.BAREBONE,
-            info: "hardware",
+            info: "hardware#barebone",
             price: Price.barebone
     },
         {

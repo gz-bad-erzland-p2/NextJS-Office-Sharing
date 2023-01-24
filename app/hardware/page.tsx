@@ -22,7 +22,7 @@ export default function HarwareMainPage() {
                 </div>
             </div>
 
-            <div className="m-10 ">
+            <section id="pc" className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
                     <Image alt="ESPRIMO" src={pc_image}
                            className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"} placeholder={"blur"} quality={"25"}></Image>
@@ -34,9 +34,9 @@ export default function HarwareMainPage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div className="m-10 ">
+            <section id="laptop" className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
                     <Image alt="LIFEBOOK E4511" src={laptop_image}
                            className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"} placeholder={"blur"} quality={"25"}></Image>
@@ -48,11 +48,11 @@ export default function HarwareMainPage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
     
 
-            <div className="m-10 ">
+            <section id="barebone" className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
                     <Image alt="ESPRIMO Q556" src={bareboen_image}
                            className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"} placeholder={"blur"} quality={"25"}></Image>
@@ -64,9 +64,9 @@ export default function HarwareMainPage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div className="m-10 ">
+            <section id="monitor" className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
                     <Image alt="Monitor" src={monitor_image}
                            className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"} placeholder={"blur"}></Image>
@@ -78,9 +78,9 @@ export default function HarwareMainPage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div className="m-10 ">
+            <section id="maus" className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
                     <Image alt="Monitor" src={mise_image}
                            className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"} placeholder={"blur"}></Image>
@@ -91,7 +91,7 @@ export default function HarwareMainPage() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <div className="m-10 ">
                 <div className="flex justify-center flex-col md:flex-row">
