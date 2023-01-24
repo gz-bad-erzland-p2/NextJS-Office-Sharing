@@ -1,84 +1,108 @@
 "use client";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
 import {Hardware} from "../../../mocks/HardwareMocks";
+import {WorkspaceTypeEnum} from "../../../utils/enums/WorkspaceTypeEnum";
+import Image from "next/image";
+import {HardwareEnum} from "../../../utils/enums/HardwareEnum";
 
 export const BookingOverviewComponent = () => {
-    const {name, surname, street, streetNumber} = useWizardStateContext();
-
-    const Vorname = "Jannik";
-    const Nachname = "Heinrich";
-    const Strasse = "Bahnhofstraße";
-    const Hausnummer = 1;
-    const Telefonnummer = "+49 162 7982939";
-    const Postleitzahl = "01067";
-    const Arbeitsplaetze = 1;
-    const Endpreis = 36.50;
-    const OrderID = "32912346123";
+    const {name, surname, street, streetNumber, city, email, hardware, hardware2, briefing, specification, startDate, endDate, zipCode, workspaceType} = useWizardStateContext();
 
     return (
-        <div className={"w-full"}>
+        <div className={"w-full relative"}>
             <div>
-                <h2>Office Sharing in Bad Erzland</h2>
                 Sehr geehrte Herr {surname},
                 <br/>
-                vielen Dank für Ihre Buchung.
+                vielen Dank für Ihre Buchung. Wir haben sie soeben erhalten. <br/>
                 <br/>< br/>
             </div>
             <div className={"mt-5"}>
                 <table className={"w-full"}>
-                    <tr className={"border-b-2 pb-5"}>
-                        <td colSpan={2}>Best.-Nr.: {OrderID}</td>
-                        <td>Bestellt am {new Date().toDateString()}</td>
-                    </tr>
-                    <tr>
-                        <td colSpan={2}>*Vorort bezahlen</td>
-                        <td>Adressinformationen</td>
-                    </tr>
-                    <tr className={"border-b-2 mb-2 pb-2"}>
-                        <td colSpan={2}/>
-                        <td>
-                            Testkunde <br/>
-                            Max Musterstraße 2 <br/>
-                            01067 Dresden <br/>
-                            DEU <br/>
-                            +49 162 7982939
+                    <tr className={"border-b-2 align-text-top"}>
+                        <td height={40} className={"flex"}>
+                            <div>
+                                Best.-Nr.:&nbsp;
+                            </div>
+                            <div className={"text-office-gray-800"}>
+                                {'OrderID'}
+                            </div>
+                        </td>
+                        <td />
+                        <td className={"flex"}>
+                            <div>Bestellt am&nbsp;</div>
+                            <div className={"text-office-gray-900"}>{new Date().toLocaleDateString("de-DE")}</div>
                         </td>
                     </tr>
-                    <tr className={"border-b-2 mb-2 pb-2"}>
-                        <td>Bestellübersicht</td>
+                    <tr>
+                        <td height={60} colSpan={2}>*Vorort bezahlen</td>
+                        <td>Adressinformationen</td>
                     </tr>
-                    {Hardware.map((hardware, index) => (
-                        <tr key={index} className={"border-b-2 mb-2 pb-2"}>
-                            <td/>
-                            <td>
-                                {hardware.processor} <br/>
-                                {hardware.memory} <br/>
-                                {hardware.graphics} <br/>
-                                {hardware.storage}
+                    <tr className={"border-b-2 align-text-bottom"}>
+                        <td colSpan={2}/>
+                        <td className={"pb-5 text-office-gray-900"}>
+                            {name} {surname} <br/>
+                            {street} {streetNumber} <br/>
+                            {zipCode} {city} <br/>
+                            DEU <br/>
+                            +49 012 345 6789
+                        </td>
+                    </tr>
+                    <tr className={"border-b-2"}>
+                        <td className={"py-2.5"}>Bestellübersicht</td>
+                    </tr>
+
+                    <tr>
+                        <td height={50} colSpan={2}>Arbeitsplatztyp</td>
+                        <td>{workspaceType == WorkspaceTypeEnum.DOUBLE_DESK ? "Doppelarbeitsplatz" : "Einzelarbeitsplatz"}</td>
+                    </tr>
+                    <tr className={"border-b-2"}>
+                        <td colSpan={2}>Einweisung</td>
+                        <td>{briefing ? "Ja" : 'Nein'}</td>
+                    </tr>
+                    <tr >
+                        <td>Mietzeitraum</td>
+                        <td>Von</td>
+                        <td>Bis</td>
+                    </tr>
+                    <tr className={"border-b-2"}>
+                        <td></td>
+                        <td className={"text-office-gray-900"}>{startDate.toLocaleString("de-DE")}</td>
+                        <td className={"text-office-gray-900"}>{endDate.toLocaleString("de-DE")}</td>
+                    </tr>
+                    {Hardware.map((item, index) => (
+                        <tr key={index} className={specification || "border-b-2"} >
+                            <td><Image src={hardware == HardwareEnum.BAREBONE ? "assets/svg/barebone.svg" : hardware == HardwareEnum.PC ? "assets/svg/desktop.svg" : "assets/svg/laptop.svg"} alt={"Bild"} width={96} height={96} /></td>
+                            <td height={120}>
+                                {item.processor} <br/>
+                                {item.memory} <br/>
+                                {item.graphics} <br/>
+                                {item.storage}
                             </td>
-                            <td>
+                            <td className={"text-right"}>
                                 6.75€ <br/>
                             </td>
                         </tr>
                     ))}
+                    {specification &&
+                        <tr className={"border-b-2"}>
+                            <td className={"py-2.5"}>Spezifikationen</td>
+                            <td colSpan={2}>{specification}</td>
+                        </tr>
+                    }
                 </table>
             </div>
 
-            <div className={"flex flex-col items-end mt-5"}>
-                <table>
-                    <tr>
-                        <td>Zwischensumme</td>
-                        <td>5.67€</td>
-                    </tr>
-                    <tr className={"border-b-2 mb-2 pb-2"}>
-                        <td>MwSt.</td>
-                        <td>1.08€</td>
-                    </tr>
-                    <tr>
-                        <td>Gesamtsumme</td>
-                        <td>12,35€</td>
-                    </tr>
-                </table>
+            <div className={"flex text-right justify-end mt-10"}>
+                <div className={"text-left"}>
+                    <div className={"pr-10"}>Zwischensumme</div>
+                    <div className={"border-b-2 pr-10"}>MwSt.</div>
+                    <div className={"pr-10"}>Gesamtsumme</div>
+                </div>
+                <div>
+                    <div>5,67€</div>
+                    <div className={"border-b-2"}>1,08€</div>
+                    <div>12,35€</div>
+                </div>
             </div>
         </div>
     );
