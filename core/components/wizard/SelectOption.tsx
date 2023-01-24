@@ -23,16 +23,17 @@ export default function SelectOption(props: any) {
                                 width={24} height={24} />
                             <div className="text-lg font-semibold">
                             
-                                <div className="flex flex-row">
-                                {props.name}  
+                                <div className="flex flex-row-reverse md:flex-col ">
                                 {props.price &&
-                                    <p className="!text-xs  relative md:absolute  inherit ml-[5px] mt-[5px] left-0 top-0 ">   {props.price}€/h</p> }  
+                                    <p className="!text-s !mb-0 relative   inherit  !ml-3 md:!ml-0 md:text-center">   {props.price}€/h</p> }  
+                                <p className="text-center text-lg font-medium !mb-0">{props.name}</p> 
+                                
                         
                                 </div>                        
                             </div>
                         </div>
                         {props.infoUrl &&
-                         <Link href={props.infoUrl}> <BsInfoCircle className="absolute top-0 right-0 mt-2 mr-2 hover:text-teal-300 transition" /> </Link>}
+                         <Link href={props.infoUrl} target="_blank"> <BsInfoCircle className="absolute top-0 right-0 mt-2 mr-2 hover:text-colo transition" /> </Link>}
                         
                     </label>
                 </li>

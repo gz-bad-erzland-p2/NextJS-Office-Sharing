@@ -1,6 +1,9 @@
 "use client";
 import Image from "next/image";
 import pc_image from "../../public/assets/img/esprimo.png";
+import laptop_image from "../../public/assets/img/laptop.jpg";
+import bareboen_image from "../../public/assets/img/barebone.jpg";
+
 import monitor_image from "../../public/assets/img/monitor.png";
 import mise_image from "../../public/assets/img/mise.png";
 import keyboard_image from "../../public/assets/img/keyboard.png";
@@ -28,6 +31,36 @@ export default function HarwareMainPage() {
                             <p className="text-xl">ESPRIMO P5011</p>
                             <p>Intel® Core™ i3-10105-Prozessor, 6 MB, 3.70
                                 GHz <br/>16 GB RAM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="m-10 ">
+                <div className="flex justify-center flex-col md:flex-row">
+                    <Image alt="LIFEBOOK E4511" src={laptop_image}
+                           className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"} placeholder={"blur"} quality={"25"}></Image>
+                    <div className="w-[400px] h-[300px]  flex  items-center">
+                        <div>
+                            <p className="text-xl">LIFEBOOK E4511</p>
+                            <p>Intel® Core™ i5-1135G7-Prozessor 8 Kerne 4,20GHz
+                                <br/>8 GB RAM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    
+
+            <div className="m-10 ">
+                <div className="flex justify-center flex-col md:flex-row">
+                    <Image alt="ESPRIMO Q556" src={bareboen_image}
+                           className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"} placeholder={"blur"} quality={"25"}></Image>
+                    <div className="w-[400px] h-[300px]  flex  items-center">
+                        <div>
+                            <p className="text-xl">ESPRIMO Q556</p>
+                            <p>Intel® Core™ i5-6400T-Prozessor 4 Kerne , 2.20 GHz
+                                <br/>8 GB RAM</p>
                         </div>
                     </div>
                 </div>

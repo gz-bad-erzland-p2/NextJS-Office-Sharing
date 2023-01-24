@@ -20,7 +20,7 @@ export const HardwareSelectionComponent = () => {
 
     const hardwareList = [
         {
-            name: "Laptop",
+            name: "Notebook",
             img:"../../../assets/svg/laptop.svg",
             category:"hardware",
             value:HardwareEnum.Laptop,
@@ -33,6 +33,7 @@ export const HardwareSelectionComponent = () => {
             img:"../../../assets/svg/desktop.svg",
             category:"hardware",
             value:HardwareEnum.PC,
+            info: "hardware",
             price: Price.pc
     },
         {
@@ -40,6 +41,7 @@ export const HardwareSelectionComponent = () => {
             img:"../../../assets/svg/barebone.svg",
             category:"hardware",
             value:HardwareEnum.BAREBONE,
+            info: "hardware",
             price: Price.barebone
     },
         {
@@ -56,7 +58,7 @@ export const HardwareSelectionComponent = () => {
 
     return (
         <form id={"form"} className={"h-full w-full"}>
-            <h3 className="mb-5 text-lg font-medium text-red ">Benötigen sie einen Rechner?</h3>
+            <h3 className="mb-5 text-lg font-medium  ">Benötigen sie einen Rechner?</h3>
             <ul className="flex md:flex-row flex-col min-w-0 gap-2  w-full items-center justify-center">
                 
 
