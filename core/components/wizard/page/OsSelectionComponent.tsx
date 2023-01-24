@@ -19,14 +19,14 @@ export const OsSelectionComponent = () => {
 
     const softwareList = [
         {
-            name: "Windows",
+            name: "Windows 10 Pro",
             img:"../../../assets/svg/windows.svg",
             category:"software",
             value:OperatingSystemEnum.WINDOWS,
 
     },
         {
-            name: "Linux Ubuntu",
+            name: "Ubuntu 22.04.1 LTS",
             img:"../../../assets/svg/linux.svg",
             category:"software",
             value:OperatingSystemEnum.LINUX,
@@ -50,7 +50,7 @@ export const OsSelectionComponent = () => {
                 <h4 className="font-slim mb-5" >(falls es ihr gewünschtes Betriebssystem nicht auftaucht spezifizieren sie es bitte in der folgenden Seite)</h4>
             
             {hardware != HardwareEnum.BYOD &&
-            <ul className="flex md:flex-row flex-col min-w-0 gap-2 h-max w-full items-center justify-center">
+            <ul className="flex md:flex-row flex-col min-w-0 gap-2 h-max w-full items-center justify-center ">
                 
                 {
                     softwareList.map((item, index) => {
@@ -69,7 +69,7 @@ export const OsSelectionComponent = () => {
             <div>
                 <br></br>
                 <h3 className="mb-5 text-lg font-medium">Arbeitsplatz 2</h3>
-                <ul className="flex md:flex-row flex-col min-w-0 gap-2 h-full w-full items-center justify-center">
+                <ul className="flex md:flex-row flex-col min-w-0 gap-2 h-full w-full items-center justify-center my-auto">
                 {
                     softwareList.map((item, index) => {
                         return (
