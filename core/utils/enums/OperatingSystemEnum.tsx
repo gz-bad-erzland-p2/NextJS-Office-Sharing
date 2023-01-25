@@ -8,6 +8,7 @@
 
 export enum OperatingSystemEnum {
     WINDOWS = "WINDOWS",
-    LINUX = "LINUX",
-    LINUXMINT = "LINUXMINT"
+    DEBIAN = "DEBIAN",
+    LINUX_MINT = "LINUX_MINT",
+    UBUNTU = "UBUNTU"
 }
