@@ -8,6 +8,7 @@ import {SlArrowLeft} from "react-icons/sl";
 import {useCallback} from "react";
 import {useRouter} from "next/navigation";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
+import {HardwareEnum} from "../../../utils/enums/HardwareEnum";
 
 export default function FooterNavigationComponent() {
 
@@ -26,7 +27,9 @@ export default function FooterNavigationComponent() {
         operatingSystem,
         workspaceType,
         endDate,
-        startDate
+        startDate,
+        hardware,
+        hardware2
     } = useWizardStateContext();
 
     const router = useRouter();
@@ -61,9 +64,10 @@ export default function FooterNavigationComponent() {
 
 
     return (
-        <div className={`flex gap-3 mt-10 transition-opacity ease-in-out duration-300 ${steps.length == 0 && 'opacity-0'}`}>
+        <div
+            className={`flex gap-3 mt-10 transition-opacity ease-in-out duration-300 ${steps.length == 0 && 'opacity-0'}`}>
             <button
-                className={`rounded px-2 py-1.5 border-1 border-office-gray-500 bg-office-green-500 text-white disabled:bg-office-gray-600 disabled:text-black transition-colors`}
+                className={`rounded px-4 py-1.5 border-1 border-office-gray-500 bg-office-green-500 text-white disabled:bg-office-gray-600 disabled:text-black transition-colors`}
                 onClick={onPrevious} disabled={isFirstStep}>
                 <SlArrowLeft/>
             </button>

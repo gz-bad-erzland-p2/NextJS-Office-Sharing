@@ -8,6 +8,9 @@ module.exports = {
             minWidth: {
                 '0': '280px',
             },
+            borderWidth: {
+                '1': '1px',
+            },
             colors: {
                 'office-green': {
                     '50': '#f3f8f6',

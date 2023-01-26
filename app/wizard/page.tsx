@@ -28,7 +28,7 @@ export default function WizardMainPage() {
             loading: () => <Loading/>,
         });
 
-        const SoftwareSpecsComponent = dynamic(() => import('../../core/components/wizard/page/SoftwareSelectionComponent').then((mod) => mod.SoftwareSelectionComponent), {
+        const AdditionalSpecsComponent = dynamic(() => import('../../core/components/wizard/page/AdditionalSpecsComponent').then((mod) => mod.AdditionalSpecsComponent), {
             loading: () => <Loading/>,
         });
 
@@ -49,13 +49,12 @@ export default function WizardMainPage() {
                 </Step>
                 <Step key={`page/2`} id={'2'}
                       className={"w-full h-full transition-opacity"}>
-                    <BasePageComponent heading={"Geräte"}>
+                    <BasePageComponent heading={"Hardware/ Geräte"}>
                         <div className={"p-5 h-full flex justify-center"}>
                             <ITComponent/>
                         </div>
                     </BasePageComponent>
                 </Step>
-
                 <Step key={`page/3`} id={'3'}
                       className={"w-full h-full transition-opacity"}>
                     <BasePageComponent heading={"Betriebssystem"}>
@@ -67,7 +66,7 @@ export default function WizardMainPage() {
                 <Step key={`page/4`} id={'4'} className={"w-full h-full"}>
                     <BasePageComponent heading={"Weitere Spezifikationen"}>
                         <div className={"p-5 h-full flex justify-center"}>
-                            <SoftwareSpecsComponent/>
+                            <AdditionalSpecsComponent/>
                         </div>
                     </BasePageComponent>
                 </Step>

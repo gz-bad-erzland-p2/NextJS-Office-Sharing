@@ -283,3 +283,11 @@ p{
 .display_toggle_button{
     display: block !important;
 }
+
+.tooltip {
+    @apply opacity-0 absolute transition-all duration-300 ease-in-out;
+}
+
+.has-tooltip:hover .tooltip {
+    @apply opacity-100 z-50;
+}
