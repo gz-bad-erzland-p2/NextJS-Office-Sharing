@@ -52,5 +52,7 @@ model Arbeitsplatz {
 
 enum Betriebssystem {
   WINDOWS
-  LINUX
+  DEBIAN
+  LINUX_MINT
+  UBUNTU
 }
