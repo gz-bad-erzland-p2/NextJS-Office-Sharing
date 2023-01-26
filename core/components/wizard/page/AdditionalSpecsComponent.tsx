@@ -1,6 +1,6 @@
 import {useWizardStateContext} from "../../../context/WizardStateContext";
 
-export const SoftwareSelectionComponent = () => {
+export const AdditionalSpecsComponent = () => {
     const {
         briefing,
         specification,
