@@ -8,7 +8,7 @@ export default function SupportMainPage() {
                     <h1 className="text-2xl">Kontaktdaten Technischer
                         Support</h1>
                     <br/>
-                    Tel-Nummer: 0351 1931728
+                    Tel-Nummer: <a href="tel:0351 1931728">0351 1931728</a>
                     <br/>
                     E-Mail-Adresse: <Link
                     href="mailto:support@gz-bad-erzland-P2.de">support@gz-bad-erzland-P2.de</Link>
