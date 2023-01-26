@@ -8,7 +8,6 @@ import {SlArrowLeft} from "react-icons/sl";
 import {useCallback} from "react";
 import {useRouter} from "next/navigation";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
-import {HardwareEnum} from "../../../utils/enums/HardwareEnum";
 
 export default function FooterNavigationComponent() {
 
@@ -25,11 +24,8 @@ export default function FooterNavigationComponent() {
         email,
         city,
         operatingSystem,
-        workspaceType,
         endDate,
         startDate,
-        hardware,
-        hardware2
     } = useWizardStateContext();
 
     const router = useRouter();
@@ -83,11 +79,11 @@ export default function FooterNavigationComponent() {
                         onNext(() => console.log('Calling `onNext`'));
                         if (isLastStep) {
                             console.log("LAST STEP")
-                            //await callAPI();
+                            await callAPI();
                             router.push("#");
                         }
                     }
-                }, [isLastStep, onNext, router])}>
+                }, [onNext, isLastStep, callAPI, router])}>
                 {isLastStep ? "Absenden" : "weiter"} <BsArrowRight
                 className={"mx-2"}/>
             </button>

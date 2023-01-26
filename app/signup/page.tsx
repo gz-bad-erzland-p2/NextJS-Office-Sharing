@@ -1,5 +1,5 @@
 "use client";
-import RegisterComponent from "../../core/components/page/RegisterComponent";
+import RegisterComponent from "../../core/components/layout/RegisterComponent";
 import React, {FormEvent, useState} from "react";
 import CenteredFormComponent
     from "../../core/components/misc/CenteredFormComponent";

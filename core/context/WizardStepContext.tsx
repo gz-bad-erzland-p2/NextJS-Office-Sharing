@@ -185,7 +185,7 @@ export const WizardStepProvider = ({children}: { children: React.ReactNode }) =>
             isRegister,
             setIsRegister,
             isFirstStep: activeStepIndex === 0,
-            isLastStep: steps.length == 0 ? false : activeStepIndex >= steps.length - 1,
+            isLastStep: activeStepIndex >= steps.length - 1,
         }),
         [activeStepIndex, steps, goTo, onNext, onPrevious, setSteps, getActiveStep, isRegister, setIsRegister]
     );

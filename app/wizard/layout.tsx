@@ -14,13 +14,13 @@ export default function WizardLayout({children}: { children: React.ReactNode }) 
         <section
             className="relative m-auto border-2 bg-white p-2 md:w-1/2 min-w w-full md:min-w-[650px] md:drop-shadow-2xl md:rounded-2xl h-full flex flex-col items-center justify-center">
             <Suspense fallback={"Loading"}>
-                <WizardStateProvider>
-                    <WizardStepProvider>
+                <WizardStepProvider>
+                    <WizardStateProvider>
                         <HeaderProgressComponent/>
                         {children}
                         <FooterNavigationComponent/>
-                    </WizardStepProvider>
-                </WizardStateProvider>
+                    </WizardStateProvider>
+                </WizardStepProvider>
             </Suspense>
         </section>
     )

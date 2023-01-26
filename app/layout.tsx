@@ -1,8 +1,8 @@
 import React from "react";
 import './global.css'
 
-import HeaderComponent from "../core/components/page/HeaderComponent";
-import FooterComponent from "../core/components/page/FooterComponent";
+import HeaderComponent from "../core/components/layout/HeaderComponent";
+import FooterComponent from "../core/components/layout/FooterComponent";
 /*import { Inter } from '@next/font/google';
 
 const inter = Inter({

@@ -6,18 +6,33 @@ import Image from "next/image";
 import {HardwareEnum} from "../../../utils/enums/HardwareEnum";
 
 export const BookingOverviewComponent = () => {
-    const {name, surname, street, streetNumber, city, email, hardware, hardware2, briefing, specification, startDate, endDate, zipCode, workspaceType} = useWizardStateContext();
+    const {
+        name,
+        surname,
+        street,
+        streetNumber,
+        city,
+        hardware,
+        briefing,
+        specification,
+        startDate,
+        endDate,
+        zipCode,
+        workspaceType
+    } = useWizardStateContext();
 
     return (
-        <div className={"w-full relative"}>
+        <form id={"form"} className={"w-full relative"}>
             <div>
                 Sehr geehrte Herr {surname},
                 <br/>
-                vielen Dank für Ihre Buchung. Wir haben sie soeben erhalten. <br/>
+                vielen Dank für Ihre Buchung. Wir haben sie soeben
+                erhalten. <br/>
                 <br/>< br/>
             </div>
             <div className={"mt-5"}>
                 <table className={"w-full"}>
+                    <tbody>
                     <tr className={"border-b-2 align-text-top"}>
                         <td height={40} className={"flex"}>
                             <div>
@@ -27,10 +42,11 @@ export const BookingOverviewComponent = () => {
                                 {'OrderID'}
                             </div>
                         </td>
-                        <td />
+                        <td/>
                         <td className={"flex"}>
                             <div>Bestellt am&nbsp;</div>
-                            <div className={"text-office-gray-900"}>{new Date().toLocaleDateString("de-DE")}</div>
+                            <div
+                                className={"text-office-gray-900"}>{new Date().toLocaleDateString("de-DE")}</div>
                         </td>
                     </tr>
                     <tr>
@@ -59,7 +75,7 @@ export const BookingOverviewComponent = () => {
                         <td colSpan={2}>Einweisung</td>
                         <td>{briefing ? "Ja" : 'Nein'}</td>
                     </tr>
-                    <tr >
+                    <tr>
                         <td>Mietzeitraum</td>
                         <td>Von</td>
                         <td>Bis</td>
@@ -70,8 +86,11 @@ export const BookingOverviewComponent = () => {
                         <td className={"text-office-gray-900"}>{endDate.toLocaleString("de-DE")}</td>
                     </tr>
                     {Hardware.map((item, index) => (
-                        <tr key={index} className={specification || "border-b-2"} >
-                            <td><Image src={hardware == HardwareEnum.BAREBONE ? "assets/svg/barebone.svg" : hardware == HardwareEnum.PC ? "assets/svg/desktop.svg" : "assets/svg/laptop.svg"} alt={"Bild"} width={96} height={96} /></td>
+                        <tr key={index}
+                            className={specification || "border-b-2"}>
+                            <td><Image
+                                src={hardware == HardwareEnum.BAREBONE ? "assets/svg/barebone.svg" : hardware == HardwareEnum.PC ? "assets/svg/desktop.svg" : "assets/svg/laptop.svg"}
+                                alt={"Bild"} width={96} height={96}/></td>
                             <td height={120}>
                                 {item.processor} <br/>
                                 {item.memory} <br/>
@@ -89,6 +108,7 @@ export const BookingOverviewComponent = () => {
                             <td colSpan={2}>{specification}</td>
                         </tr>
                     }
+                    </tbody>
                 </table>
             </div>
 
@@ -104,6 +124,6 @@ export const BookingOverviewComponent = () => {
                     <div>12,35€</div>
                 </div>
             </div>
-        </div>
+        </form>
     );
 }

@@ -21,7 +21,6 @@ export default function FooterComponent() {
                     </div>
                 </div>
                 <hr className="border-gray-200 sm:mx-auto my-3"/>
-                
             </div>
         </div>
     );

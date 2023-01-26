@@ -80,7 +80,7 @@ export default function WizardMainPage() {
                     </BasePageComponent>
                 </Step>
                 {isRegister ? (
-                        <Step key={`page/7`} id={'7'} className={"w-full h-full transition-all duration-150 ease-out"}>
+                        <Step key={`page/6`} id={'6'} className={"w-full h-full transition-all duration-150 ease-out"}>
                             <BasePageComponent heading={"Registrierung"}>
                                 <div className={"p-5 h-full flex justify-center"}>
                                     <PersonalDataComponent/>
@@ -88,7 +88,7 @@ export default function WizardMainPage() {
                             </BasePageComponent>
                         </Step>
                     ) :
-                    <Step key={`page/6`} id={'6'} className={"w-full h-full transition-all duration-150 ease-out"}>
+                    <Step key={`page/7`} id={'7'} className={"w-full h-full transition-all duration-150 ease-out"}>
                         <BasePageComponent heading={"Login"}>
                             <div className={"p-5 h-full flex justify-center"}>
                                 <UserLoginComponent/>
