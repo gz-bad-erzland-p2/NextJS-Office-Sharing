@@ -1,12 +1,13 @@
 import {useWizardStateContext} from "../../../context/WizardStateContext";
 
-export const AdditionalSpecsComponent = () => {
+export const SoftwareSelectionComponent = () => {
     const {
         briefing,
         specification,
         setBriefing,
-        setSpecification,
+        setSpecification
     } = useWizardStateContext();
+
 
     return (
         <form id={"form"}
@@ -32,7 +33,7 @@ export const AdditionalSpecsComponent = () => {
                     setBriefing(true);
                 }}>
                     <input type="radio" id="yes" name="briefing"
-                           className="align-left mr-2" required
+                           className="align-left mr-2 !bg-white !text-black" required
                            defaultChecked={briefing}/>
                     <label htmlFor="yes">Einweisung durch einen
                         Mitarbeiter</label>
@@ -45,8 +46,7 @@ export const AdditionalSpecsComponent = () => {
                     <input type="radio" id="no" name="briefing"
                            className="align-left mr-2" required
                            defaultChecked={!briefing}/>
-                    <label className="!bg-none" htmlFor="no">Einweisung wird
-                        nicht benötigt</label>
+                    <label className="!bg-none !bg-white !text-black" htmlFor="no">Einweisung wird nicht benötigt</label>
 
                 </li>
             </div>

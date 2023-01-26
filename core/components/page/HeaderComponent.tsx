@@ -2,6 +2,8 @@
 import Link from "next/link";
 import React from "react";
 import {useSelectedLayoutSegment} from "next/navigation";
+import logo_img from "../../../public/assets/img/logo.png";
+import Image from "next/image";
 
 export default function HeaderComponent() {
 
@@ -31,7 +33,11 @@ export default function HeaderComponent() {
                         {/*<img className="mr-3 h-6 sm:h-9"*/}
                         {/*     alt="Flowbite Logo"/>*/}
                         <span
-                            className="self-center text-xl font-semibold whitespace-nowrap">Office Sharing</span>
+                            className="self-center text-xl font-semibold whitespace-nowrap flex items-center">
+                                <Image  alt="logo" src={logo_img}
+                           className="h-[20px] w-auto mr-2 border" placeholder={"blur"} quality={"25"}></Image>
+                                Office Sharing</span>
+                            
                     </Link>
                     <div className="hidden flex items-center md:order-2 md:block" >
                         <Link href="/login"
