@@ -30,23 +30,9 @@ export const AdditionalSpecsComponent = () => {
             <br/>
             <div className="pt-2 text-left">
                 <li className={"w-full list-none"} onClick={() => {
-                    setBriefing(true);
-                }}>
-                    <input type="radio" id="yes" name="briefing"
-                           className="align-left mr-2 !bg-white !text-black" required
-                           defaultChecked={briefing}/>
-                    <label htmlFor="yes">Einweisung durch einen
-                        Mitarbeiter</label>
-
-                </li>
-
-                <li className={"w-full list-none"} onClick={() => {
-                    setBriefing(false);
-                }}>
-                    <input type="radio" id="no" name="briefing"
-                           className="align-left mr-2" required
-                           defaultChecked={!briefing}/>
-                    <label className="!bg-none !bg-white !text-black" htmlFor="no">Einweisung wird nicht benötigt</label>
+                    setBriefing(!briefing);
+                }}> <label htmlFor= "ew"> <input type= "checkbox" name= "einweisung" value= "einweisung" id="ew" checked={briefing}></input>Einweisung durch einen Mitarbeiter</label>
+                    
 
                 </li>
             </div>
