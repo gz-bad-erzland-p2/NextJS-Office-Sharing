@@ -227,6 +227,11 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setState({...state, specification: specification});
         }, [state]);
 
+    const setSalutation = useCallback(
+        (specification: string) => {
+            setState({...state, specification: specification});
+        }, [state]);
+
     // useMemo only updates on the dependencies change
     const context = useMemo(
         () => ({
