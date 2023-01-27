@@ -29,9 +29,7 @@ export const AdditionalSpecsComponent = () => {
             />
             <br/>
             <div className="pt-2 text-left">
-                <li className={"w-full list-none"} onClick={() => {
-                    setBriefing(!briefing);
-                }}> <label htmlFor= "ew"> <input type= "checkbox" name= "einweisung" value= "einweisung" id="ew" checked={briefing}></input>Einweisung durch einen Mitarbeiter</label>
+                <li  className={"w-full list-none"} > <label onClick={() => {setBriefing(!briefing);}} htmlFor= "ew"> <input type= "checkbox" name= "einweisung" value= "einweisung" id="ew" checked={briefing} ></input>Einweisung durch einen Mitarbeiter</label>
                     
 
                 </li>

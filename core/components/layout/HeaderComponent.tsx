@@ -13,7 +13,8 @@ export default function HeaderComponent() {
     const links = [
         {name: "Home", path: '#'},
         {name: "Support", path: 'support'},
-        {name: "Hardware", path: 'hardware'}
+        {name: "Hardware", path: 'hardware'},
+        {name: "Buchung", path: 'wizard'}
     ];
 
     function toggleMenu(){
