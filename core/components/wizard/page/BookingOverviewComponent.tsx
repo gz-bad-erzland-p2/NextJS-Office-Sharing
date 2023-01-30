@@ -86,7 +86,7 @@ export const BookingOverviewComponent = () => {
                         <td></td>
                         <td className={"text-office-gray-900"}>{startDate.toLocaleString("de-DE")}</td>
                         <td className={"text-office-gray-900"}>{endDate.toLocaleString("de-DE")}</td>
-                        <td className={"text-office-gray-900"}>{calculateTime() }</td>
+                        <td className={"text-office-gray-900"}>{calculateTime({startDate: startDate, endDate: endDate}) }</td>
                     </tr>
                     {Hardware.map((item, index) => (
                         <tr key={index}

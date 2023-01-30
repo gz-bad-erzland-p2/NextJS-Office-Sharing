@@ -32,12 +32,12 @@ export function calculateCost(wizardStateContext: DefaultWizardStateProps): numb
 }
 
 
-export function calculateTime(wizardStateContext: DefaultWizardStateProps){
-     
+export function calculateTime(wizardStateContext: any){
+
     const openingTime = 7;
     const closingTime = 20;
 
-    var hoursFinal = 0; //final time
+    let hoursFinal = 0; //final time
 
     const start = wizardStateContext.startDate;
     const end = wizardStateContext.endDate;
