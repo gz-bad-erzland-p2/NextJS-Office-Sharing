@@ -4,6 +4,7 @@ import {Hardware} from "../../../mocks/HardwareMocks";
 import {WorkspaceTypeEnum} from "../../../utils/enums/WorkspaceTypeEnum";
 import Image from "next/image";
 import {HardwareEnum} from "../../../utils/enums/HardwareEnum";
+import { calculateTime } from "../../../utils/CostUtils";
 
 export const BookingOverviewComponent = () => {
     const {
@@ -79,11 +80,13 @@ export const BookingOverviewComponent = () => {
                         <td>Mietzeitraum</td>
                         <td>Von</td>
                         <td>Bis</td>
+                        <td>Mietdauer (Stunden)</td>
                     </tr>
                     <tr className={"border-b-2"}>
                         <td></td>
                         <td className={"text-office-gray-900"}>{startDate.toLocaleString("de-DE")}</td>
                         <td className={"text-office-gray-900"}>{endDate.toLocaleString("de-DE")}</td>
+                        <td className={"text-office-gray-900"}>{calculateTime() }</td>
                     </tr>
                     {Hardware.map((item, index) => (
                         <tr key={index}

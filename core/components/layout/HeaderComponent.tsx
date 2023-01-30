@@ -12,6 +12,7 @@ export default function HeaderComponent() {
 
     const links = [
         {name: "Home", path: '#'},
+        {name: "Buchung", path: 'wizard'},
         {name: "Support", path: 'support'},
         {name: "Hardware", path: 'hardware'}
     ];
