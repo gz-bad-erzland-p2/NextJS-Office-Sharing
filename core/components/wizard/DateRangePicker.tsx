@@ -82,7 +82,7 @@ export default function DateRangePicker() {
     }
 
     return (
-        <div className="flex flex-col w-full">
+        <form id={"form"} className="flex flex-col w-full">
             <div
                 className="flex items-center justify-center py-5 mx-auto space-x-4 w-full">
                 {/*<span*/}
@@ -134,6 +134,6 @@ export default function DateRangePicker() {
                     />
                 </div>
             </div>
-        </div>
+        </form>
     )
 }
