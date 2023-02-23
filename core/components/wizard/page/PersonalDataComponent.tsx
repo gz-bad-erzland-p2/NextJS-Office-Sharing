@@ -21,7 +21,9 @@ export const PersonalDataComponent = () => {
         setZipCode,
         zipCode,
         setPassword,
-        password
+        password,
+        gender,
+        setGender,
     } = useWizardStateContext();
 
     const {setIsRegister} = useWizardStepContext();
@@ -44,6 +46,8 @@ export const PersonalDataComponent = () => {
                                zipCode={zipCode}
                                setPassword={setPassword}
                                password={password}
+                               gender={gender}
+                               setGender={setGender}
             />
             <button className={"mt-4"} onClick={() => setIsRegister(false)}>oder
                 Anmelden

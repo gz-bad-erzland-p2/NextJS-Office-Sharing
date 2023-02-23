@@ -30,20 +30,91 @@ body {
     box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.25);
 }
 
-.padding-above {
-    padding-top: 10px;
+
+
+/*Hamburger Menu (in andere CSS verscheiden)*/
+
+
+#mobile_menu {
+    display: block;
+    position: fixed;
+    width: 80vw;
+    height: 100vh;
+    background-color: WHITE;
+    top: 0;
+    box-shadow: -3px 0 3px 0 rgba(90, 90, 90, 0.171);
+    z-index: 99999;
+    left: 100vw;
+    transition: 0.3s;
+    @apply md:hidden;
 }
 
-.padding-above-below {
-    padding-top: 10px;
-    padding-bottom: 10px;
+
+.show_menu {
+    left: 20vw !important;
 }
+
+.link_list_mobile li {
+    @apply flex flex-col;
+}
+
+#toggle_button {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 90000;
+}
+
+.display_toggle_button {
+    display: block !important;
+}
+
+.tooltip {
+    @apply opacity-0 absolute transition-all duration-300 ease-in-out;
+}
+
+.has-tooltip:hover .tooltip {
+    @apply opacity-100 z-50;
+}
+
+h1 {
+    @apply text-4xl font-extrabold mb-2 mt-4
+}
+
+h2 {
+    @apply text-3xl font-bold mb-2 mt-4
+}
+
+h3 {
+    @apply text-2xl font-bold mb-2 mt-4 underline
+}
+
+h4 {
+    @apply text-xl font-bold mb-2 mt-4
+}
+
+h5 {
+    @apply text-lg font-bold mb-2 mt-4
+}
+
+h6 {
+    @apply text-base font-bold mb-2 mt-4
+}
+
+p {
+    @apply font-light
+}
+
 /* When you use these apply methods on form inputs you need to add the respective form classess to the individual components https://github.com/tailwindlabs/tailwindcss-forms */
 /*Original Ones from msnegurski*/
 
 .react-datepicker__input-container input {
     @apply block w-full text-base md:text-sm bg-white border border-gray-300 rounded shadow-sm form-input
 }
+
 /*changed w-72 to auto and added inset-0*/
 .react-datepicker-popper {
     @apply z-40 w-auto text-sm inset-0 bg-white shadow px-3 py-2 border-2 border-gray-200 rounded
@@ -66,46 +137,28 @@ body {
     @apply flex flex-col
 }
 
-[type="radio"]:checked  + label {
-	color: green;
+[type="radio"]:checked + label {
+    color: green;
     border-color: green;
     background-color: rgb(235, 250, 235);
 }
 
-[type="radio"]+ label{
+[type="radio"] + label {
     transition: 0.2s;
 
 }
 
-[type="radio"]+ label:hover{
+[type="radio"] + label:hover {
     transition: 0.2s;
     transform: scale(1.02);
 
 }
 
-[type="radio"]{
+[type="radio"] {
     accent-color: green;
 }
 
 
-h1{
-    font-size: 1.3em;
-font-weight: 600;
-margin-top: 20px;
-margin-bottom: 15px;
-}
-
-h2 {
-    margin-top: 15px;
-    font-weight: 500;
-    font-size: 1.1em;
-    margin-bottom: 7px;
-}
-p{
-    margin-bottom: 10px;
-    font-weight: 300;
-    font-size: 0.9em;
-}
 .react-datepicker__month {
     @apply flex flex-col
 }
@@ -213,11 +266,11 @@ p{
 }
 
 .react-datepicker__header--time {
-    @apply  text-base text-center text-gray-800 rounded p-1 pt-2
+    @apply text-base text-center text-gray-800 rounded p-1 pt-2
 }
 
 .react-datepicker__time-list {
-   /* @apply no-scrollbar overflow-y-auto w-full h-40 p-2 */
+    /* @apply no-scrollbar overflow-y-auto w-full h-40 p-2 */
     @apply overflow-y-auto w-full h-40 p-2
 
 }
@@ -236,58 +289,4 @@ p{
 
 .react-datepicker-time__header {
     @apply ml-2.5 text-base font-semibold text-gray-800 border-2 py-1
-}
-
-
-/*Hamburger Menu (in andere CSS verscheiden)*/
-
-
-#mobile_menu{
-    display: block;
-    position: fixed;
-    width: 80vw;
-    height: 100vh;
-    background-color: WHITE;
-    top: 0;
-    box-shadow: -3px 0 3px 0 rgba(90, 90, 90, 0.171);
-    z-index: 99999;
-    left: 100vw;
-    transition: 0.3s;
-}
-
-@media only screen and (min-width: 650px) {
-    #mobile_menu{
-        display: none ;
-    }
-  }
-
-
-.show_menu{
-    left: 20vw!important;
-}
-
-.link_list_mobile li{
-    @apply flex flex-col;
-}
-
-#toggle_button{
-    display: none;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    z-index: 90000;
-}
-
-.display_toggle_button{
-    display: block !important;
-}
-
-.tooltip {
-    @apply opacity-0 absolute transition-all duration-300 ease-in-out;
-}
-
-.has-tooltip:hover .tooltip {
-    @apply opacity-100 z-50;
 }

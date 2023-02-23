@@ -1,7 +1,7 @@
 "use client";
-import Link from "next/link";
 import React, {useState} from "react";
 import FloatingTextFieldComponent from "../misc/FloatingTextFieldComponent";
+import Link from "next/link";
 
 export default function RegisterComponent(props) {
 
@@ -14,8 +14,28 @@ export default function RegisterComponent(props) {
         }
         return passwordMatch;
     }
-    return(
+    return (
         <form id={"form"}>
+
+            <div className="relative z-0 w-full mb-5">
+                <select
+                    name="genderSelect"
+                    id="genderSelect"
+                    defaultValue={props.gender}
+                    required={true}
+                    onChange={(event) => props.setGender(event.target.value)}
+                    className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300
+                    appearance-none focus:outline-none focus:ring-0 focus:border-office-green-600 peer"
+                >
+                    <option value="" disabled hidden></option>
+                    <option value="Herr">Herr</option>
+                    <option value="Frau">Frau</option>
+                    <option value="Drivers">Divers</option>
+                </select>
+                <label htmlFor="genderSelect"
+                       className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-office-green-600 peer-placeholder-shown:scale-100
+                     peer-valid:-translate-y-6 peer-valid:scale-75 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Anrede</label>
+            </div>
             <div className="relative z-0 mb-6 w-full group">
                 <FloatingTextFieldComponent label={"Vorname"} name={"name"}
                                             required={false}
@@ -100,10 +120,10 @@ export default function RegisterComponent(props) {
                 </div>
                 <label htmlFor="terms"
                        className="ml-2 text-sm font-medium text-gray-900">Ich
-                    stimme den
+                    stimme er
                     <Link href="#"
-                          className="text-office-green-400 hover:underline"> {"AGB's "}
-                        und der Datenschutzverordnung zu</Link>
+                          className="text-office-green-400 hover:underline"> Datenschutzverordnung </Link>
+                    zu.
                 </label>
             </div>
         </form>

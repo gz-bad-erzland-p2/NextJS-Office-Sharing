@@ -12,6 +12,8 @@ import {OperatingSystemEnum} from "../utils/enums/OperatingSystemEnum";
 import {HardwareEnum} from "../utils/enums/HardwareEnum";
 
 interface WizardStateContextProps {
+    gender: string;
+    setGender: (gender: string) => void;
     workspaceType: WorkspaceTypeEnum;
     setWorkspaceType: (workspaceType: WorkspaceTypeEnum) => void;
     operatingSystem: OperatingSystemEnum;
@@ -42,14 +44,14 @@ interface WizardStateContextProps {
     setStartDate: (startDate: Date) => void;
     endDate: Date;
     setEndDate: (endDate: Date) => void;
-    briefing:boolean;
-
-    setBriefing: (briefing:boolean) => void;
-    specification:string;
-    setSpecification: (specification:string) => void;
+    briefing: boolean;
+    setBriefing: (briefing: boolean) => void;
+    specification: string;
+    setSpecification: (specification: string) => void;
 }
 
 export interface DefaultWizardStateProps {
+    gender: string,
     name: string,
     surname: string,
     email: string,
@@ -66,11 +68,12 @@ export interface DefaultWizardStateProps {
     operatingSystem2: OperatingSystemEnum,
     startDate: Date,
     endDate: Date,
-    briefing:boolean,
-    specification:string
+    briefing: boolean,
+    specification: string
 }
 
 const initialState: DefaultWizardStateProps = {
+    gender: "",
     workspaceType: WorkspaceTypeEnum.SINGLE_DESK,
     hardware: HardwareEnum.PC,
     hardware2: HardwareEnum.PC,
@@ -87,8 +90,8 @@ const initialState: DefaultWizardStateProps = {
     city: "",
     startDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
     endDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
-    briefing:false,
-    specification:""
+    briefing: false,
+    specification: ""
 
 };
 
@@ -127,6 +130,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
 
     const {
         workspaceType,
+        gender,
         name,
         city,
         operatingSystem,
@@ -218,18 +222,18 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         }, [state]);
 
     const setBriefing = useCallback(
-            (briefing: boolean) => {
-                setState({...state, briefing: briefing});
-            }, [state]);
+        (briefing: boolean) => {
+            setState({...state, briefing: briefing});
+        }, [state]);
 
     const setSpecification = useCallback(
         (specification: string) => {
             setState({...state, specification: specification});
         }, [state]);
 
-    const setSalutation = useCallback(
-        (specification: string) => {
-            setState({...state, specification: specification});
+    const setGender = useCallback(
+        (gender: string) => {
+            setState({...state, specification: gender});
         }, [state]);
 
     // useMemo only updates on the dependencies change
@@ -237,6 +241,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         () => ({
             workspaceType,
             name,
+            gender,
             city,
             operatingSystem,
             operatingSystem2,
@@ -254,6 +259,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             briefing,
             specification,
             setWorkspaceType,
+            setGender,
             setName,
             setCity,
             setOperatingSystem,
@@ -273,7 +279,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setSpecification
         }),
         // eslint-disable-next-line max-len
-        [workspaceType, name, city, operatingSystem, operatingSystem2, hardware, hardware2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, briefing, specification, setWorkspaceType, setName, setCity, setOperatingSystem, setOperatingSystem2, setHardware, setHardware2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate,setBriefing, setSpecification]
+        [workspaceType, name, gender, city, operatingSystem, operatingSystem2, hardware, hardware2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, briefing, specification, setWorkspaceType, setGender, setName, setCity, setOperatingSystem, setOperatingSystem2, setHardware, setHardware2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate, setBriefing, setSpecification]
     );
 
     return (
