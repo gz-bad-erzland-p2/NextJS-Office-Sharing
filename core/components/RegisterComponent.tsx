@@ -1,6 +1,7 @@
 "use client";
 import React, {useState} from "react";
-import FloatingTextFieldComponent from "../misc/FloatingTextFieldComponent";
+import FloatingTextFieldComponent from "./FloatingTextFieldComponent";
+import {CheckboxComponent} from "./CheckboxComponent";
 import Link from "next/link";
 
 export default function RegisterComponent(props) {
@@ -112,20 +113,18 @@ export default function RegisterComponent(props) {
                        </span> Dein Passwort muss übereinstimmen!
                 </p>
             </div>
-            <div className="flex items-start mb-6">
-                <div className="flex items-center h-5">
-                    <input id="terms" type="checkbox" value=""
-                           className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focs"
-                           required/>
-                </div>
-                <label htmlFor="terms"
-                       className="ml-2 text-sm font-medium text-gray-900">Ich
-                    stimme er
-                    <Link href="#"
-                          className="text-office-green-400 hover:underline"> Datenschutzverordnung </Link>
+            <CheckboxComponent
+                label={
+                    <span>Ich stimme der
+                        <Link href="/datenschutz"
+                              target={"_blank"}
+                              className="text-office-green-400 hover:underline"> Datenschutzverordnung </Link>
                     zu.
-                </label>
-            </div>
+                    </span>
+                }
+                id={"terms"}
+                required={true}
+            />
         </form>
     );
 }

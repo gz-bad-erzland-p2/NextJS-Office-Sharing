@@ -1,6 +1,6 @@
 "use client";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
-import {Hardware} from "../../../mocks/HardwareMocks";
+import {Hardware} from "../../../misc/HardwareMocks";
 import {WorkspaceTypeEnum} from "../../../utils/enums/WorkspaceTypeEnum";
 import Image from "next/image";
 import {HardwareEnum} from "../../../utils/enums/HardwareEnum";

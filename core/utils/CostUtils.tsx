@@ -1,7 +1,7 @@
 "use client";
 
 import {DefaultWizardStateProps} from "../context/WizardStateContext";
-import { Price } from "../mocks/HardwareMocks";
+import { Price } from "../misc/HardwareMocks";
 import {HardwareEnum} from "./enums/HardwareEnum";
 import {WorkspaceTypeEnum} from "./enums/WorkspaceTypeEnum";
 

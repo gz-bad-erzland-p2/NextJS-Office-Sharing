@@ -1,7 +1,7 @@
 "use client";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
-import React from "react";
-import FloatingTextFieldComponent from "../../misc/FloatingTextFieldComponent";
+import React, {FormEvent} from "react";
+import FloatingTextFieldComponent from "../../FloatingTextFieldComponent";
 import {BsArrowRight} from "react-icons/bs";
 import {useWizardStepContext} from "../../../context/WizardStepContext";
 
@@ -9,15 +9,14 @@ export const UserLoginComponent = () => {
 
     const {email, setEmail, password, setPassword} = useWizardStateContext();
     const {setIsRegister} = useWizardStepContext();
-    const {goTo} = useWizardStepContext();
 
-    // const submitHandler = (event: FormEvent) => {
-    //      event.preventDefault();
-    //  }
+    const submitHandler = (event: FormEvent) => {
+         event.preventDefault();
+     }
 
     return (
         <form id={"form"}
-             className={"w-full h-full flex flex-col justify-center"}>
+             className={"w-full h-full flex flex-col justify-center"} onSubmit={submitHandler}>
             <div
                 className={"m-auto min-w-400 flex justify-center flex-col min-w-[50%]"}>
                 <div className={"relative w-full mb-6"}>

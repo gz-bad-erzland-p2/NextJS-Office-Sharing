@@ -1,6 +1,6 @@
 "use client";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
-import RegisterComponent from "../../layout/RegisterComponent";
+import RegisterComponent from "../../RegisterComponent";
 import React from "react";
 import {useWizardStepContext} from "../../../context/WizardStepContext";
 

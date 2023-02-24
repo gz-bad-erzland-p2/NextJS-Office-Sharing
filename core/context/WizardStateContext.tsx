@@ -124,9 +124,9 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
     });
 
     // Save the data of the wizard in the state of the context provider in local storage to persist the data
-    useEffect(() => {
-        localStorage.setItem("wizardState", JSON.stringify(state));
-    }, [state]);
+    // useEffect(() => {
+    //     localStorage.setItem("wizardState", JSON.stringify(state));
+    // }, [state]);
 
     const {
         workspaceType,

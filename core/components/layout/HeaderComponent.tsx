@@ -39,12 +39,12 @@ export default function HeaderComponent() {
 
                     </Link>
                     <div className="hidden flex items-center md:order-2 md:block" >
-                        <Link href="/login"
+                        <Link href="/signin"
                             className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 focus:outline-none">
                             Anmelden
                         </Link>
                         <Link href="/signup"
-                            className="text-white bg-office-green-500 hover:bg-office-green-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 focus:outline-none">
+                            className="text-white bg-office-green-500 hover:bg-office-green-800 focus:ring-4 focus:ring-office-green-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 focus:outline-none">
                             Registrieren
                         </Link>
                     </div>
@@ -110,7 +110,7 @@ export default function HeaderComponent() {
                             })
                         }
                     </ul>
-                    <Link onClick={toggleMenu} href="/login"
+                    <Link onClick={toggleMenu} href="/signin"
                         className="text-gray-800 m-3 text-center bg-slate-200 hover:bg-gray-50 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5">
                             Anmelden
                     </Link>

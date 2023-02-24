@@ -1,5 +1,5 @@
 "use client";
-import RegisterComponent from "../../core/components/layout/RegisterComponent";
+import RegisterComponent from "../../core/components/RegisterComponent";
 import React, {FormEvent, useState} from "react";
 
 export default function WizardMainPage() {

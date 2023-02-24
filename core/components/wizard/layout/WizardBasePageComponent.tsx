@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function BasePageComponent({
+export default function WizardBasePageComponent({
                                               children,
                                               heading
                                           }: { children: React.ReactNode, heading: string }) {

@@ -2,11 +2,11 @@
 import {BsArrowRight} from "react-icons/bs";
 import React, {FormEvent, useState} from "react";
 import CenteredFormComponent
-    from "../../core/components/misc/CenteredFormComponent";
+    from "../../core/components/CenteredFormComponent";
 import FloatingTextFieldComponent
-    from "../../core/components/misc/FloatingTextFieldComponent";
+    from "../../core/components/FloatingTextFieldComponent";
 
-export default function LoginPage() {
+export default function SignInPage() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function FooterComponent() {
 
     return (
-        <div className="bg-white p-2.5">
+        <div className="bg-white p-2.5 drop-shadow-md">
             <div className="mx-auto max-w-screen-xl">
                 <div className="md:flex md:justify-between">
                     <div className="grid grid-cols-2 sm:gap-6 sm:grid-cols-3">

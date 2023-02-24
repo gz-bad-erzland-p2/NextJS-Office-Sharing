@@ -3,9 +3,9 @@ import React, {Suspense} from "react";
 import {WizardStepProvider} from "../../core/context/WizardStepContext";
 import {WizardStateProvider} from "../../core/context/WizardStateContext";
 import HeaderProgressComponent
-    from "../../core/components/wizard/layout/HeaderProgressComponent";
+    from "../../core/components/wizard/layout/WizardHeaderComponent";
 import FooterNavigationComponent
-    from "../../core/components/wizard/layout/FooterNavigationComponent";
+    from "../../core/components/wizard/layout/WizardFooterComponent";
 
 
 export default function WizardLayout({children}: { children: React.ReactNode }) {

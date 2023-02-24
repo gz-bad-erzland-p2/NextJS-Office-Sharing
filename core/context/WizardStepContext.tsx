@@ -216,7 +216,7 @@ export const Steps = ({children}: StepsProps) => {
     const {activeStepIndex, setSteps, steps} =
         useWizardStepContext<DefaultWizardStepProps>();
 
-    // Update on every page render based on deps
+    // Update on every steps render based on deps
     useEffect(() => {
         if (steps.length !== reactChildren.length) {
             setSteps(
