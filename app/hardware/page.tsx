@@ -110,17 +110,17 @@ export default function HarwareMainPage() {
                             <div
                                 className="flex justify-center flex-col md:flex-row">
                                 <Image alt={item.name} src={item.image}
-                                       className={"mix-blend-multiply max-w-full mr-10 w-[400px] rounded-xl p-[10px]"}
-                                       placeholder={"blur"} quality={"75"}/>
+                                       className={"mix-blend-multiply w-full max-w-md mr-10 rounded-xl object-scale-down"}
+                                       placeholder={"blur"} quality={"75"} />
                                 <div
-                                    className="w-[400px] h-[300px] flex items-center">
-                                    <div>
-                                        <p className="text-xl">{item.name}</p>
+                                    className="sm:w-[400px] flex items-center">
+                                    <div className={"sm:mb-20"}>
+                                        <h4>{item.name}</h4>
                                         {
                                             item.specs.map((spec, index) => {
                                                 return (
-                                                    <p key={index}>{spec}<br/>
-                                                    </p>
+                                                    <li key={index}>{spec}
+                                                    </li>
                                                 )
                                             })
                                         }
