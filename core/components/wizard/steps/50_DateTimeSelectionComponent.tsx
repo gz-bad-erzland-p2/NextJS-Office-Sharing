@@ -88,7 +88,6 @@ export const AppointmentSelectionComponent = () => {
     } = useWizardStateContext();
 
     useEffect(() => {
-        console.log(highlightBookedDateRanges);
         if (startDate.getTime() > endDate.getTime()) {
             setEndDate(new Date(startDate));
         }
@@ -187,6 +186,7 @@ export const AppointmentSelectionComponent = () => {
                             minTime={setHours(new Date(), 6)}
                             maxTime={setHours(new Date(), 20)}
                             filterTime={filterTime}
+                            excludeDates={new Date().getHours() >= BUSINESS_HOURS_END ? new Date() : []}
                             excludeDateIntervals={bookedDates.map(item => {
                                 return {
                                     start: item.startDate,

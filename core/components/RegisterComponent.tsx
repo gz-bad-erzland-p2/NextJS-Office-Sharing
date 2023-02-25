@@ -16,8 +16,7 @@ export default function RegisterComponent(props) {
         return passwordMatch;
     }
     return (
-        <form id={"form"}>
-
+        <form id={"form"} className={props.className}>
             <div className="relative z-0 w-full mb-5">
                 <select
                     name="genderSelect"

@@ -18,7 +18,7 @@ export default function WizardHeaderComponent() {
     const getProgressWidth = () => {
         const isOwnHardware = workspaceType === WorkspaceTypeEnum.SINGLE_DESK ? hardware === HardwareEnum.BYOD : hardware === HardwareEnum.BYOD && hardware2 === HardwareEnum.BYOD;
         const stepLength = steps.length - (isOwnHardware ? 1 : 0);
-        const activeIndex = activeStepIndex + (isOwnHardware && activeStepIndex < 2 ? 1 : 0);
+        const activeIndex = activeStepIndex + (!isOwnHardware && activeStepIndex > 3 ? 1 : 0) + (isOwnHardware && activeStepIndex < 3 ? 1 : 0);
         return steps.length && (100 / stepLength) * activeIndex + "%";
     }
 
