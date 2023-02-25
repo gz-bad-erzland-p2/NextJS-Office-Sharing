@@ -92,6 +92,7 @@ export default function WizardFooterComponent() {
             </button>
             <button
                 type={"submit"}
+                id={"formNextButton"}
                 form={"form"}
                 className={`${isSignInOrSignUp && "hidden"} rounded px-2 py-1.5 border-1 border-office-green-500 bg-office-green-500 text-white disabled:bg-office-gray-600 disabled:text-black transition-colors flex items-center
             `}
@@ -110,7 +111,7 @@ export default function WizardFooterComponent() {
                             router.push("#");
                         }
                     }
-                }, [skipOsSelection, activeStepIndex, isLastStep, goTo, onNext, callAPI, router])}>
+                }, [isSignInOrSignUp, skipOsSelection, activeStepIndex, isLastStep, goTo, onNext, callAPI, router])}>
                 {isLastStep ? "Absenden" : "Weiter"} <BsArrowRight
                 className={"mx-2"}/>
             </button>

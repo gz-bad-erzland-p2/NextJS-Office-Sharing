@@ -292,3 +292,7 @@ p {
 .react-datepicker__aria-live {
     @apply hidden
 }
+
+.react-datepicker__day--highlighted-custom-1 {
+    @apply text-office-green-500 font-bold line-through decoration-solid bg-gray-300
+}

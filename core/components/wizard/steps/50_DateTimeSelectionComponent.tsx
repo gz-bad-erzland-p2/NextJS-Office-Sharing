@@ -1,13 +1,14 @@
 import DatePicker, {registerLocale} from 'react-datepicker'
 import React, {useEffect} from 'react'
-// import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import {
     addDays,
     addHours,
     addYears,
     differenceInHours,
+    eachDayOfInterval,
     format,
-    setHours
+    setHours,
+    subDays
 } from 'date-fns'
 import {de} from 'date-fns/locale';
 import {BsChevronLeft, BsChevronRight} from "react-icons/bs";
@@ -24,6 +25,10 @@ export const AppointmentSelectionComponent = () => {
         {
             startDate: new Date(2023, 3, 1, 8, 0),
             endDate: new Date(2023, 3, 15, 10, 0)
+        },
+        {
+            startDate: new Date(2023, 2, 1, 8, 0),
+            endDate: new Date(2023, 2, 1, 14, 0)
         }
     ];
 
@@ -33,6 +38,48 @@ export const AppointmentSelectionComponent = () => {
         });
     }
 
+    const findDateAfterBookedRange = (date) => {
+        const dates = bookedDates.find((bookedDate) => {
+            return date.getTime() >= bookedDate.endDate.getTime();
+        });
+        return {
+            startDate: subDays(dates?.startDate || new Date(), 1).toLocaleString([], {
+                dateStyle: 'short',
+                timeStyle: 'short'
+            }),
+            endDate: addDays(dates?.endDate || new Date(), 1).toLocaleString([], {
+                dateStyle: 'short',
+                timeStyle: 'short'
+            })
+        }
+    }
+
+
+    const isCrossingBookedRange = (startDate, endDate) => {
+        return bookedDates.some((bookedDate) => {
+            return startDate.getTime() <= bookedDate.endDate.getTime() && endDate.getTime() >= bookedDate.startDate.getTime();
+        });
+    }
+
+    const isNotMinDuration = (startDate, endDate) => {
+        return differenceInHours(endDate, startDate) < MIN_DURATION;
+    }
+
+    const highlightBookedDateRanges =
+        bookedDates.map((bookedDate) => {
+            const dates =
+                eachDayOfInterval({
+                    start: bookedDate.startDate,
+                    end: bookedDate.endDate
+                });
+            if (dates.length > 1) {
+                return {
+                    "react-datepicker__day--highlighted-custom-1": dates
+                }
+            }
+            return {};
+        });
+
     const {
         startDate,
         setStartDate,
@@ -41,7 +88,7 @@ export const AppointmentSelectionComponent = () => {
     } = useWizardStateContext();
 
     useEffect(() => {
-        console.log(isInBookedRange(new Date(2023, 4, 4, 8, 0)));
+        console.log(highlightBookedDateRanges);
         if (startDate.getTime() > endDate.getTime()) {
             setEndDate(new Date(startDate));
         }
@@ -61,7 +108,11 @@ export const AppointmentSelectionComponent = () => {
             // Set end date to next day at 7am and add the hours left
             setEndDate(addHours(setHours(addDays(startDate, 1), BUSINESS_HOURS_START), MIN_DURATION - hoursLeft));
         }
-    }, [startDate])
+    }, [startDate]);
+
+    useEffect(() => {
+        (document.getElementById("formNextButton") as HTMLButtonElement).disabled = isCrossingBookedRange(startDate, endDate) || isNotMinDuration(startDate, endDate);
+    }, [startDate, endDate]);
 
     const CustomDateHeader = (props) => {
         return (
@@ -102,7 +153,12 @@ export const AppointmentSelectionComponent = () => {
         }
 
         // Check if the selected time is before 7am or after 8pm
-        return !(selected.getHours() < 7 || selected.getHours() > 20);
+        const disabled = !(selected.getHours() < 7 || selected.getHours() > 20);
+
+        // Check if the selected time is in a booked range on the same day and disable it
+        if (isInBookedRange(selected)) return false;
+
+        return disabled;
     }
 
     return (
@@ -118,14 +174,14 @@ export const AppointmentSelectionComponent = () => {
                         <h4>Von</h4>
                         <DatePicker
                             selected={startDate}
-                            onChange={setStartDate}
+                            onChange={(date) => setStartDate(date)}
                             selectsStart
+                            startDate={startDate}
+                            endDate={endDate}
                             locale={"deDE"}
                             showTimeSelect
                             timeCaption="Zeit"
                             timeIntervals={60}
-                            startDate={startDate}
-                            endDate={endDate}
                             shouldCloseOnSelect={false}
                             minDate={new Date()}
                             minTime={setHours(new Date(), 6)}
@@ -143,6 +199,7 @@ export const AppointmentSelectionComponent = () => {
                             timeFormat="HH:mm"
                             dateFormat="dd.MM.yyyy HH:mm"
                             renderCustomHeader={CustomDateHeader}
+                            highlightDates={highlightBookedDateRanges}
                         />
                     </div>
                     <div className="relative w-full">
@@ -151,11 +208,12 @@ export const AppointmentSelectionComponent = () => {
                             selected={endDate}
                             onChange={setEndDate}
                             selectsEnd
+                            startDate={startDate}
+                            endDate={endDate}
                             locale={"deDE"}
                             shouldCloseOnSelect={false}
                             dateFormat="dd.MM.yyyy HH:mm"
                             showTimeSelect
-                            startDate={startDate}
                             timeIntervals={60}
                             minTime={setHours(new Date(), 6)}
                             maxTime={setHours(new Date(), 20)}
@@ -163,14 +221,40 @@ export const AppointmentSelectionComponent = () => {
                             maxDate={addYears(new Date(), 1)}
                             filterTime={filterTime}
                             // filterDate={filterEndDate}
-                            endDate={endDate}
+                            excludeDateIntervals={bookedDates.map(item => {
+                                return {
+                                    start: item.startDate,
+                                    end: item.endDate
+                                }
+                            })
+                            }
                             timeCaption="Zeit"
                             popperClassName="react-datepicker-right"
                             renderCustomHeader={CustomDateHeader}
+                            highlightDates={highlightBookedDateRanges}
                         />
                     </div>
                 </div>
             </div>
+            {
+                isCrossingBookedRange(startDate, endDate) &&
+                <div
+                    className={"text-center flex flex-col justify-center h-1/3"}>
+                <span className={"text-office-green-500 font-bold"}>Die von ihnen Gewählte
+                    Zeitraum, überschneidet sich mit einer bereits vorhanden
+                    Buchung.</span>
+                    <span>Ihre Buchung muss am {findDateAfterBookedRange(endDate).startDate} Enden
+                        oder am {findDateAfterBookedRange(endDate).endDate} starten!</span>
+                </div>
+            }
+
+            {
+                isNotMinDuration(startDate, endDate) &&
+                <div
+                    className={"text-center flex flex-col justify-center h-1/3"}>
+                    <span className={"text-office-green-500 font-bold"}>Der Buchungszeitrum muss mindestens 2 Stunden umfassen!</span>
+                </div>
+            }
         </form>
     )
 }
