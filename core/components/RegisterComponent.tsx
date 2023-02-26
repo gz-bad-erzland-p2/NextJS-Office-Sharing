@@ -24,8 +24,8 @@ export default function RegisterComponent(props) {
                     defaultValue={props.gender}
                     required={true}
                     onChange={(event) => {
-                        console.log(event.target.enum)
-                        props.setGender(event.target.enum)
+                        console.log(event.target.value)
+                        props.setGender(event.target.value)
                     }}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300
                     appearance-none focus:outline-none focus:ring-0 focus:border-office-green-600 peer"
@@ -44,33 +44,33 @@ export default function RegisterComponent(props) {
                                             required={false}
                                             type={"text"}
                                             value={props.name}
-                                            onChange={(event) => props.setName(event.target.enum)}/>
+                                            onChange={(event) => props.setName(event.target.value)}/>
             </div>
             <div className="relative z-0 mb-6 w-full group">
                 <FloatingTextFieldComponent label={"Nachname"} name={"surname"}
                                             type={"text"}
                                             value={props.surname}
-                                            onChange={(event) => props.setSurName(event.target.enum)}/>
+                                            onChange={(event) => props.setSurName(event.target.value)}/>
             </div>
             <div className="relative z-0 mb-6 w-full group">
                 <FloatingTextFieldComponent label={"E-Mail"} name={"email"}
                                             type={"email"}
                                             value={props.email}
-                                            onChange={(event) => props.setEmail(event.target.enum)}/>
+                                            onChange={(event) => props.setEmail(event.target.value)}/>
             </div>
             <div className={"grid md:grid-cols-4 md:gap-6"}>
                 <div className="relative z-0 mb-6 w-full group md:col-span-3">
                     <FloatingTextFieldComponent label={"Straße"} name={"street"}
                                                 type={"text"}
                                                 value={props.street}
-                                                onChange={(event) => props.setStreet(event.target.enum)}/>
+                                                onChange={(event) => props.setStreet(event.target.value)}/>
                 </div>
                 <div className="relative z-0 mb-6 w-full group">
                     <FloatingTextFieldComponent label={"Hausnummer"}
                                                 name={"streetNumber"}
                                                 type={"text"}
                                                 value={props.streetNumber}
-                                                onChange={(event) => props.setStreetNumber(event.target.enum)}/>
+                                                onChange={(event) => props.setStreetNumber(event.target.value)}/>
                 </div>
             </div>
             <div className={"grid md:grid-cols-4 md:gap-6"}>
@@ -78,7 +78,7 @@ export default function RegisterComponent(props) {
                     <FloatingTextFieldComponent label={"Ort"} name={"city"}
                                                 type={"text"}
                                                 value={props.city}
-                                                onChange={(event) => props.setCity(event.target.enum)}/>
+                                                onChange={(event) => props.setCity(event.target.value)}/>
                 </div>
                 <div className="relative z-0 mb-6 w-full group">
                     <FloatingTextFieldComponent label={"Postleitzahl"}
@@ -87,7 +87,7 @@ export default function RegisterComponent(props) {
                                                 pattern={"^((^00000(|-0000))|(\\d{5}(|-\\d{4})))$"}
                                                 title={"Bitte geben Sie eine gültige Postleitzahl ein"}
                                                 type={"text"} // use string to check for pattern
-                                                onChange={(event) => props.setZipCode(event.target.enum)}/>
+                                                onChange={(event) => props.setZipCode(event.target.value)}/>
                 </div>
             </div>
             <div className="relative z-0 mb-6 w-full group">
@@ -95,7 +95,7 @@ export default function RegisterComponent(props) {
                                             type={"password"}
                                             value={props.password}
                                             onChange={(event) => {
-                                                props.setPassword(event.target.enum)
+                                                props.setPassword(event.target.value)
                                             }}/>
             </div>
             <div className="relative z-0 mb-6 w-full group">
@@ -104,7 +104,7 @@ export default function RegisterComponent(props) {
                                             type={"password"}
                                             onClick={() => setIsFirstClick(true)}
                                             onChange={(event) => {
-                                                setPasswordMatch(event.target.enum === props.password)
+                                                setPasswordMatch(event.target.value === props.password)
                                             }}
                                             classNameLabel={`${!passwordMatch && "peer-focus:text-red-500"}`}
                                             classNameInput={`${!passwordMatch && "focus:border-red-500"}`}/>

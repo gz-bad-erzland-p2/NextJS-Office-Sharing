@@ -11,6 +11,7 @@ import {WorkspaceTypeEnum} from "../misc/enums/WorkspaceTypeEnum";
 import {OperatingSystemEnum} from "../misc/enums/OperatingSystemEnum";
 import {HardwareEnum} from "../misc/enums/HardwareEnum";
 import {nanoid} from "nanoid";
+import {PURGE_DURATION} from "../misc/Constatns";
 
 interface WizardStateContextProps {
     gender: string;
@@ -109,6 +110,7 @@ export const useWizardStateContext = () => {
 
 // Reducer is an useState with a custom business logic
 export const WizardStateProvider = ({children}: { children: React.ReactNode }) => {
+    console.log(new Date().getTime())
 
     // Save the data of the wizard in the state of the context provider in local storage to persist the data
     const [state, setState] = useState(() => {
@@ -117,25 +119,29 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         // convert date string to date object
         if (savedState) {
             const parsedState = JSON.parse(savedState);
+            console.log("Parsed state: ", parsedState);
+            if (parsedState.timestamp + PURGE_DURATION < new Date().getTime()) {
+                localStorage.clear();
+                return initialState;
+            } else {
+                parsedState.timestamp = new Date().getTime();
+            }
             return {
                 ...parsedState,
                 startDate: new Date(parsedState.startDate),
                 endDate: new Date(parsedState.endDate),
             };
         }
-
-        const returnState = savedState ? JSON.parse(savedState) : initialState;
-        // Check if timestamp is older than 15 minutes
-        if (returnState.timestamp + 900000 < new Date().getTime()) {
-            return initialState;
-        }
-        return returnState;
-        // return initialState;
+        return initialState;
     });
 
     // Save the data of the wizard in the state of the context provider in local storage to persist the data
     useEffect(() => {
-        localStorage.setItem("wizardState", JSON.stringify(state));
+        console.log("State: ", state.workspaceType)
+        localStorage.setItem("wizardState", JSON.stringify({
+            ...state,
+            password: "",
+        }));
     }, [state]);
 
     const {

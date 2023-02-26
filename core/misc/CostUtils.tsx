@@ -2,65 +2,34 @@
 
 import {DefaultWizardStateProps} from "../context/WizardStateContext";
 import {HardwareEnum} from "./enums/HardwareEnum";
-import {WorkspaceTypeEnum} from "./enums/WorkspaceTypeEnum";
+import {
+    BUSINESS_HOURS_END,
+    BUSINESS_HOURS_START,
+    PRICE_PER_HOUR
+} from "./Constatns";
+import {HARDWARE_LIST} from "./HardwareMocks";
 
-const PRICE_PER_HOUR = 15.00;
+export function calculateCost(startDate: Date, endDate: Date, hardware: HardwareEnum, hardware2: HardwareEnum): number {
+    const totalHours = calculateTotalHours(startDate, endDate);
+    return totalHours * (PRICE_PER_HOUR + getHardwarePrice(hardware) + getHardwarePrice(hardware2));
+}
 
-export function calculateCost(wizardStateContext: DefaultWizardStateProps): number {
-    let cost = 0;
-    //TODO: Add time calculation
-    const hours = 0;
-
-    switch (wizardStateContext.hardware) {
-        case HardwareEnum.BYOD:
-            cost += Price.byod;
-            break;
-        case HardwareEnum.Laptop:
-            cost += Price.laptop;
-            break;
-        case HardwareEnum.PC:
-            cost += Price.pc;
-            break;
-        case HardwareEnum.BAREBONE:
-            cost += Price.barebone;
-            break;
-    }
-    cost = cost * hours;
-    if(wizardStateContext.workspaceType == WorkspaceTypeEnum.DOUBLE_DESK){
-        cost = cost * 2;
-    }
-    return cost;
+export const getHardwarePrice = (hardware: HardwareEnum) => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    return HARDWARE_LIST.filter(item => item.enum === hardware)[0]?.price || 0;
 }
 
 
-export function calculateTime(wizardStateContext: any){
+export function calculateTotalHours(startDate: Date, endDate: Date): number {
+    let hours = 0;
 
-    const openingTime = 7;
-    const closingTime = 20;
+    for (let current = new Date(startDate); current <= endDate; current.setHours(current.getHours() + 1)) {
+        const dayOfWeek = current.getDay(); // 0 (Sonntag) bis 6 (Samstag)
+        const currentHour = current.getHours();
 
-    let hoursFinal = 0; //final time
-
-    const start = wizardStateContext.startDate;
-    const end = wizardStateContext.endDate;
-
-    const hoursTemp = Math.abs(start.getTime() - end.getTime()) / 36e5;
-
-    if(hoursTemp <= closingTime -openingTime){
-        hoursFinal = hoursTemp;
-    }else{
-        const startTime = (start.getTime()-start.getDate()) / 36e5;
-        const endTime = (end.getTime()-end.getDate()) / 36e5;
-        const daysBetween = Math.ceil((start.getTime() - end.getTime())  / (1000 * 3600 * 24)) -1;//TODO anzahl tage dazwischen richtig berechnen
-        hoursFinal +=  (closingTime -openingTime)* daysBetween;
-        hoursFinal += startTime - openingTime;
-        hoursFinal += endTime - openingTime;
-
-        //TODO subtract weekends
-        
+        if (dayOfWeek !== 0 && dayOfWeek !== 6 && currentHour >= BUSINESS_HOURS_START && currentHour < BUSINESS_HOURS_END) {
+            hours++;
+        }
     }
-
-    
-
-    return(hoursFinal);
-
+    return hours;
 }

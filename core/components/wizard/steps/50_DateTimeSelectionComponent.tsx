@@ -13,14 +13,15 @@ import {
 import {de} from 'date-fns/locale';
 import {BsChevronLeft, BsChevronRight} from "react-icons/bs";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
+import {
+    BUSINESS_HOURS_END,
+    BUSINESS_HOURS_START,
+    MIN_DURATION
+} from "../../../misc/Constatns";
 
 registerLocale('deDE', de);
 
 export const AppointmentSelectionComponent = () => {
-    const MIN_DURATION = 2; // Minimale Buchungsdauer in Stunden
-    const BUSINESS_HOURS_START = 7; // Geschäftszeitbeginn
-    const BUSINESS_HOURS_END = 20; // Geschäftszeitende
-
     const bookedDates = [
         {
             startDate: new Date(2023, 3, 1, 8, 0),

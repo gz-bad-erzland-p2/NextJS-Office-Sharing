@@ -17,7 +17,7 @@ export default function HarwareMainPage() {
             </div>
 
             {
-                HARDWARE_LIST.map((item, index) => {
+                HARDWARE_LIST.filter(item => item.show).map((item, index) => {
                     return (
                         <section id={item.id} className="m-10 pb-5 border-b-2" key={index}>
                             <div

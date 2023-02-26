@@ -42,9 +42,10 @@ export const OsSelectionComponent = () => {
                             <SelectOption key={item.name + "-" + index}
                                           setter={setOperatingSystem}
                                           getter={operatingSystem}
-                                          name={item.name} img={item.img}
+                                          name={item.name}
+                                          img={item.img}
                                           value={item.enum}
-                                          category={item.category}/>
+                                          id={1}/>
                         )}
                     </ul>
                 </div>
@@ -61,7 +62,6 @@ export const OsSelectionComponent = () => {
                                           name={item.name}
                                           img={item.img}
                                           value={item.enum}
-                                          category={item.category + "2"}
                                           id={2}/>
                         )}
                     </ul>

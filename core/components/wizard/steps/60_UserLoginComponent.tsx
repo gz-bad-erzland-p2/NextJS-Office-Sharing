@@ -23,14 +23,14 @@ export const UserLoginComponent = () => {
                 <div className={"relative w-full mb-6"}>
                     <FloatingTextFieldComponent name={"email"} label={"E-Mail"}
                                                 type={"email"} value={email}
-                                                onChange={(event) => setEmail(event.target.enum)}/>
+                                                onChange={(event) => setEmail(event.target.value)}/>
                 </div>
                 <div className={"relative w-full mb-6"}>
                     <FloatingTextFieldComponent name={"password"}
                                                 label={"Passwort"}
                                                 type={"password"}
                                                 value={password}
-                                                onChange={(event) => setPassword(event.target.enum)}/>
+                                                onChange={(event) => setPassword(event.target.value)}/>
                 </div>
 
                 <button

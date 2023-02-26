@@ -1,12 +1,13 @@
 "use client";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
 import {WorkspaceTypeEnum} from "../../../misc/enums/WorkspaceTypeEnum";
-import {calculateTime} from "../../../misc/CostUtils";
+import {calculateCost, calculateTotalHours} from "../../../misc/CostUtils";
 import {HARDWARE_LIST} from "../../../misc/HardwareMocks";
 import {HardwareEnum} from "../../../misc/enums/HardwareEnum";
 import Image from "next/image";
 import {tr} from "date-fns/locale";
 import {OperatingSystemList} from "../../../misc/OsMock";
+import {PRICE_PER_HOUR} from "../../../misc/Constatns";
 
 export const BookingOverviewComponent = () => {
     const {
@@ -28,6 +29,10 @@ export const BookingOverviewComponent = () => {
         gender,
         uuid,
     } = useWizardStateContext();
+
+    const totalHours = calculateTotalHours(startDate, endDate);
+    const totalCost = calculateCost(startDate, endDate, hardware, hardware2);
+    const mwSt = totalCost * 0.19;
 
     const filterHardware = (hardwareEnum: HardwareEnum | undefined) => {
         if (hardwareEnum == undefined) return false;
@@ -66,8 +71,8 @@ export const BookingOverviewComponent = () => {
             <div>
                 Sehr {gender === "Divers" ? "geehrt*" : gender === "Frau" ? "geehrte" : "geehrter"} {gender !== "Divers" ? gender : ""} {surname},
                 <br/>
-                vielen Dank für Ihre Buchung. Wir haben sie soeben
-                erhalten. <br/>
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
+                bitte Bestätigen Sie Ihre Buchung mit "Jetzt buchen". <br/>
                 <br/>< br/>
             </div>
             <div className={"mt-5"}>
@@ -110,14 +115,18 @@ export const BookingOverviewComponent = () => {
                         <td className={"py-2"}>Bestellübersicht</td>
                     </tr>
                     <tr>
-                        <td className={"py-2"} colSpan={COL_SPAN}>Arbeitsplatztyp</td>
+                        <td className={"py-2"}
+                            colSpan={COL_SPAN}>Arbeitsplatztyp
+                        </td>
                         <td>{workspaceType == WorkspaceTypeEnum.DOUBLE_DESK ? "Doppelarbeitsplatz" : "Einzelarbeitsplatz"}</td>
                     </tr>
                     {/*<tr>*/}
                     {/*    <td className={"py-10"} />*/}
                     {/*</tr>*/}
                     <tr>
-                        <td className={"py-2"} colSpan={COL_SPAN}>Weitere Spezifikationen</td>
+                        <td className={"py-2"} colSpan={COL_SPAN}>Weitere
+                            Spezifikationen
+                        </td>
                         {
                             specification ? (
                                 <td className={"py-2"}>{specification}</td>) : (
@@ -126,7 +135,8 @@ export const BookingOverviewComponent = () => {
 
                     </tr>
                     <tr>
-                        <td className={"py-2"} colSpan={COL_SPAN}>Einweisung durch einen
+                        <td className={"py-2"} colSpan={COL_SPAN}>Einweisung
+                            durch einen
                             Mitarbeiter
                         </td>
                         <td className={"py-2"}>{briefing ? "Ja" : 'Nein'}</td>
@@ -162,14 +172,11 @@ export const BookingOverviewComponent = () => {
                     </tr>
                     <tr>
                         <td colSpan={COL_SPAN}
-                            className={"align-text-top pt-5"}>Mietdauer in
-                            Stunden
+                            className={"align-text-top pt-5"}>Mietdauer
                         </td>
                         <td className={"pt-5 pb-2"}>
-                            {calculateTime({
-                                startDate: startDate,
-                                endDate: endDate
-                            })}</td>
+                            {totalHours} Stunden ({(PRICE_PER_HOUR).toLocaleString([], {style: 'currency', currency: 'EUR'})} /Stunde)
+                        </td>
                     </tr>
                     <tr className={"border-b-2"}/>
                     <tr className={"border-b-2"}>
@@ -184,7 +191,7 @@ export const BookingOverviewComponent = () => {
                                 alt={item.name} width={96} height={96}/>
                             </td>
                             <td height={120} className={"px-5 py-2"}>
-                                {item.specs.map((item, index) => {
+                                {item.specs?.map((item, index) => {
                                     return (
                                         <li key={index}>
                                             {item} <br/>
@@ -195,10 +202,10 @@ export const BookingOverviewComponent = () => {
                                     className={"pt-2"}>Betriebssystem: {OperatingSystemList.filter(os => os.enum === getOperatingSystemForHardware(item.enum)).map(item => item.name)}</div>
                             </td>
                             <td className={"text-left"}>
-                                {item.price?.toLocaleString([], {
-                                    style: 'currency',
-                                    currency: 'EUR',
-                                })} <br/>
+                                + {item.price?.toLocaleString([], {
+                                style: 'currency',
+                                currency: 'EUR',
+                            })}/Stunde<br/>
                             </td>
                         </tr>
                     ))}
@@ -213,9 +220,20 @@ export const BookingOverviewComponent = () => {
                     <div className={"pr-10"}>Gesamtsumme</div>
                 </div>
                 <div>
-                    <div>5,67€</div>
-                    <div className={"border-b-2"}>1,08€</div>
-                    <div>12,35€</div>
+                    <div>{totalCost.toLocaleString([], {
+                        style: 'currency',
+                        currency: 'EUR',
+                    })}
+                    </div>
+                    <div className={"border-b-2"}>{mwSt.toLocaleString([], {
+                        style: 'currency',
+                        currency: 'EUR',
+                    })}</div>
+                    <div
+                        className={"underline decoration-double"}>{(totalCost + mwSt).toLocaleString([], {
+                        style: 'currency',
+                        currency: 'EUR',
+                    })}</div>
                 </div>
             </div>
         </form>

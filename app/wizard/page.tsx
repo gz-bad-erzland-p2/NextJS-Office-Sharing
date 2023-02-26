@@ -52,7 +52,6 @@ export default function WizardMainPage() {
             loading: () => <Loading/>,
         });
 
-
         return (
             <Steps>
                 <Step key={`page/0`} id={'0'}
@@ -125,7 +124,7 @@ export default function WizardMainPage() {
                 }
                 <Step key={`page/8`} id={'8'} className={"w-full h-full"}>
                     <WizardBasePageComponent
-                        heading={"Buchungsbestätigung"}>
+                        heading={"Bestellübersicht"}>
                         <div className={"p-5 h-full flex justify-center"}>
                             <BookingOverviewComponent/>
                         </div>

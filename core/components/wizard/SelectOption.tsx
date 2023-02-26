@@ -8,7 +8,7 @@ export default function SelectOption(props) {
         <li className={"w-full h-full max-h-44 relative"} onClick={() => {
             props.setter(props.value);
         }}>
-            <input type="radio" id={props.name + props.id} name={props.name + props.id}
+            <input type="radio" id={props.name + props.id} name={props.id}
                    className="hidden peer"
                    defaultChecked={props.value === props.getter}/>
 
@@ -22,8 +22,11 @@ export default function SelectOption(props) {
                            width={96} height={96}/>
                     <div className="text-lg font-semibold">
                         <p className="text-center text-lg font-medium !mb-0">{props.name}</p>
-                        {props.price &&
-                            <p className="text-s mb-0 relative inherit ml-3 ml-0 text-center">{props.price}€/h</p>
+                        {(props.price != undefined && props.price != 0) &&
+                            <p className="text-s mb-0 relative inherit ml-3 ml-0 text-center">+ {(props.price).toLocaleString([], {
+                                style: 'currency',
+                                currency: 'EUR',
+                            })} /Stunde</p>
                         }
                     </div>
                 </div>

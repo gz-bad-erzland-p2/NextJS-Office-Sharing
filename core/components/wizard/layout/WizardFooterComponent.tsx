@@ -1,11 +1,11 @@
-"use client";
 import {
     DefaultWizardStepProps,
     useWizardStepContext
 } from "../../../context/WizardStepContext";
 import {BsArrowLeft, BsArrowRight} from "react-icons/bs";
-import {useCallback} from "react";
-import {useRouter} from "next/navigation";
+import {useCallback, useEffect, useState} from "react";
+import {useRouter, useSelectedLayoutSegment} from "next/navigation";
+import { usePathname } from 'next/navigation';
 import {useWizardStateContext} from "../../../context/WizardStateContext";
 import {WorkspaceTypeEnum} from "../../../misc/enums/WorkspaceTypeEnum";
 import {HardwareEnum} from "../../../misc/enums/HardwareEnum";
@@ -19,7 +19,7 @@ export default function WizardFooterComponent() {
         isLastStep,
         steps,
         goTo,
-        activeStepIndex
+        activeStepIndex,
     } =
         useWizardStepContext<DefaultWizardStepProps>();
 
@@ -40,7 +40,8 @@ export default function WizardFooterComponent() {
         hardware2
     } = useWizardStateContext();
 
-    const router = useRouter();
+    const segment = useSelectedLayoutSegment();
+
 
     const callAPI = async () => {
         try {
@@ -75,6 +76,7 @@ export default function WizardFooterComponent() {
 
     return (
         <div
+            hidden={segment?.includes('success')}
             className={`flex gap-3 mt-10 transition-opacity ease-in-out duration-300 ${steps.length == 0 && 'opacity-0'} `}>
             <button
                 className={`rounded px-2 py-1.5 border-1 border-office-green-500 bg-office-green-500 text-white disabled:bg-office-gray-600 disabled:text-black transition-colors flex items-center`}
@@ -106,12 +108,12 @@ export default function WizardFooterComponent() {
                             onNext(() => console.log('Calling `onNext`'));
                         }
                         if (isLastStep) {
-                            console.log("LAST STEP")
                             await callAPI();
-                            router.push("#");
+                            window.location.href = '/wizard/success';
+                            localStorage.clear();
                         }
                     }
-                }, [isSignInOrSignUp, skipOsSelection, activeStepIndex, isLastStep, goTo, onNext, callAPI, router])}>
+                }, [isSignInOrSignUp, skipOsSelection, activeStepIndex, isLastStep, goTo, onNext, callAPI])}>
                 {isLastStep ? "Absenden" : "Weiter"} <BsArrowRight
                 className={"mx-2"}/>
             </button>
