@@ -55,7 +55,7 @@ export default function SupportMainPage() {
                         <div className={"my-2"}>
                             Informieren Sie sich selber, mit der
                             <Link
-                                href={"https://gz-bad-erzland-p2.github.io/Dokumentation/"}
+                                href={"https://github.com/gz-bad-erzland-p2/Dokumentation/tree/master/docs/assets/Support-Anleitungen"}
                                 target={"_blank"}
                                 className={"whitespace-nowrap m-2 text-white bg-office-green-500 hover:bg-office-green-800 font-medium rounded-lg text-sm px-4 py-1.5 md:px-5 md:py-2"}>Online
                                 Hilfe</Link>
