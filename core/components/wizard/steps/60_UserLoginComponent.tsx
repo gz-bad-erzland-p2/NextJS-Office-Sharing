@@ -19,7 +19,7 @@ export const UserLoginComponent = () => {
         <form id={"form"}
              className={"w-full h-full flex flex-col justify-center"} onSubmit={submitHandler}>
             <div
-                className={"m-auto w-1/2 flex justify-center flex-col"}>
+                className={"m-auto w-full flex justify-center flex-col"}>
                 <div className={"relative w-full mb-6"}>
                     <FloatingTextFieldComponent name={"email"} label={"E-Mail"}
                                                 type={"email"} value={email}

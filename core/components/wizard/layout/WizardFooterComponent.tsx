@@ -9,6 +9,8 @@ import { usePathname } from 'next/navigation';
 import {useWizardStateContext} from "../../../context/WizardStateContext";
 import {WorkspaceTypeEnum} from "../../../misc/enums/WorkspaceTypeEnum";
 import {HardwareEnum} from "../../../misc/enums/HardwareEnum";
+import {calculateTotalHours} from "../../../misc/CostUtils";
+import {PRICE_PER_HOUR} from "../../../misc/Constatns";
 
 export default function WizardFooterComponent() {
 
@@ -33,11 +35,16 @@ export default function WizardFooterComponent() {
         email,
         city,
         operatingSystem,
+        operatingSystem2,
         endDate,
         startDate,
         workspaceType,
         hardware,
-        hardware2
+        hardware2,
+        uuid,
+        briefing,
+        gender,
+        specification
     } = useWizardStateContext();
 
     const segment = useSelectedLayoutSegment();
@@ -58,6 +65,15 @@ export default function WizardFooterComponent() {
                     startDate,
                     endDate,
                     operatingSystem,
+                    operatingSystem2,
+                    uuid,
+                    hardware,
+                    hardware2,
+                    briefing,
+                    gender,
+                    specification,
+                    totalHours: calculateTotalHours(startDate, endDate),
+                    totalCosts: calculateTotalHours(startDate, endDate) * PRICE_PER_HOUR,
                 }),
                 method: 'POST',
                 headers: {

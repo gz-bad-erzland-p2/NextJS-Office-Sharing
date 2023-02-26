@@ -1,31 +1,10 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {hash} from 'bcrypt';
-import {OperatingSystemEnum} from "../../core/misc/enums/OperatingSystemEnum";
 import prisma from "../../core/db/prisma";
 
 
 // TODO: Add validation of body
-type NextApiRequestWithReservation = NextApiRequest & {
-    name: string,
-    surname: string,
-    email: string,
-    password: string,
 
-    address: {
-        street: string,
-        streetNumber: string,
-        zipCode: number,
-        city: string,
-    },
-    rental: {
-        startDate: Date,
-        endDate: Date,
-        additionalHardware: boolean,
-        requirements: string,
-        software: string,
-        operatingSystems: OperatingSystemEnum,
-    }
-}
 
 export default async function handler(
     req: NextApiRequest,
@@ -34,7 +13,6 @@ export default async function handler(
 
     switch (req.method) {
         case 'POST':
-            console.log("POST REQUEST!")
             try {
                 const hashedPassword: string = await new Promise((resolve, reject) => {
                     hash(req.body.password, 10, (err, hash) => {
@@ -43,31 +21,42 @@ export default async function handler(
                     });
                 });
 
-                const reservation = await prisma.kunde.create({
+                const reservation = await prisma.customer.create({
                     data: {
                         name: req.body.name,
-                        vorname: req.body.surname,
-                        telefonnummer: '0123456789',
+                        surname: req.body.surname,
                         email: req.body.email,
-                        username: 'testUserName',
+                        gender: req.body.gender,
                         password: hashedPassword,
-                        adresse: {
+                        address: {
                             create: {
-                                strasse: req.body.street,
-                                hausnummer: +req.body.streetNumber,
-                                plz: +req.body.zipCode,
-                                ort: req.body.city,
-                                zusatz: 'testZusatz',
+                                street: req.body.street,
+                                streetNumber: +req.body.streetNumber,
+                                zipCode: +req.body.zipCode,
+                                city: req.body.city,
                             }
                         },
-                        Mietung: {
+                        booking: {
                             create: {
-                                startdatum: new Date(req.body.startDate),
-                                enddatum: new Date(req.body.endDate),
-                                mitgebrauchterHardware: false,
-                                anforderungen: 'Keine',
-                                software: 'Keine',
-                                betriebssysteme: req.body.operatingSystem,
+                                uuid: req.body.uuid,
+                                startDate: new Date(req.body.startDate),
+                                endDate: new Date(req.body.endDate),
+                                hardware: {
+                                    create: [
+                                        {
+                                            typ: req.body.hardware,
+                                            operatingSystem: req.body.operatingSystem,
+                                        },
+                                        {
+                                            typ: req.body.hardware2,
+                                            operatingSystem: req.body.operatingSystem2,
+                                        }
+                                    ]
+                                },
+                                briefing: req.body.briefing,
+                                specification: req.body.specification,
+                                totalHours: req.body.totalHours,
+                                totalCosts: req.body.totalCosts,
                             }
                         }
                     },

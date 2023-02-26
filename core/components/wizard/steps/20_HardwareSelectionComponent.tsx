@@ -3,7 +3,7 @@ import {useWizardStateContext} from "../../../context/WizardStateContext";
 import {WorkspaceTypeEnum} from "../../../misc/enums/WorkspaceTypeEnum";
 import SelectOption from "../SelectOption";
 import {HardwareEnum} from "../../../misc/enums/HardwareEnum";
-import {HARDWARE_LIST} from "../../../misc/HardwareMocks";
+import {HARDWARE_LIST} from "../../../misc/Mocks";
 
 export const HardwareSelectionComponent = () => {
 

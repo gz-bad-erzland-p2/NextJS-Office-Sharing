@@ -2,10 +2,9 @@
 import {useWizardStateContext} from "../../../context/WizardStateContext";
 import {WorkspaceTypeEnum} from "../../../misc/enums/WorkspaceTypeEnum";
 import {calculateCost, calculateTotalHours} from "../../../misc/CostUtils";
-import {HARDWARE_LIST} from "../../../misc/HardwareMocks";
+import {HARDWARE_LIST, OperatingSystemList} from "../../../misc/Mocks";
 import {HardwareEnum} from "../../../misc/enums/HardwareEnum";
 import {tr} from "date-fns/locale";
-import {OperatingSystemList} from "../../../misc/OsMock";
 import {PRICE_PER_HOUR} from "../../../misc/Constatns";
 import printHtmlToPDF from "print-html-to-pdf";
 import Image from "next/image";

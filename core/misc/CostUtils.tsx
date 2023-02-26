@@ -7,7 +7,7 @@ import {
     BUSINESS_HOURS_START,
     PRICE_PER_HOUR
 } from "./Constatns";
-import {HARDWARE_LIST} from "./HardwareMocks";
+import {HARDWARE_LIST} from "./Mocks";
 
 export function calculateCost(startDate: Date, endDate: Date, hardware: HardwareEnum, hardware2: HardwareEnum): number {
     const totalHours = calculateTotalHours(startDate, endDate);
@@ -21,7 +21,7 @@ export const getHardwarePrice = (hardware: HardwareEnum) => {
 
 
 export function calculateTotalHours(startDate: Date, endDate: Date): number {
-    let hours = 0;
+    let hours = -1;
 
     for (let current = new Date(startDate); current <= endDate; current.setHours(current.getHours() + 1)) {
         const dayOfWeek = current.getDay(); // 0 (Sonntag) bis 6 (Samstag)

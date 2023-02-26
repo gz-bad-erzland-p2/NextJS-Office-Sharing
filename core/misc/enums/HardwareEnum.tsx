@@ -1,6 +1,6 @@
 export enum HardwareEnum {
     BYOD = "BYOD",
-    Laptop = "Laptop",
+    LAPTOP = "Laptop",
     PC = "PC",
     BAREBONE = "Barebone"
 }

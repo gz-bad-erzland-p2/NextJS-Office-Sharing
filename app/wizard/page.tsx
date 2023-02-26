@@ -10,13 +10,6 @@ import WizardBasePageComponent
 import React from "react";
 import dynamic from "next/dynamic";
 import Loading from "../loading";
-import {
-    BookingOverviewComponent
-} from "../../core/components/wizard/steps/70_BookingOverviewComponent";
-import {useWizardStateContext} from "../../core/context/WizardStateContext";
-import {
-    IntroductionComponent
-} from "../../core/components/wizard/steps/00_IntroductionComponent";
 
 export default function WizardMainPage() {
     const WizardStepCustom = () => {
@@ -53,6 +46,10 @@ export default function WizardMainPage() {
         });
 
         const BookingOverViewComponent = dynamic(() => import('../../core/components/wizard/steps/70_BookingOverviewComponent').then((mod) => mod.BookingOverviewComponent), {
+            loading: () => <Loading/>,
+        });
+
+        const IntroductionComponent = dynamic(() => import('../../core/components/wizard/steps/00_IntroductionComponent').then((mod) => mod.IntroductionComponent), {
             loading: () => <Loading/>,
         });
 

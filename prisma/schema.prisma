@@ -10,49 +10,66 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Kunde {
-  kundenID      Int       @id @default(autoincrement())
-  name          String    @db.VarChar(255)
-  vorname       String    @db.VarChar(255)
-  telefonnummer String    @db.VarChar(255)
-  email         String    @db.VarChar(255)
-  username      String    @db.VarChar(255)
-  password      String    @db.VarChar(255)
-  adresse       Adresse?
-  Mietung       Mietung[]
+model Customer {
+  customerID Int       @id @default(autoincrement())
+  gender     Gender
+  name       String    @db.VarChar(255)
+  surname    String    @db.VarChar(255)
+  email      String    @db.VarChar(255)
+  password   String    @db.VarChar(255)
+  address     Address?
+  booking    Booking[]
 }
 
-model Adresse {
-  adresseID  Int    @id @default(autoincrement())
-  strasse    String @db.VarChar(255)
-  hausnummer Int
-  plz        Int
-  ort        String @db.VarChar(255)
-  zusatz     String @db.VarChar(255)
-  kunde      Kunde  @relation(fields: [kundenID], references: [kundenID])
-  kundenID   Int    @unique
+model Address {
+  addressID     Int      @id @default(autoincrement())
+  street       String   @db.VarChar(255)
+  streetNumber Int
+  zipCode      Int
+  city         String   @db.VarChar(255)
+  customer     Customer @relation(fields: [customerID], references: [customerID])
+  customerID   Int      @unique
 }
 
-model Mietung {
-  mietID                 Int            @id @default(autoincrement())
-  startdatum             DateTime
-  enddatum               DateTime
-  mitgebrauchterHardware Boolean
-  anforderungen          String         @db.VarChar(255)
-  software               String         @db.VarChar(255)
-  betriebssysteme        Betriebssystem @default(WINDOWS)
-  kunde                  Kunde          @relation(fields: [kundenID], references: [kundenID])
-  kundenID               Int
+model Booking {
+  bookingID     Int        @id @default(autoincrement())
+  uuid          String     @db.VarChar(255)
+  startDate     DateTime
+  endDate       DateTime
+  hardware      Hardware[]
+  briefing      Boolean    @default(false)
+  specification String     @db.VarChar(255)
+  bookingDate   DateTime   @default(now())
+  totalHours    Int
+  totalCosts    Float
+  customer      Customer   @relation(fields: [customerID], references: [customerID])
+  customerID    Int
 }
 
-model Arbeitsplatz {
-  platzID     Int @id @default(autoincrement())
-  tischnummer Int
+model Hardware {
+  hardwareID      Int             @id @default(autoincrement())
+  typ             HardwareTyp     @default(PC)
+  operatingSystem OperatingSystem @default(WINDOWS)
+  bokking         Booking         @relation(fields: [bookingID], references: [bookingID])
+  bookingID       Int
 }
 
-enum Betriebssystem {
+enum OperatingSystem {
   WINDOWS
   DEBIAN
-  LINUX_MINT
   UBUNTU
+  LINUX_MINT
+}
+
+enum HardwareTyp {
+  Laptop
+  PC
+  Barebone
+  BYOD
+}
+
+enum Gender {
+  Herr
+  Frau
+  Divers
 }

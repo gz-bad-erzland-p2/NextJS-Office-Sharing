@@ -5,6 +5,7 @@ import barebone_image from "../../public/assets/img/barebone.jpg";
 import monitor_image from "../../public/assets/img/monitor.png";
 import maus_image from "../../public/assets/img/mise.png";
 import keyboard_image from "../../public/assets/img/keyboard.png";
+import {OperatingSystemEnum} from "./enums/OperatingSystemEnum";
 
 export const HARDWARE_LIST = [
     {
@@ -29,7 +30,7 @@ export const HARDWARE_LIST = [
     {
         id: "laptop",
         name: "LIFEBOOK E4511",
-        enum: HardwareEnum.Laptop,
+        enum: HardwareEnum.LAPTOP,
         info: "hardware#laptop",
         specs: [
             "Intel® Core™ i5-1135G7-Prozessor 8 Kerne 4,20GHz",
@@ -116,4 +117,27 @@ export const HARDWARE_LIST = [
         link: "https://asset.re-in.de/add/160267/c1/-/de/001665687DS00/DA_Fujitsu-KB521-USB-Tastatur-Deutsch-QWERTZ-Windows-Grau-Spritzwassergeschuetzt.pdf",
         show: true
     }
+]
+
+export const OperatingSystemList = [
+    {
+        name: "Windows 10 Pro",
+        img: "assets/svg/windows.svg",
+        enum: OperatingSystemEnum.WINDOWS,
+    },
+    {
+        name: "Debian 9 LTS",
+        img: "assets/svg/linux_debian.svg",
+        enum: OperatingSystemEnum.DEBIAN,
+    },
+    {
+        name: "Ubuntu 22.04.1 LTS",
+        img: "assets/svg/linux_ubuntu.svg",
+        enum: OperatingSystemEnum.UBUNTU,
+    },
+    {
+        name: "Linux Mint 21.1 LTS",
+        img: "assets/svg/linux_mint.svg",
+        enum: OperatingSystemEnum.LINUX_MINT,
+    },
 ]

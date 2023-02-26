@@ -24,7 +24,6 @@ export default function RegisterComponent(props) {
                     defaultValue={props.gender}
                     required={true}
                     onChange={(event) => {
-                        console.log(event.target.value)
                         props.setGender(event.target.value)
                     }}
                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300

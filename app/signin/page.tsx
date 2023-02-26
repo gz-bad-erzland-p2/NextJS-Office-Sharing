@@ -21,7 +21,7 @@ export default function SignInPage() {
                 className={"flex flex-col items-center justify-center bg-white h-full max-w-screen-xl w-full min-w-0 rounded-2xl drop-shadow-2xl px-5"}>
                 <h1 className={"px-2"}>Office Sharing</h1>
                 <h2 className={"mb-10"}>Manager</h2>
-                <div className="relative z-0 mb-6 w-full group">
+                <div className="relative z-0 mb-6 md:w-1/2 w-full group">
                     <FloatingTextFieldComponent name={"email"} label={"E-Mail"}
                                                 type={"email"} value={email}
                                                 onChange={(event) => setEmail(event.target.value)}/>

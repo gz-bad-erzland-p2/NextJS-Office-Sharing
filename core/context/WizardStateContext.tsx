@@ -59,7 +59,6 @@ export interface DefaultWizardStateProps {
     surname: string,
     email: string,
     password: string,
-    phone: number | undefined,
     street: string,
     streetNumber: string,
     zipCode: number | undefined,
@@ -88,7 +87,6 @@ const initialState: DefaultWizardStateProps = {
     surname: "",
     email: "",
     password: "",
-    phone: undefined,
     street: "",
     streetNumber: "",
     zipCode: undefined,
@@ -110,7 +108,6 @@ export const useWizardStateContext = () => {
 
 // Reducer is an useState with a custom business logic
 export const WizardStateProvider = ({children}: { children: React.ReactNode }) => {
-    console.log(new Date().getTime())
 
     // Save the data of the wizard in the state of the context provider in local storage to persist the data
     const [state, setState] = useState(() => {
@@ -119,7 +116,6 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         // convert date string to date object
         if (savedState) {
             const parsedState = JSON.parse(savedState);
-            console.log("Parsed state: ", parsedState);
             if (parsedState.timestamp + PURGE_DURATION < new Date().getTime()) {
                 localStorage.clear();
                 return initialState;
@@ -137,7 +133,6 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
 
     // Save the data of the wizard in the state of the context provider in local storage to persist the data
     useEffect(() => {
-        console.log("State: ", state.workspaceType)
         localStorage.setItem("wizardState", JSON.stringify({
             ...state,
             password: "",
@@ -158,7 +153,6 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         password,
         surname,
         zipCode,
-        phone,
         email,
         startDate,
         endDate,
@@ -220,10 +214,6 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         (zipCode: number) => {
             setState({...state, zipCode: zipCode});
         }, [state]);
-    const setPhone = useCallback(
-        (phone: number) => {
-            setState({...state, phone: phone});
-        }, [state]);
     const setEmail = useCallback(
         (email: string) => {
             setState({...state, email: email});
@@ -270,7 +260,6 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             password,
             surname,
             zipCode,
-            phone,
             email,
             startDate,
             endDate,
@@ -289,7 +278,6 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setPassword,
             setSurName,
             setZipCode,
-            setPhone,
             setEmail,
             setStartDate,
             setEndDate,
@@ -299,7 +287,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             timestamp
         }),
         // eslint-disable-next-line max-len
-        [workspaceType, name, gender, city, operatingSystem, operatingSystem2, hardware, hardware2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, briefing, specification, setWorkspaceType, setGender, setName, setCity, setOperatingSystem, setOperatingSystem2, setHardware, setHardware2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate, setBriefing, setSpecification, uuid, timestamp]
+        [workspaceType, name, gender, city, operatingSystem, operatingSystem2, hardware, hardware2, street, streetNumber, password, surname, zipCode, email, startDate, endDate, briefing, specification, setWorkspaceType, setGender, setName, setCity, setOperatingSystem, setOperatingSystem2, setHardware, setHardware2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setEmail, setStartDate, setEndDate, setBriefing, setSpecification, uuid, timestamp]
     );
 
     return (
