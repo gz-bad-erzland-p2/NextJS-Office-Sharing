@@ -52,6 +52,10 @@ export default function WizardMainPage() {
             loading: () => <Loading/>,
         });
 
+        const BookingOverViewComponent = dynamic(() => import('../../core/components/wizard/steps/70_BookingOverviewComponent').then((mod) => mod.BookingOverviewComponent), {
+            loading: () => <Loading/>,
+        });
+
         return (
             <Steps>
                 <Step key={`page/0`} id={'0'}
@@ -126,7 +130,7 @@ export default function WizardMainPage() {
                     <WizardBasePageComponent
                         heading={"Bestellübersicht"}>
                         <div className={"p-5 h-full flex justify-center"}>
-                            <BookingOverviewComponent/>
+                            <BookingOverViewComponent/>
                         </div>
                     </WizardBasePageComponent>
                 </Step>

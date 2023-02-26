@@ -13,6 +13,7 @@ export default function BookingSuccessPage() {
                 Sie erhalten in Kürze eine Bestätigungsmail an die angegebene
                 E-Mail Adresse.
             </h2>
+            {/*<button type={"button"} onClick={}>Buchung drucken</button>*/}
             <Link
                 href={"/"}
                 className={"whitespace-nowrap m-2 text-white bg-office-green-500 hover:bg-office-green-800 font-medium rounded-lg text-sm px-4 py-1.5 md:px-5 md:py-2"}>zurück

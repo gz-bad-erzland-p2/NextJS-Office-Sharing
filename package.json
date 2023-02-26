@@ -1,4 +1,3 @@
-
 {
   "name": "nextjs-office-sharing",
   "version": "0.1.0",
@@ -20,6 +19,7 @@
     "date-fns": "^2.29.3",
     "eslint": "8.34.0",
     "next": "13.2.1",
+    "print-html-to-pdf": "^1.0.8",
     "react": "18.2.0",
     "react-datepicker": "^4.10.0",
     "react-dom": "18.2.0",

@@ -20,6 +20,7 @@ export const HARDWARE_LIST = [
             "2 x USB 2.0, 2 x USB 3.2 Gen 1"
         ],
         image: pc_image,
+        image_path: "assets/img/esprimo.png",
         svg: "assets/svg/desktop.svg",
         link: "https://gzhls.at/blob/ldb/c/a/2/c/66c0df85942d132e4cc53cda789efe4a8556.pdf",
         price: 8.50,
@@ -40,6 +41,7 @@ export const HARDWARE_LIST = [
             "Laufzeit bis zu 8 Stunden"
         ],
         image: laptop_image,
+        image_path: "assets/img/laptop.jpg",
         svg: "assets/svg/laptop.svg",
         link: "https://sp.ts.fujitsu.com/dmsp/Publications/public/ds-LIFEBOOK-E4511-de.pdf",
         price: 3.50,
@@ -58,6 +60,7 @@ export const HARDWARE_LIST = [
             "2 x USB 2.0, 2 x USB 3.2 Gen 1"
         ],
         image: barebone_image,
+        image_path: "assets/img/barebone.jpg",
         svg: "assets/svg/barebone.svg",
         link: "https://www.proton.net/Q556.pdf",
         price: 5.50,
