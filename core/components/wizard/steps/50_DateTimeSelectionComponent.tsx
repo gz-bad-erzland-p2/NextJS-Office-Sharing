@@ -6,7 +6,7 @@ import {
     addYears,
     differenceInHours,
     eachDayOfInterval,
-    format,
+    format, setDay,
     setHours,
     subDays
 } from 'date-fns'
@@ -80,6 +80,7 @@ export const AppointmentSelectionComponent = () => {
             }
             return {};
         });
+
 
     const {
         startDate,
@@ -161,6 +162,31 @@ export const AppointmentSelectionComponent = () => {
         return disabled;
     }
 
+    const filterDate = (date) => {
+        // Check if the time is a weekend and disable it
+        return !(date.getDay() === 0 || date.getDay() === 6);
+    }
+
+    useEffect(() => {
+        // Set start date
+        let date = startDate;
+        // Check if it is a weekend
+        if (date.getDay() === 0 || date.getDay() === 6) {
+            // Set start date to next monday
+            date = addDays(date, date.getDay() === 0 ? 1 : 2);
+        }
+        // Check if the date is within the business hours
+        if (date.getHours() < BUSINESS_HOURS_START || date.getHours() > BUSINESS_HOURS_END) {
+            // Set start date to 7am
+            date = setHours(date, BUSINESS_HOURS_START);
+            // if(new Date().getDay() == startDate.getDay() && new Date().getHours() > BUSINESS_HOURS_START) {
+            //     date = addDays(date, 1);
+            // }
+        }
+        setStartDate(date);
+    }, []);
+
+
     return (
         <form id={"form"} className="w-full h-full">
             <h4 className={"font-medium"}>Bitte wählen Sie den Mietzeitraum
@@ -187,6 +213,7 @@ export const AppointmentSelectionComponent = () => {
                             minTime={setHours(new Date(), 6)}
                             maxTime={setHours(new Date(), 20)}
                             filterTime={filterTime}
+                            filterDate={filterDate}
                             excludeDates={new Date().getHours() >= BUSINESS_HOURS_END ? new Date() : []}
                             excludeDateIntervals={bookedDates.map(item => {
                                 return {
@@ -221,7 +248,7 @@ export const AppointmentSelectionComponent = () => {
                             minDate={startDate}
                             maxDate={addYears(new Date(), 1)}
                             filterTime={filterTime}
-                            // filterDate={filterEndDate}
+                            filterDate={filterDate}
                             excludeDateIntervals={bookedDates.map(item => {
                                 return {
                                     start: item.startDate,

@@ -93,7 +93,7 @@ const initialState: DefaultWizardStateProps = {
     streetNumber: "",
     zipCode: undefined,
     city: "",
-    startDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
+    startDate: new Date(new Date().setUTCHours(20, 0, 0, 0)),
     endDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
     briefing: false,
     specification: "",
