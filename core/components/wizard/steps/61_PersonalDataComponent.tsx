@@ -27,13 +27,21 @@ export const PersonalDataComponent = () => {
         setGender,
     } = useWizardStateContext();
 
-    const {setIsRegister} = useWizardStepContext();
+    const {setIsRegister, onNext} = useWizardStepContext();
+
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        onNext();
+    }
 
     return (
         <div className={"w-full"}>
             <div
                 className={"m-auto w-auto flex justify-center flex-col"}>
                 <RegisterComponent
+                    attributes={{
+                        onSubmit: handleSubmit,
+                    }}
                     className={"w-full"}
                     setName={setName}
                     name={name}
@@ -57,6 +65,7 @@ export const PersonalDataComponent = () => {
 
                 <button
                     type={"submit"}
+                    form={"form"}
                     className={"w-full text-white bg-office-green-500 text-center hover:bg-office-green-800 font-medium rounded-lg p-2 flex items-center transition-colors justify-center ease-in-out"}>
                     Registrieren <BsArrowRight className={"mx-2"}/>
                 </button>

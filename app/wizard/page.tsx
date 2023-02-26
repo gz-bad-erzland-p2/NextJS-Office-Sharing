@@ -125,7 +125,7 @@ export default function WizardMainPage() {
                 }
                 <Step key={`page/8`} id={'8'} className={"w-full h-full"}>
                     <WizardBasePageComponent
-                        heading={"Office Sharing mit Bad Erzland"}>
+                        heading={"Buchungsbestätigung"}>
                         <div className={"p-5 h-full flex justify-center"}>
                             <BookingOverviewComponent/>
                         </div>

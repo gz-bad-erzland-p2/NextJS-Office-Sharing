@@ -1,6 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import {hash} from 'bcrypt';
-import {OperatingSystemEnum} from "../../core/utils/enums/OperatingSystemEnum";
+import {OperatingSystemEnum} from "../../core/misc/enums/OperatingSystemEnum";
 import prisma from "../../core/db/prisma";
 
 

@@ -1,5 +1,5 @@
 "use client";
-import DashedLoadingSpinner from "../core/utils/spinner/DashedLoadingSpinner";
+import DashedLoadingSpinner from "../core/misc/spinner/DashedLoadingSpinner";
 import {useEffect, useState} from "react";
 
 export default function Loading() {

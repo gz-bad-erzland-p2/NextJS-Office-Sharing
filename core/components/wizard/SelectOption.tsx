@@ -8,7 +8,7 @@ export default function SelectOption(props) {
         <li className={"w-full h-full max-h-44 relative"} onClick={() => {
             props.setter(props.value);
         }}>
-            <input type="radio" id={props.name + props.id} name={props.category}
+            <input type="radio" id={props.name + props.id} name={props.name + props.id}
                    className="hidden peer"
                    defaultChecked={props.value === props.getter}/>
 

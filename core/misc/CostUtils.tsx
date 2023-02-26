@@ -1,9 +1,10 @@
 "use client";
 
 import {DefaultWizardStateProps} from "../context/WizardStateContext";
-import { Price } from "../misc/HardwareMocks";
 import {HardwareEnum} from "./enums/HardwareEnum";
 import {WorkspaceTypeEnum} from "./enums/WorkspaceTypeEnum";
+
+const PRICE_PER_HOUR = 15.00;
 
 export function calculateCost(wizardStateContext: DefaultWizardStateProps): number {
     let cost = 0;

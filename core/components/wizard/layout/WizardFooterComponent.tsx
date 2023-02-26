@@ -7,8 +7,8 @@ import {BsArrowLeft, BsArrowRight} from "react-icons/bs";
 import {useCallback} from "react";
 import {useRouter} from "next/navigation";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
-import {WorkspaceTypeEnum} from "../../../utils/enums/WorkspaceTypeEnum";
-import {HardwareEnum} from "../../../utils/enums/HardwareEnum";
+import {WorkspaceTypeEnum} from "../../../misc/enums/WorkspaceTypeEnum";
+import {HardwareEnum} from "../../../misc/enums/HardwareEnum";
 
 export default function WizardFooterComponent() {
 

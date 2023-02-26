@@ -1,7 +1,7 @@
 "use client";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
-import {WorkspaceTypeEnum} from "../../../utils/enums/WorkspaceTypeEnum";
-import {HardwareEnum} from "../../../utils/enums/HardwareEnum";
+import {WorkspaceTypeEnum} from "../../../misc/enums/WorkspaceTypeEnum";
+import {HardwareEnum} from "../../../misc/enums/HardwareEnum";
 import SelectOption from "../SelectOption";
 import {OperatingSystemList} from "../../../misc/OsMock";
 
@@ -43,7 +43,7 @@ export const OsSelectionComponent = () => {
                                           setter={setOperatingSystem}
                                           getter={operatingSystem}
                                           name={item.name} img={item.img}
-                                          value={item.value}
+                                          value={item.enum}
                                           category={item.category}/>
                         )}
                     </ul>
@@ -60,7 +60,7 @@ export const OsSelectionComponent = () => {
                                           getter={operatingSystem2}
                                           name={item.name}
                                           img={item.img}
-                                          value={item.value}
+                                          value={item.enum}
                                           category={item.category + "2"}
                                           id={2}/>
                         )}

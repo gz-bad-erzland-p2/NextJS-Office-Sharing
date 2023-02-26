@@ -25,7 +25,7 @@ export const AdditionalSpecsComponent = () => {
                 className="mt-4 mb-2 p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
                 placeholder="Weitere Spezifikationen, Betriebssystem,..."
                 defaultValue={specification}
-                onChange={(event) => setSpecification(event.target.value)}
+                onChange={(event) => setSpecification(event.target.enum)}
             />
             <br/>
             <CheckboxComponent id={"instruction"}

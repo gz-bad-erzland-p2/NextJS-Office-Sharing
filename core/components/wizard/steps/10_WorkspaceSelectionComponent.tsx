@@ -1,5 +1,5 @@
 "use client";
-import {WorkspaceTypeEnum} from "../../../utils/enums/WorkspaceTypeEnum";
+import {WorkspaceTypeEnum} from "../../../misc/enums/WorkspaceTypeEnum";
 import Image from "next/image";
 
 import singleDesk from "../../../../public/assets/svg/Single_Desk_Single.svg";

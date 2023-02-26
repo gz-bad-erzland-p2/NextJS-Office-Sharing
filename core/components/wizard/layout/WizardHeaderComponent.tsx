@@ -4,8 +4,8 @@ import {
     useWizardStepContext
 } from "../../../context/WizardStepContext";
 import {useWizardStateContext} from "../../../context/WizardStateContext";
-import {HardwareEnum} from "../../../utils/enums/HardwareEnum";
-import {WorkspaceTypeEnum} from "../../../utils/enums/WorkspaceTypeEnum";
+import {HardwareEnum} from "../../../misc/enums/HardwareEnum";
+import {WorkspaceTypeEnum} from "../../../misc/enums/WorkspaceTypeEnum";
 
 export default function WizardHeaderComponent() {
 

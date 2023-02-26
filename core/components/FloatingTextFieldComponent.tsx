@@ -20,7 +20,7 @@ export default function FloatingTextFieldComponent(props: FloatingTextFieldCompo
     return (
         <div>
             <input type={props.type} name={`textField_${props.name}`}
-                   defaultValue={props.value}
+                   defaultValue={props.enum}
                    id={`textField_${props.name}`} pattern={props.pattern}
                    title={props.title}
                    className={`${props.classNameInput} block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300

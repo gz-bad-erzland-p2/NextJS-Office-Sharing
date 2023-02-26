@@ -7,9 +7,10 @@ import React, {
     useMemo,
     useState
 } from "react";
-import {WorkspaceTypeEnum} from "../utils/enums/WorkspaceTypeEnum";
-import {OperatingSystemEnum} from "../utils/enums/OperatingSystemEnum";
-import {HardwareEnum} from "../utils/enums/HardwareEnum";
+import {WorkspaceTypeEnum} from "../misc/enums/WorkspaceTypeEnum";
+import {OperatingSystemEnum} from "../misc/enums/OperatingSystemEnum";
+import {HardwareEnum} from "../misc/enums/HardwareEnum";
+import {nanoid} from "nanoid";
 
 interface WizardStateContextProps {
     gender: string;
@@ -48,6 +49,7 @@ interface WizardStateContextProps {
     setBriefing: (briefing: boolean) => void;
     specification: string;
     setSpecification: (specification: string) => void;
+    uuid: string,
 }
 
 export interface DefaultWizardStateProps {
@@ -69,7 +71,9 @@ export interface DefaultWizardStateProps {
     startDate: Date,
     endDate: Date,
     briefing: boolean,
-    specification: string
+    specification: string,
+    uuid: string,
+    timestamp: number,
 }
 
 const initialState: DefaultWizardStateProps = {
@@ -91,8 +95,9 @@ const initialState: DefaultWizardStateProps = {
     startDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
     endDate: new Date(new Date().setUTCHours(new Date().getHours(), 0, 0, 0)),
     briefing: false,
-    specification: ""
-
+    specification: "",
+    uuid: nanoid(11),
+    timestamp: new Date().getTime()
 };
 
 const WizardStateContext = createContext({});
@@ -119,14 +124,19 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             };
         }
 
-        return savedState ? JSON.parse(savedState) : initialState;
+        const returnState = savedState ? JSON.parse(savedState) : initialState;
+        // Check if timestamp is older than 15 minutes
+        if (returnState.timestamp + 900000 < new Date().getTime()) {
+            return initialState;
+        }
+        return returnState;
         // return initialState;
     });
 
     // Save the data of the wizard in the state of the context provider in local storage to persist the data
-    // useEffect(() => {
-    //     localStorage.setItem("wizardState", JSON.stringify(state));
-    // }, [state]);
+    useEffect(() => {
+        localStorage.setItem("wizardState", JSON.stringify(state));
+    }, [state]);
 
     const {
         workspaceType,
@@ -147,7 +157,9 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
         startDate,
         endDate,
         briefing,
-        specification
+        specification,
+        uuid,
+        timestamp
     } = state;
 
     const setWorkspaceType = useCallback(
@@ -233,7 +245,7 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
 
     const setGender = useCallback(
         (gender: string) => {
-            setState({...state, specification: gender});
+            setState({...state, gender: gender});
         }, [state]);
 
     // useMemo only updates on the dependencies change
@@ -276,10 +288,12 @@ export const WizardStateProvider = ({children}: { children: React.ReactNode }) =
             setStartDate,
             setEndDate,
             setBriefing,
-            setSpecification
+            setSpecification,
+            uuid,
+            timestamp
         }),
         // eslint-disable-next-line max-len
-        [workspaceType, name, gender, city, operatingSystem, operatingSystem2, hardware, hardware2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, briefing, specification, setWorkspaceType, setGender, setName, setCity, setOperatingSystem, setOperatingSystem2, setHardware, setHardware2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate, setBriefing, setSpecification]
+        [workspaceType, name, gender, city, operatingSystem, operatingSystem2, hardware, hardware2, street, streetNumber, password, surname, zipCode, phone, email, startDate, endDate, briefing, specification, setWorkspaceType, setGender, setName, setCity, setOperatingSystem, setOperatingSystem2, setHardware, setHardware2, setStreet, setStreetNumber, setPassword, setSurName, setZipCode, setPhone, setEmail, setStartDate, setEndDate, setBriefing, setSpecification, uuid, timestamp]
     );
 
     return (
