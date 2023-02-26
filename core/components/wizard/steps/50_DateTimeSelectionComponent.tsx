@@ -214,7 +214,7 @@ export const AppointmentSelectionComponent = () => {
                             maxTime={setHours(new Date(), 20)}
                             filterTime={filterTime}
                             filterDate={filterDate}
-                            excludeDates={new Date().getHours() >= BUSINESS_HOURS_END ? new Date() : []}
+                            excludeDates={new Date().getHours() >= BUSINESS_HOURS_END ? [new Date()] : []}
                             excludeDateIntervals={bookedDates.map(item => {
                                 return {
                                     start: item.startDate,
