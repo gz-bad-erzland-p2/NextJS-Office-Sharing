@@ -1,5 +1,6 @@
 import Image from "next/image";
 import {HARDWARE_LIST} from "../../core/misc/Mocks";
+import Link from "next/link";
 
 export default function HarwareMainPage() {
 
@@ -29,7 +30,7 @@ export default function HarwareMainPage() {
                                 <div
                                     className="sm:w-[400px] flex items-center">
                                     <div className={"sm:mb-20"}>
-                                        <h4>{item.name}</h4>
+                                        <h4><Link href={item.link}>{item.name}</Link></h4>
                                         {
                                             item.specs.map((spec, index) => {
                                                 return (
