@@ -95,7 +95,7 @@ export default function WizardFooterComponent() {
             hidden={segment?.includes('success')}
             className={`flex gap-3 mt-10 transition-opacity ease-in-out duration-300 ${steps.length == 0 && 'opacity-0'} `}>
             <button
-                className={`rounded px-2 py-1.5 border-1 border-office-green-500 bg-office-green-500 text-white disabled:bg-office-gray-600 disabled:text-black transition-colors flex items-center`}
+                className={`rounded px-2 py-1.5 border-1 border-office-green-500 bg-office-green-500 text-white disabled:bg-office-gray-600 disabled:text-black transition-colors transition-opacity flex items-center ${isFirstStep ? "opacity-0" : "opacity-100"}`}
                 onClick={useCallback(async (event) => {
                     event.preventDefault();
                     if (skipOsSelection && activeStepIndex == 4) {
