@@ -45,7 +45,7 @@ export const HARDWARE_LIST = [
         image_path: "assets/img/laptop.jpg",
         svg: "assets/svg/laptop.svg",
         link: "https://sp.ts.fujitsu.com/dmsp/Publications/public/ds-LIFEBOOK-E4511-de.pdf",
-        price: 3.50,
+        price: 8.50,
         show: true
     },
     {
@@ -64,7 +64,7 @@ export const HARDWARE_LIST = [
         image_path: "assets/img/barebone.jpg",
         svg: "assets/svg/barebone.svg",
         link: "https://www.proton.net/Q556.pdf",
-        price: 5.50,
+        price: 8.50,
         show: true
     },
     {
