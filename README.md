@@ -6,7 +6,7 @@ Dieses ist der Quellcode für das **Office-Sharing** Projekt. Im Rahmen dieses A
 
 ## Deployment URL's
 
-Für jeden Sprint wurden einzele Pre-Releases erstellt und manuell entsprechenden Test-Builds durchgeführt. 
+Für jeden Sprint wurden einzelne  Pre-Releases erstellt und manuell entsprechenden Test-Builds durchgeführt. 
 
 Der finale Prototyp ist unter folgenden Webadressen erreichbar:
 
@@ -33,7 +33,9 @@ npm run dev
 yarn dev
 ```
 
-Die Webseite ist nun unter [http://localhost:3000](http://localhost:3000) im Browser erreichbar. 
+Die Webseite ist nun unter [http://localhost:3000](http://localhost:3000) im Browser erreichbar.
+
+> Es muss manuell eine MySQL-Datenbank für das Projekt zur Verfügung gestellt werden. 
 
 ## Links
 
